@@ -1,0 +1,16 @@
+--- 
+layout: post
+title: EasyMock IllegalStateException
+tags: 
+- Java
+status: publish
+type: post
+published: true
+meta: {}
+
+---
+I've started using <a href="http://www.easymock.org/">EasyMock </a>last year and since then it has become an integral part of my development toolset. I especially love the Java 5 syntax and how self-explaining tests with mock objects are.
+
+But today I stumpled over my first <a href="http://www.easymock.org/">EasyMock </a>exception which kept me pondering for an hour until I found the solution in another <a href="http://marcels-javanotes.blogspot.com/2007/03/easymock-and-illegalstateexception.html">blog</a>.  The problem was that I was calling a method with an Array of Objects as input parameters.
+
+This caused problems because equals of the array failed as expected, but a solution was nicely explained in the docs. Simply use <strong>aryEq()</strong> method, which does the equality check for the objects in the array. Very nice! But, then the <strong>IllegalStateException </strong>caught me. It complained that two matchers were found, but only one recorded. The solution is simple but not really intuitive. Once you starting using matchers you have to use matchers for all arguments of a method call.

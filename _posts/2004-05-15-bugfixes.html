@@ -1,0 +1,25 @@
+--- 
+layout: post
+title: bugfixes
+tags: 
+- Columba
+status: publish
+type: post
+published: true
+meta: {}
+
+---
+Erik did post a couple of interesting bugs or ui issues. Following have been fixed until now:
+<ul>
+<li> #952189, added dialog to prompt user to save his work in composer, using windowClosing event here</li>
+<li> #952173 changed default column width.</li>
+<li> #951531, added decoding of headerfield</li>
+<li>  #951518, use dialog data, instead of config data to checkout supported authentication mechanism</li>
+<li> #951522 fixed initial selection of folder selection dialog</li>
+<li> #951528, newly created folders are now selected as expected</li>
+<li> #952164 signature file defaults to signature.txt which should be more familiar for windows users</li>
+<li> #952184, creating virtual folder sets parent correctly now. additionally the search dialog is opened immediately</li>
+<li>  #953239 fixed nullpointer exception when searching IMAP folders</li>
+</ul>
+
+Nevertheless, there are still a couple of more critical bugs open. So, I guess the next testing release will be a few days later than expected.
