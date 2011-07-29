@@ -5,6 +5,7 @@ require 'hpricot'
 require 'fileutils'
 require 'yaml'
 require 'time'
+require File.join(File.dirname(__FILE__), "downmark_it")
 
 module Jekyll
   # This importer takes a wordpress.xml file, which can be exported from your
@@ -57,7 +58,7 @@ module Jekyll
         File.open("_#{type}s/#{name}", "w") do |f|
           f.puts header.to_yaml
           f.puts '---'
-          f.puts item.at('content:encoded').inner_text
+          f.puts DownmarkIt.to_markdown(item.at('content:encoded').inner_text)
         end
 
         import_count[type] += 1
