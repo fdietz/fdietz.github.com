@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Blog</title>
+  <meta name="author" content="Frederik Dietz">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+  <link rel="canonical" href="http://fdietz.github.com/page3/index.html"/>
+  <link href="/favicon.png" rel="shortcut icon" />
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="http://s3.amazonaws.com/ender-js/jeesh.min.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href='http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+  
+  <link href="/atom.xml" rel="alternate" title="My Blog" type="application/atom+xml"/>
+  
+
+  
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</head>
+
+<body  >
+  <header><hgroup>
+  <h1><a href="/">My Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+</header>
+  <nav role=navigation><ul role=subscription data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="site-search">
+    <input type="hidden" name="q" value="site:fdietz.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul role=main-navigation>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/10/05/easymock-love/">EasyMock IllegalStateException</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve started using <a href="http://www.easymock.org/">EasyMock </a>last year and since then it has become an integral part of my development toolset. I especially love the Java 5 syntax and how self-explaining tests with mock objects are.But today I stumpled over my first <a href="http://www.easymock.org/">EasyMock </a>exception which kept me pondering for an hour until I found the solution in another <a href="http://marcels-javanotes.blogspot.com/2007/03/easymock-and-illegalstateexception.html">blog</a>.  The problem was that I was calling a method with an Array of Objects as input parameters.This caused problems because equals of the array failed as expected, but a solution was nicely explained in the docs. Simply use <strong>aryEq()</strong> method, which does the equality check for the objects in the array. Very nice! But, then the <strong>IllegalStateException </strong>caught me. It complained that two matchers were found, but only one recorded. The solution is simple but not really intuitive. Once you starting using matchers you have to use matchers for all arguments of a method call.</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2007/10/05/easymock-love/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/08/12/so-long-and-thanks-for-all-the-fish/">So Long, and Thanks for All the Fish</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve been working or better playing around with Columba the better half of my student years. Especially the latest release was quite difficult to manage. RL (aka real life) kept me quite busy and is also the reason why I now finally decided to stop developing on Columba.
+I had so much fun meeting and working with all different kinds of people from throughout the world. Thank you all for your support!It was not quite the ride we planned. Thinking about it - we never really planned anything ;-) But, that&#8217;s probably the reason why it was so much fun!As Timo and me are now both not able to contribute any more, I hope that someone is interested in taking over from here. Java and especially Desktop Java is becoming more and more interesting. If so drop me an <a href="mailto:fdietz@gmail.com">email</a>, please!Whoever wants to stay in touch - I&#8217;ve got some good news. I&#8217;ve reactivated my blog again! So, cu at <a href="http://fdietz.wordpress.com//">http://fdietz.wordpress.com</a> !</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2007/08/12/so-long-and-thanks-for-all-the-fish/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/02/17/columba-webserver-hard-drive-crash/">Columba Webserver Hard Drive Crash</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>Columba&#8217;s server at <a href="http://columbamail.org">http://columbamail.org</a> is currently shutdown due to a hardware failure. The hard drive needs to be replaced. We have backups of nearly everything, so its just a matter of setting up the system again.For the time being we will keep you posted about the status here.Funnily we were planning to release a major new version this weekend. So, stay tuned!</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2007/02/17/columba-webserver-hard-drive-crash/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/01/01/happy-new-year/">Happy New Year!</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>Hope everyone out there had a &#8220;Guten Rutsch&#8221; which is a German term describing the transition from the old into the new year - need something for my headache before I can go on!Its been awhile since I wrote in my blog. First of all you might have noticed the changes in my address. Yes, its not &#8220;.de&#8221; anymore - its now &#8220;.name&#8221;. My old domain was hijacked!  You might ask how this can happen, but its pretty simple actually. I had my nice blog, website and email server running hosted by some company and wanted to move all my stuff to a new host. Thing is you have to change the domain to point to the new address. Usually the old host sends you a note that the domain is free again and with that note you can go to the new host. Very simple process! But, in my case something went wrong in the middle, I did receive the note too late, someone else already took it :-( I refuse to pay a whole lot of my money for a domain, which was only bought by that individual to make me buy it back!In case you send me emails to my mail@frederikdietz.de account, you didn&#8217;t even get any notifications or bounce messages. I guess, I lost quite a few messages from people who have most probably know idea about my problems. So, in case you send me an email and have not received an answer yet, try mail@frederikdietz.name, please.The <a href="http://columbamail.org">Columba</a> Development <a href="http://columbamail.org/drupal/?q=blog">Blog</a> is still on the main website. I will try to reference back and forth to not confuse people, if there&#8217;s something relevant.A lot of things happenend in the Java Realm. We have a very nice Java6 Release out of  the door, Java is going to be Open Source&#8230; Who would have thought that 5 years ago! So, there will be still quite a lot of Java related topics here, also Enterprise Java as this is my daily job, but still Swing will not be forgotten ;-)Happy New Year!</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2007/01/01/happy-new-year/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2005/08/09/columba-development-blog-on-main-columba-website-now/">Columba Development Blog on Main Columba Website Now</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve created a blog on the main Columba website. This way you guys have a single place in order to follow development.Visit at:<a href="http://columbamail.org/drupal/?q=blog">http://columbamail.org/drupal/?q=blog</a></p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2005/08/09/columba-development-blog-on-main-columba-website-now/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2005/07/28/update-your-eclipse-project-files/">Update Your Eclipse .project File</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve just commited an updated Eclipse <strong>.project</strong> file to CVS.  Every plugin and necessary libraries are now added to the project build settings. This way, doing refactoring in core, the changes will automatically propagate. Or at least, they are marked as bugs ;-) This was way to much work in the past.Nevertheless, Columba will not use the class files compiled by Eclipse to load the plugins. Instead it will always use the <strong>plugin.jar</strong>. So, you have to run &#8221;<code>ant plugins</code>&#8221; and compile all of them to see the changes.I really like this behaviour, but we could also change it. For example, always trying to load the class files from Columba&#8217;s classpath first would be an option.</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2005/07/28/update-your-eclipse-project-files/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2005/07/28/plugins-must-specify-src-directory/">Plugins Must Specify Src/ Directory</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>Plugins now have to additionally specify all directories containing sourcecode. Same goes for resource files.As always all changes have to be made in <strong>build.properties</strong>.Building of all plugins can now be started by simply calling &#8221;<code>ant plugins</code>&#8221;.</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2005/07/28/plugins-must-specify-src-directory/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2005/07/28/plugin-resource-loader-issue-fixed/">Plugin Resource Loader Issue Fixed</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve just fixed the plugin resource loading bug. Loading of images or xml-files or whatsoever didn&#8217;t work.Again, you have to specify your plugin resource folder in build.properties. Then to load the resource  simply do a &#8221;<code>this.getClass().getResourceAsStream(String resource)</code>&#8220;.I&#8217;ve had to change a couple of methods in core to make this work. All these methods didn&#8217;t use <strong>InputStream </strong>as the parameter to pass resource file content. Instead they used the path to the resource as String. This is wrong from an API user&#8217;s point of view, because the internal loader doesn&#8217;t know where these resources come from. You might even want to load resources from a webserver. So, simply using <strong>InputStream </strong>makes the API much more decoupled from the internal implementation.</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2005/07/28/plugin-resource-loader-issue-fixed/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2005/07/28/checking-multiple-imap-folders-for-new-messages/">Checking Multiple IMAP Folders for New Messages</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>Enough people complained about this missing functionality! I&#8217;ve added it to our after 1.0 roadmap.We will add a new dialog similar to the IMAP Subscribe Dialog to select the folders which should be checked automatically.Still, we didn&#8217;t decide if this is going into core, or will be provided as optional plugin.</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2005/07/28/checking-multiple-imap-folders-for-new-messages/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2005/07/28/being-platform-independent-or-what/">Being Platform Independent or What?</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>Just read a user&#8217;s complain about Columba following <a href="http://developer.gnome.org/projects/gup/hig/">Gnome User Interface Guidelines</a>. These guidelines also dictact how to layout the menus. For example: the <strong>Preferences </strong>menuitem should always be the last item in the <strong>Edit </strong>menu. At least in Gnome. On Windows it should be better placed in <strong>Utilities</strong>.I actually just saw that in Firefox. They change their menu based on the platform. So, they are more strictly following the platform they are just running on. Whereas we aim to provide the same experience for user&#8217;s on all platforms.And my feeling is that we do right so. Many of our users choose Columba, because its written in Java, and because you can use it on every operating system and even reuse one single configuration folder. These users would be really upset, if the menu layout would change everytime they switch the platform.</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2005/07/28/being-platform-independent-or-what/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+<nav role="pagination">
+  <div>
+    
+      <a class="prev" href="/page4/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+      <a class="next" href="/page2/">Newer &rarr;</a>
+    
+  </div>
+</nav>
+
+<script type="text/javascript">
+    var disqus_shortname = 'fdietz';
+    (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</div>
+
+      
+        <aside role=sidebar><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2009/09/27/caffeinated-simpleton-%25c2%25bb-blog-archive-%25c2%25bb-an-introduction-to-javascript%25e2%2580%2599s-%25e2%2580%259cthis%25e2%2580%259d/">Caffeinated Simpleton  Â» Blog Archive  Â» An Introduction to JavaScriptâs âthisâ</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/09/19/adding-columns-to-large-mysql-tables-quickly/">Adding Columns to large MySQL Tables Quickly</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/09/08/state-of-the-couch/">State of the Couch</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/09/07/why-should-i-use-ruby-config-instead-of/">Why should I use ruby-config instead of ...</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/09/07/very-nice-vector-drawing-using-javascrip/">Very nice vector drawing using javascrip...</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("fdietz", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/fdietz" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @fdietz</a>
+  
+</section>
+
+
+
+<section>
+  <h1>On Delicious</h1>
+  <script type="text/javascript" src="http://feeds.delicious.com/v2/js/fdietz?title=&count=3&sort=date&extended"></script>
+  <p><a href="http://delicious.com/fdietz">My Delicious Bookmarks &raquo;</a></p>
+</section>
+
+
+
+
+</aside>
+      
+    </div>
+  </div>
+  <footer><p>
+  Copyright &copy; 2011 - Frederik Dietz -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,390 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Blog</title>
+  <meta name="author" content="Frederik Dietz">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+  <link rel="canonical" href="http://fdietz.github.com/page7/index.html"/>
+  <link href="/favicon.png" rel="shortcut icon" />
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="http://s3.amazonaws.com/ender-js/jeesh.min.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href='http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+  
+  <link href="/atom.xml" rel="alternate" title="My Blog" type="application/atom+xml"/>
+  
+
+  
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</head>
+
+<body  >
+  <header><hgroup>
+  <h1><a href="/">My Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+</header>
+  <nav role=navigation><ul role=subscription data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="site-search">
+    <input type="hidden" name="q" value="site:fdietz.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul role=main-navigation>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/12/02/jdic-integration-for-rc2-release/">JDIC Integration for RC2 Release</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>Timo already started work on integrating the JDIC project. This currently includes trayicon support with a popup menu and lookup for an appropriate application for the specific mimetype. We also consider to use a better html-viewer instead of the built-in swing JTextPane. But we have to discuss this problem more thoroughly.We will therefore remove the jniwrapper based trayicon support.  Nevertheless, jniwrapper will be useful for us. Most probably for Message and Contact import filters and mime contents viewers using win32 applications integrated in the message viewer.</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/12/02/jdic-integration-for-rc2-release/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/12/01/indian-language-package-contribution/">Indian Language Package Contribution</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>Just got a message from the <a href="http://www.ncb.ernet.in/bharateeyaoo/">BharateeyaOO </a> team, which are currently translating Columba for 6 Indian languages! The BharateeyaOO.o project is an initiative to bring OpenOffice.org  to India in Indian languages and somehow Columba seems to be of interest for them.</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/12/01/indian-language-package-contribution/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/11/29/interesting-new-stuff-in-upcoming-rc2/">Interesting New Stuff in Upcoming RC2</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>New Features:- international IMAP mailbox naming using UTF-7 encoding/decoding (tstich)
+- added show next/previous message and unread message actions (fdietz)
+- #999257, show/hide message preview panel (fdietz)
+- offer three choices for viewing email headers: default, custom, all (fdietz)
+- #999871, &#8220;subject or sender contains&#8221; should do filtering on typing (fdietz)
+- show recent message count in folder tree using blue font (fdietz)
+- #999748, in preview panel,full emailadress should be displayed beside (fdietz)
+- added complete sorting and filtering support for contact JTable (fdietz)
+- speedup of IMAP mailbox selection and auto-checking (tstich)
+- set Columba to default-email client on win32 using jniwrapper (tstich)
+- added jpim library for vCard import/export, not complete yet (fdietz)
+The #numbers are actually Feature Requests which can be found in our <a href="http://sourceforge.net/tracker/?atid=371217&amp;group_id=21217&amp;func=browse">tracker</a>. We try hard to start using this tool as an official feature plan for developers.  New developers should also look into our <a href="http://columba.sourceforge.net/phpwiki/index.php/UnassignedProgrammingTasks">wiki</a>.What&#8217;s most notably for developers is a much cleaner separation of mail and addressbook code, introducing an interface-only API. This way components can use each others functionality but can be compiled against the API safely.Another bigger change is the removal of all interfaces like MainInterface, MailInterface and AddressbookInterface. We now use singleton classes instead which are instanciated lazy on demand. This makes things a lot easier because you don&#8217;t have to manually assure that classes are instanciated in the correct order. This further simplifies writing testcases.Also, we introduced a clean concept of a container which embeeds a component. This way you can switch between mail and addressbook components  in the same JFrame.</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/11/29/interesting-new-stuff-in-upcoming-rc2/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/11/27/rc2-test-release-is-coming-really-real-soon/">RC2 Test Release Is Coming (Really) Real Soon</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>I didn&#8217;t post anything for a while now. So, to just let everyone know, Timo and me are finally finished with our planned changes for RC2. We are going to upload a testing version next week and if everything works correctly the official RC2 is coming a few days afterwards&#8230;So, stay tuned!</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/11/27/rc2-test-release-is-coming-really-real-soon/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/06/14/taskmanager-dialog-added/">TaskManager Dialog Added</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><!--exhibit:config=ex_pictorialis.cfg-->
+
+
+<p>Ok, its finally there! Beautiful isn&#8217;t it?I&#8217;m also planning to add filters to view only certain types of tasks. This could be useful, if we would like to provide a pop3 download dialog, showing the progress of all pop3 at once. This is comparable to Outlooks dialog or Evolutions progress dialog.</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/06/14/taskmanager-dialog-added/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/06/13/rc1-test3-released/">RC1-test3 Released</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>Ok, its finally available.Forum announcement:<a href="http://http://columba.sourceforge.net/phpBB2/viewtopic.php?t=399">http://columba.sourceforge.net/phpBB2/viewtopic.php?t=399</a>Download at:<a href="http://columba.sourceforge.net/index.php?page=download_unstable">http://columba.sourceforge.net/index.php?page=download_unstable</a></p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/06/13/rc1-test3-released/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/06/11/better-win32-mimetype-handling-plugin-fixes/">Better Win32 Mimetype Handling, Plugin Fixes</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>Hana commited a patch which uses the win32 registry to determine mimetypes based on file extensions. New code can be found in package org.columba.nativ.mimetype.I&#8217;ve gone through the plugins and fixed compile errors. The python plugins were updated, too.The About Dialog, now also features an Acknowledgement page, listing all third-party libraries we use in Columba.</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/06/11/better-win32-mimetype-handling-plugin-fixes/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/06/07/onlineoffline-support-more-bugfixes/">Online/offline Support, More Bugfixes</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve started making use of the new online/offline connection status.When downloading or sending messages, Columba automatically switches to online state. If in offline status, Columba won&#8217;t automatically check for new messages.Fixed bugs:-  #966413: mimetype viewer doesn&#8217;t remember apps-  fixed classcast exception, actions are enabled/disabled correctly again in addressbook-  group dialog didn&#8217;t show up in addressbook-  #968740, can&#8217;t choose folder in filter dialog, if treemodel is not sorted</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/06/07/onlineoffline-support-more-bugfixes/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/06/06/profile-management-in-cvs/">Profile Management in CVS</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><!--exhibit:config=ex_pictorialis.cfg-->
+
+
+<p>The new profile management code is now in CVS. A sort overview can be found in our <a href="http://columba.sourceforge.net/phpwiki/index.php/Profile%20Management">wiki</a>.Hope you like it!</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/06/06/profile-management-in-cvs/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/06/06/better-error-handling/">Better Error Handling</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve added a new error dialog, called ErrorDialog. It contains a &#8220;show details&#8221; button. This is already used as general error dialog for all bugs happening in Commands, if not already catched in commands.Additionally, you can see better error messages, for things like HostNotFoundException.</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/06/06/better-error-handling/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+<nav role="pagination">
+  <div>
+    
+      <a class="prev" href="/page8/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+      <a class="next" href="/page6/">Newer &rarr;</a>
+    
+  </div>
+</nav>
+
+<script type="text/javascript">
+    var disqus_shortname = 'fdietz';
+    (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</div>
+
+      
+        <aside role=sidebar><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2009/09/27/caffeinated-simpleton-%25c2%25bb-blog-archive-%25c2%25bb-an-introduction-to-javascript%25e2%2580%2599s-%25e2%2580%259cthis%25e2%2580%259d/">Caffeinated Simpleton  Â» Blog Archive  Â» An Introduction to JavaScriptâs âthisâ</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/09/19/adding-columns-to-large-mysql-tables-quickly/">Adding Columns to large MySQL Tables Quickly</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/09/08/state-of-the-couch/">State of the Couch</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/09/07/why-should-i-use-ruby-config-instead-of/">Why should I use ruby-config instead of ...</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/09/07/very-nice-vector-drawing-using-javascrip/">Very nice vector drawing using javascrip...</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("fdietz", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/fdietz" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @fdietz</a>
+  
+</section>
+
+
+
+<section>
+  <h1>On Delicious</h1>
+  <script type="text/javascript" src="http://feeds.delicious.com/v2/js/fdietz?title=&count=3&sort=date&extended"></script>
+  <p><a href="http://delicious.com/fdietz">My Delicious Bookmarks &raquo;</a></p>
+</section>
+
+
+
+
+</aside>
+      
+    </div>
+  </div>
+  <footer><p>
+  Copyright &copy; 2011 - Frederik Dietz -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+</footer>
+</body>
+</html>

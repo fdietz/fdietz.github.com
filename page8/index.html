@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Blog</title>
+  <meta name="author" content="Frederik Dietz">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+  <link rel="canonical" href="http://fdietz.github.com/page8/index.html"/>
+  <link href="/favicon.png" rel="shortcut icon" />
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="http://s3.amazonaws.com/ender-js/jeesh.min.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href='http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+  
+  <link href="/atom.xml" rel="alternate" title="My Blog" type="application/atom+xml"/>
+  
+
+  
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</head>
+
+<body  >
+  <header><hgroup>
+  <h1><a href="/">My Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+</header>
+  <nav role=navigation><ul role=subscription data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="site-search">
+    <input type="hidden" name="q" value="site:fdietz.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul role=main-navigation>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/06/04/profile-management-in-columba/">Profile Management in Columba</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>Many users ask how to start Columba using a different configuration folder.Why not add a profile selection Dialog?This can be achieved pretty easily:- add a &#8220;profiles.xml&#8221; to the default configuration directory- if Columba is started an no profiles are specified in this file, it will just use the default location- if profiles are specified, a dialog prompts the user for a profile- if Columba is started with the &#8211;path option, the user can do this selection  automatically, without the need of the dialog.Example of the profiles.xml:The Profile Management Dialog is simply a list showing all available profiles and buttons to manage them.This way people can easily start Columba with their different configurations including usbsticks, etc.</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/06/04/profile-management-in-columba/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/06/04/bugfixes-and-better-handling-of-header-cache-files/">Bugfixes and Better Handling of Header-cache Files</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>I never get bored of fixing bugs. Also, the header-cache should be more failsafe now.-  fixed incoming spam filter bug, using less threads leads to increased performance-  #964416 and #964415: both selection handling bugs- replace filter/filteractions combobox with menu, showing the user all available items without the need to scroll- fixed tablemodel update notification in updateGUI() from MarkFolderAsRead command</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/06/04/bugfixes-and-better-handling-of-header-cache-files/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/06/03/rc1-test3-expected-new-week/">RC1-test3 Expected New Week</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m currently planning on releasing a new development snapshot next week. Still working on a couple of bugs, ui issues.This will hopefully be the last development snapshot. This version is currently much more stable than Milestone M2 for me and I&#8217;m eager to make users upgrade. People still report the same M2 bugs over and over again, which is a waste of time for both sides.</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/06/03/rc1-test3-expected-new-week/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/06/03/columba-is-preselected-for-ct-magazin-cd/">Columba Is Preselected for Cât Magazin Cd</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>Columba has been preselected by the german c&#8217;t magazin (<a href="http://www.heise.de">www.heise.de</a>). If it gets finally selected, we&#8217;ll end up on their shareware cdrom shipped with the magazin, which includes an article about Columba.I have been trying to get their attention for one year now, but they refused to write about Columba or post news. Always made me feel silly, because we even got articles from Brasilian magazins, so why not german magazins - at last, both Timo and me are from Germany!As a c&#8217;t magazin reader/subscriber for almost 12 years, I&#8217;d love to read about my own stuff ;-)</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/06/03/columba-is-preselected-for-ct-magazin-cd/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/06/03/a-more-failsafe-approach-of-handling-configuration-and-headercache-loadingsaving/">A More-failsafe Approach of Handling Configuration and Headercache Loading/saving</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>We&#8217;ve had some interesting problems with corrupt configuration or headercache files, which is always annoying for users.Following the proposal to fix this particular issue. The proposed behaviour can be found in other applications pretty often, too.Saving files:- save the configuration/headercache file to &#8220;blabla.new&#8221;- if success:  - rename the old file to &#8220;blabla.old&#8221;  - rename &#8220;blabla.new&#8221; to &#8220;blabla&#8221;Loading files:- try to load &#8220;blabla&#8221;- if the file is corrupt:  - delete &#8220;blabla&#8221;  - open &#8220;blabla.old&#8221; instead (fall-back to the last working configuration)</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/06/03/a-more-failsafe-approach-of-handling-configuration-and-headercache-loadingsaving/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/06/02/finally-new-features/">Finally - New Features</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve finally added a new feature;-)The guys from MIIK Ltd. provided us with a free version of their <a href="http://www.jniwrapper.com">jniwrapper library</a>. This library makes it very easy for Java programs to access win32 functionality.I&#8217;ve started with adding trayicon support. So, you can see Columba&#8217;s program icon in the traybar on Windows. A context-menu giving you some options. I&#8217;m planning to add message notification and all this useful stuff later.Hopefully, we will see more use of this library. Things on my mind are for example, better usage of the windows mimetypes (Giat Hana showed interest here), access to the windows registry to automatically detect external tools, import for Outlook messages and contacts, etc.</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/06/02/finally-new-features/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/06/01/i-hate-those-bugs/">I Hate Those Bugs!</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li>fixed dialog parent frame reference</li>
+<li><h1>952176, Folder tree should be sorted in the same way everywher</h1></li>
+<li><h1>956286, Date/time is not displayed correctly for my date settings</h1></li>
+<li><h1>926690, Foreward Message with Attachement failes</h1></li>
+<li>moved independent classes to core, deleted independent directory</li>
+</ul>
+
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/06/01/i-hate-those-bugs/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/05/27/again-bugfixing/">Again Bugfixing</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li><h1>956288, recent mailfolderinfo wasn&#8217;t updated when deleting message</h1></li>
+<li><h1>958066 character encoding when editing mails is lost</h1></li>
+<li><h1>956280 Create filter based on subject throws an NPE</h1></li>
+<li><h1>958078 POP3 header-cache is saved too often</h1></li>
+<li><h1>933636 make message visible after changin sorting order</h1></li>
+</ul>
+
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/05/27/again-bugfixing/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/05/18/columba-10-rc1-test2-released/">Columba 1.0 RC1-test2 Released</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>A new development snapshot of the upcoming 1.0 Release Candidate RC1 is now available.Forum announcement:<a href="http://columba.sourceforge.net/phpBB2/viewtopic.php?t=380">http://columba.sourceforge.net/phpBB2/viewtopic.php?t=380</a>Download at:<a href="http://columba.sourceforge.net/index.php?page=download_unstable">http://columba.sourceforge.net/index.php?page=download_unstable</a></p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/05/18/columba-10-rc1-test2-released/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2004/05/15/bugfixes/">Bugfixes</a></h1>
+    
+    
+  </header>
+
+
+  <div class="entry-content"><p>Erik did post a couple of interesting bugs or ui issues. Following have been fixed until now:-  #952189, added dialog to prompt user to save his work in composer, using windowClosing event here
+-  #952173 changed default column width.
+-  #951531, added decoding of headerfield
+-   #951518, use dialog data, instead of config data to checkout supported authentication mechanism
+-  #951522 fixed initial selection of folder selection dialog
+-  #951528, newly created folders are now selected as expected
+-  #952164 signature file defaults to signature.txt which should be more familiar for windows users
+-  #952184, creating virtual folder sets parent correctly now. additionally the search dialog is opened immediately
+-   #953239 fixed nullpointer exception when searching IMAP folders
+Nevertheless, there are still a couple of more critical bugs open. So, I guess the next testing release will be a few days later than expected.</p>
+</div>
+  <footer>
+    <a rel="full-article" href="/blog/2004/05/15/bugfixes/">Read on &rarr;</a>
+  </footer>
+
+
+  </article>
+
+<nav role="pagination">
+  <div>
+    
+      <a class="prev" href="/page9/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+      <a class="next" href="/page7/">Newer &rarr;</a>
+    
+  </div>
+</nav>
+
+<script type="text/javascript">
+    var disqus_shortname = 'fdietz';
+    (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</div>
+
+      
+        <aside role=sidebar><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2009/09/27/caffeinated-simpleton-%25c2%25bb-blog-archive-%25c2%25bb-an-introduction-to-javascript%25e2%2580%2599s-%25e2%2580%259cthis%25e2%2580%259d/">Caffeinated Simpleton  Â» Blog Archive  Â» An Introduction to JavaScriptâs âthisâ</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/09/19/adding-columns-to-large-mysql-tables-quickly/">Adding Columns to large MySQL Tables Quickly</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/09/08/state-of-the-couch/">State of the Couch</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/09/07/why-should-i-use-ruby-config-instead-of/">Why should I use ruby-config instead of ...</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/09/07/very-nice-vector-drawing-using-javascrip/">Very nice vector drawing using javascrip...</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("fdietz", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/fdietz" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @fdietz</a>
+  
+</section>
+
+
+
+<section>
+  <h1>On Delicious</h1>
+  <script type="text/javascript" src="http://feeds.delicious.com/v2/js/fdietz?title=&count=3&sort=date&extended"></script>
+  <p><a href="http://delicious.com/fdietz">My Delicious Bookmarks &raquo;</a></p>
+</section>
+
+
+
+
+</aside>
+      
+    </div>
+  </div>
+  <footer><p>
+  Copyright &copy; 2011 - Frederik Dietz -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+</footer>
+</body>
+</html>
