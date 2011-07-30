@@ -211,7 +211,21 @@
   </header>
 
 
-  <div class="entry-content"><p>While reading <a href="http://www.amazon.com/Advanced-Rails-Brad-Ediger/dp/0596510322/ref=pd_bxgy_b_img_a">Advanced Rails</a> by Brad Ediger, I&#8217;ve stumbled upon this little helper in ActiveSupport. The to_proc method is an extension to Symbol. Let me shamelessly copy Brad&#8217;s example here:(1..5).map { |i| i.to_s } # =&gt; [&#8220;1&#8221;, &#8220;2&#8221;, &#8220;3&#8221;, &#8220;4&#8221;, &#8220;5&#8221;]This is already pretty nice, but now look what happens when using Symbol#to_proc:(1..5).map(&amp;:to_s) # =&gt; [&#8220;1&#8221;, &#8220;2&#8221;, &#8220;3&#8221;, &#8220;4&#8221;, &#8220;5&#8221;]This is even shorter and does produce exactly the same output. So what happened here? The &#8220;&amp;&#8221; character tells Ruby that you want to call map with &#8220;to_s&#8221; as a block argument. It will force Ruby to call the Symbol&#8217;s to_proc method. The method will create a Proc and send the symbol to the object calling the to_proc method. And this leads to iterating over the numbers specified by the range and then calling the block, passing in the numbers and converting them to strings.Okay&#8230; This is a typical example of me not being able to figure out what some code actually means and then by accident finding the explanation somewhere else. How the heck am I supposed to know where to find the documentation to such a cool extensions? I will let you know when I&#8217;m finally able to solve this mystery&#8230;</p>
+  <div class="entry-content"><p>While reading <a href="http://www.amazon.com/Advanced-Rails-Brad-Ediger/dp/0596510322/ref=pd_bxgy_b_img_a">Advanced Rails</a> by Brad Ediger, I&#8217;ve stumbled upon this little helper in ActiveSupport.</p>
+
+<p>The to_proc method is an extension to Symbol. Let me shamelessly copy Brad&#8217;s example here:</p>
+
+<div><figure role=code><pre><code>(1..5).map { |i| i.to_s } # => ["1", "2", "3", "4", "5"]</code></pre></figure></div>
+
+
+<p>This is already pretty nice, but now look what happens when using Symbol#to_proc:</p>
+
+<div><figure role=code><pre><code>(1..5).map(&:to_s) # => ["1", "2", "3", "4", "5"]</code></pre></figure></div>
+
+
+<p>This is even shorter and does produce exactly the same output. So what happened here? The &#8220;&amp;&#8221; character tells Ruby that you want to call map with &#8220;to_s&#8221; as a block argument. It will force Ruby to call the Symbol&#8217;s to_proc method. The method will create a Proc and send the symbol to the object calling the to_proc method. And this leads to iterating over the numbers specified by the range and then calling the block, passing in the numbers and converting them to strings. Okay&#8230;</p>
+
+<p>This is a typical example of me not being able to figure out what some code actually means and then by accident finding the explanation somewhere else. How the heck am I supposed to know where to find the documentation to such a cool extensions? I will let you know when I&#8217;m finally able to solve this mystery&#8230;</p>
 </div>
   <footer>
     <a rel="full-article" href="/blog/2008/08/12/symbolto_proc-what/">Read on &rarr;</a>

@@ -4,7 +4,7 @@
   <title></title>
   <link href="http://fdietz.github.com/atom.xml" rel="self"/>
   <link href="http://fdietz.github.com/"/>
-  <updated>2011-07-30T17:34:49+02:00</updated>
+  <updated>2011-07-30T18:52:31+02:00</updated>
   <id>http://fdietz.github.com/</id>
   <author>
     <name>Frederik Dietz</name>
@@ -161,7 +161,21 @@
     <link href="http://fdietz.github.com/blog/2008/08/12/symbolto_proc-what/"/>
     <updated>2008-08-12T00:00:00+02:00</updated>
     <id>http://fdietz.github.com/blog/2008/08/12/symbolto_proc-what</id>
-    <content type="html">&lt;p&gt;While reading &lt;a href=&quot;http://www.amazon.com/Advanced-Rails-Brad-Ediger/dp/0596510322/ref=pd_bxgy_b_img_a&quot;&gt;Advanced Rails&lt;/a&gt; by Brad Ediger, I've stumbled upon this little helper in ActiveSupport. The to_proc method is an extension to Symbol. Let me shamelessly copy Brad's example here:(1..5).map { |i| i.to_s } # =&amp;gt; [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;]This is already pretty nice, but now look what happens when using Symbol#to_proc:(1..5).map(&amp;amp;:to_s) # =&amp;gt; [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;]This is even shorter and does produce exactly the same output. So what happened here? The &quot;&amp;amp;&quot; character tells Ruby that you want to call map with &quot;to_s&quot; as a block argument. It will force Ruby to call the Symbol's to_proc method. The method will create a Proc and send the symbol to the object calling the to_proc method. And this leads to iterating over the numbers specified by the range and then calling the block, passing in the numbers and converting them to strings.Okay... This is a typical example of me not being able to figure out what some code actually means and then by accident finding the explanation somewhere else. How the heck am I supposed to know where to find the documentation to such a cool extensions? I will let you know when I'm finally able to solve this mystery...&lt;/p&gt;
+    <content type="html">&lt;p&gt;While reading &lt;a href=&quot;http://www.amazon.com/Advanced-Rails-Brad-Ediger/dp/0596510322/ref=pd_bxgy_b_img_a&quot;&gt;Advanced Rails&lt;/a&gt; by Brad Ediger, I've stumbled upon this little helper in ActiveSupport.&lt;/p&gt;
+
+&lt;p&gt;The to_proc method is an extension to Symbol. Let me shamelessly copy Brad's example here:&lt;/p&gt;
+
+&lt;div&gt;&lt;figure role=code&gt;&lt;pre&gt;&lt;code&gt;(1..5).map { |i| i.to_s } # =&gt; [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;]&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is already pretty nice, but now look what happens when using Symbol#to_proc:&lt;/p&gt;
+
+&lt;div&gt;&lt;figure role=code&gt;&lt;pre&gt;&lt;code&gt;(1..5).map(&amp;:to_s) # =&gt; [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;]&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is even shorter and does produce exactly the same output. So what happened here? The &quot;&amp;amp;&quot; character tells Ruby that you want to call map with &quot;to_s&quot; as a block argument. It will force Ruby to call the Symbol's to_proc method. The method will create a Proc and send the symbol to the object calling the to_proc method. And this leads to iterating over the numbers specified by the range and then calling the block, passing in the numbers and converting them to strings. Okay...&lt;/p&gt;
+
+&lt;p&gt;This is a typical example of me not being able to figure out what some code actually means and then by accident finding the explanation somewhere else. How the heck am I supposed to know where to find the documentation to such a cool extensions? I will let you know when I'm finally able to solve this mystery...&lt;/p&gt;
 </content>
   </entry>
   
