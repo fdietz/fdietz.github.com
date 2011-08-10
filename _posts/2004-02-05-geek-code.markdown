@@ -1,0 +1,12 @@
+--- 
+layout: post
+title: Geek Code
+published: true
+meta: {}
+
+tags: 
+- Funstuff
+type: post
+status: publish
+---
+Felix send me the complete guide to "The Code of the Geeks v3.12":[http://www.geekcode.com/geek.html](http://www.geekcode.com/geek.html)From their site:So you think you are a geek, eh? The first step is to admit to yourself your geekiness. No matter what anyone says, geeks are people too; geeks have rights. So take a deep breath and announce to the world that you are a geek. Your courage will give you strength that will last you forever.How to tell the world you are a geek, you ask? Use the universal Geek code! Using this special code will allow you to let other un-closeted geeks know who you are in a simple, codified statement.
