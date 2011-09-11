@@ -4,7 +4,7 @@
  <title>Tom Preston-Werner</title>
  <link href="http://tom.preston-werner.com/atom.xml" rel="self"/>
  <link href="http://tom.preston-werner.com/"/>
- <updated>2011-08-10T22:27:23+02:00</updated>
+ <updated>2011-09-11T17:39:40+02:00</updated>
  <id>http://tom.preston-werner.com/</id>
  <author>
    <name>Tom Preston-Werner</name>
@@ -44,7 +44,13 @@
    <link href="http://tom.preston-werner.com/2009/09/07/why-should-i-use-ruby-config-instead-of.html"/>
    <updated>2009-09-07T00:00:00+02:00</updated>
    <id>http://tom.preston-werner.com/2009/09/07/why-should-i-use-ruby-config-instead-of</id>
-   <content type="html">&lt;p&gt;Why should I use ruby-config instead of rvm? From what I can tell after examining their website is that &lt;a href=&quot;http://github.com/wayneeseguin/rvm/tree/master&quot;&gt;rvm&lt;/a&gt; works very similar to &lt;a href=&quot;http://github.com/fdietz/ruby-config/tree/master&quot;&gt;ruby-config&lt;/a&gt;. It has the same basic feature set and works quite similar by changing symlinks and environment settings. It definitely looks more polished to me and has most probably seen more usage lately due to its recent popularity. BTW, I love their website design.So, what speaks for ruby-config? It is written in Ruby and has complete test coverage. It will probably attract the more ruby-oriented developer, since it has a low entry barrier for contributing back. Personally, I refrain from maintaining large bash scripts, having them replaced several years ago with Perl scripts, which I replaced later on happily with Ruby. No pun intended ;-) And I simply enjoy working with Ruby! Healthy competition is good in my opinion. I'll get in touch with rvm's maintainer to see where both projects strengths are and how we can both improve our projects by learning from each other.&lt;/p&gt;
+   <content type="html">&lt;p&gt;Why should I use ruby-config instead of rvm? From what I can tell after examining their website is that &lt;a href=&quot;http://github.com/wayneeseguin/rvm/tree/master&quot;&gt;rvm&lt;/a&gt; works very similar to &lt;a href=&quot;http://github.com/fdietz/ruby-config/tree/master&quot;&gt;ruby-config&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It has the same basic feature set and works quite similar by changing symlinks and environment settings. It definitely looks more polished to me and has most probably seen more usage lately due to its recent popularity. BTW, I love their website design.&lt;/p&gt;
+
+&lt;p&gt;So, what speaks for ruby-config? It is written in Ruby and has complete test coverage. It will probably attract the more ruby-oriented developer, since it has a low entry barrier for contributing back. Personally, I refrain from maintaining large bash scripts, having them replaced several years ago with Perl scripts, which I replaced later on happily with Ruby. No pun intended ;-) And I simply enjoy working with Ruby!&lt;/p&gt;
+
+&lt;p&gt;Healthy competition is good in my opinion. I'll get in touch with rvm's maintainer to see where both projects strengths are and how we can both improve our projects by learning from each other.&lt;/p&gt;
 </content>
  </entry>
  

@@ -5,17 +5,17 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="author" content="Frederik Dietz" />
   <meta name="description" content="Frederik Dietz My Blog">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <title>Using jeweler for ruby-config</title>
-  
+
   <link href="http://feeds.feedburner.com/fdietz" rel="alternate" title="Frederik Dietz" type="application/atom+xml" />
 
   <link rel="stylesheet" href="/css/style.css">
-  
+
    <!-- syntax highlighting CSS -->
    <!-- <link rel="stylesheet" href="css/syntax.css" type="text/css" /> -->
 
@@ -23,22 +23,22 @@
    <!-- <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection" /> -->
 
    <script src="/js/libs/modernizr-2.0.6.min.js"></script>
-   
+
    <!-- Typekit -->
-   <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
-   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<!--    <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script> -->
+<!--    <script type="text/javascript">try{Typekit.load();}catch(e){}</script> -->
 </head>
 
 <body>
 
   <div id="container" class="site">
-  
+
     <header class="title">
-      <a href="/">Frederik Dietz</a> | 
-      <a href="/">home</a> | 
-      <a href="/archive.html">archive</a>
+      <a href="/">Frederik Dietz</a>
+      <a class="extra" href="/">home</a>
+      <a class="extra" href="/archive.html">archive</a>
     </header>
-  
+
     <div id="main" role="main">
       <div id="post">
 <p>I've been using <a href="http://github.com/technicalpickles/jeweler/tree/master">jeweler</a> for ruby-config and am very surprised how smooth everything went. What I especially like about jeweler is that its absolutely a no-brainer to create gems and post them via github. And with the versioning support its a joy to push out new releases! Am probably going to move over my hoe based projects to jeweler now.So, in order to get started with jeweler you have to install the jeweler gem first:<code>gem install technicalpickles-jeweler</code>Next to bootstrap a new project you do:<code>jeweler --create-repo --summary "Ruby-Config" ruby-config</code>This will create a project skeleton with all the usual candidates. What's left to do now is edit the Rakefile to setup the gem configuration and adding some sourcecode. Don't forget the tests!Now, you simply create an initial version with:<code>rake version:write MAJOR=0 MINOR=1 PATCH=0</code>which update the VERSION file in your project for you.When you do a "rake release", jeweler will create a new gemspec file for you, commit and push the update, create a version tag and push it, too.When simply updating a minor feature, I do a "rake version:bump:minor" and afterwards a "rake release" and I'm done. Great stuff!</p>
@@ -58,7 +58,7 @@
   </ul>
 </div>
   	</div>
-  
+
     <footer class="footer">
       <div class="contact">
         <p>
@@ -79,7 +79,7 @@
     </footer>
 
     <a href="http://github.com/fdietz"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
-  
+
   </div>
 
   <!-- Google Analytics -->
