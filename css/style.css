@@ -210,7 +210,12 @@ a {
 
 
 h2 {
+  margin-top: 1.2em;
   font-size: 1.0em;
+}
+
+h3 {
+  font-size: 0.8em;
 }
 /*
 a:hover {
