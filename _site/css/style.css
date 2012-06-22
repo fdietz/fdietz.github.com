@@ -31,7 +31,10 @@ audio[controls], canvas, video { display: inline-block; *display: inline; *zoom:
 
 html { font-size: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
-body { margin: 0; font-size: 14px; line-height: 1.231; }
+body { 
+  margin: 0; font-size: 14px; line-height: 1.231; 
+  background: #e7e7e7 url(../images/body-bg.png) 0 0 repeat;
+}
 
 body, button, input, select, textarea { font-family: "MyriadPro-Regular", "Myriad Pro Regular", MyriadPro, "Myriad Pro", Helvetica, Arial, sans-serif; color: #373737; }
 
@@ -210,7 +213,12 @@ a {
 
 
 h2 {
+  margin-top: 1.2em;
   font-size: 1.0em;
+}
+
+h3 {
+  font-size: 0.8em;
 }
 /*
 a:hover {
