@@ -9,7 +9,7 @@ type: post
 status: published
 ---
 
-I've finally released by weekend project Team Dashboard to the public.
+I've finally released my weekend project Team Dashboard to the public.
 
 Website: [http://fdietz.github.com/team_dashboard/](http://fdietz.github.com/team_dashboard/)
 
