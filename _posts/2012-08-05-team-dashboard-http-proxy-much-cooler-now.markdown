@@ -11,6 +11,17 @@ status: published
 
 Team Dashboard Number and Boolean Widgets support a HTTP Proxy data source already. Idea is to give it a URL of an existing JSON service which follows the format as specified in the documentation. It will then extract the current value from the JSON structure for you.
 
-But what if have an existing service with a different structure? With the new version you can additionally set a value path using a dot notation to select a specific value in your JSON structure.
+But what if you have an existing service with a different structure? With the new version you can additionally set a value path using a dot notation to select a specific value in your JSON structure.
 
+Example JSON:
+<pre>
+{
+  "parent" : {
+    "child" : {
+      "child2" : "myValue"
+    }
+  }
+}
+</pre>
 
+A value path of "parent.child.child2" would resolve "myValue".

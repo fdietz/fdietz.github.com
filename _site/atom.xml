@@ -4,7 +4,7 @@
  <title>Tom Preston-Werner</title>
  <link href="http://tom.preston-werner.com/atom.xml" rel="self"/>
  <link href="http://tom.preston-werner.com/"/>
- <updated>2012-08-05T12:34:25+02:00</updated>
+ <updated>2012-08-05T12:36:51+02:00</updated>
  <id>http://tom.preston-werner.com/</id>
  <author>
    <name>Tom Preston-Werner</name>
@@ -28,7 +28,22 @@
    <id>http://tom.preston-werner.com/2012/08/05/team-dashboard-http-proxy-much-cooler-now</id>
    <content type="html">&lt;p&gt;Team Dashboard Number and Boolean Widgets support a HTTP Proxy data source already. Idea is to give it a URL of an existing JSON service which follows the format as specified in the documentation. It will then extract the current value from the JSON structure for you.&lt;/p&gt;
 
-&lt;p&gt;But what if have an existing service with a different structure? With the new version you can additionally set a value path using a dot notation to select a specific value in your JSON structure.&lt;/p&gt;
+&lt;p&gt;But what if you have an existing service with a different structure? With the new version you can additionally set a value path using a dot notation to select a specific value in your JSON structure.&lt;/p&gt;
+
+&lt;p&gt;Example JSON:&lt;/p&gt;
+
+&lt;pre&gt;
+{
+  &quot;parent&quot; : {
+    &quot;child&quot; : {
+      &quot;child2&quot; : &quot;myValue&quot;
+    }
+  }
+}
+&lt;/pre&gt;
+
+
+&lt;p&gt;A value path of &quot;parent.child.child2&quot; would resolve &quot;myValue&quot;.&lt;/p&gt;
 </content>
  </entry>
  
