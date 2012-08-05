@@ -4,13 +4,33 @@
  <title>Tom Preston-Werner</title>
  <link href="http://tom.preston-werner.com/atom.xml" rel="self"/>
  <link href="http://tom.preston-werner.com/"/>
- <updated>2012-07-29T11:23:01+02:00</updated>
+ <updated>2012-08-05T12:34:25+02:00</updated>
  <id>http://tom.preston-werner.com/</id>
  <author>
    <name>Tom Preston-Werner</name>
    <email>tom@mojombo.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Team Dashboard supports Jenkins and Travis with a new widget</title>
+   <link href="http://tom.preston-werner.com/2012/08/05/team-dashboard-supports-jenkins-and-travis-with-a-new-widget.html"/>
+   <updated>2012-08-05T00:00:00+02:00</updated>
+   <id>http://tom.preston-werner.com/2012/08/05/team-dashboard-supports-jenkins-and-travis-with-a-new-widget</id>
+   <content type="html">&lt;p&gt;Team Dashboard adds a new widget for all kinds of Continous Integration Server Build Status Information. Jenkins and Travis CI data sources are included out of the box and its easy to add even more.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Team Dashboard HTTP Proxy support much cooler now</title>
+   <link href="http://tom.preston-werner.com/2012/08/05/team-dashboard-http-proxy-much-cooler-now.html"/>
+   <updated>2012-08-05T00:00:00+02:00</updated>
+   <id>http://tom.preston-werner.com/2012/08/05/team-dashboard-http-proxy-much-cooler-now</id>
+   <content type="html">&lt;p&gt;Team Dashboard Number and Boolean Widgets support a HTTP Proxy data source already. Idea is to give it a URL of an existing JSON service which follows the format as specified in the documentation. It will then extract the current value from the JSON structure for you.&lt;/p&gt;
+
+&lt;p&gt;But what if have an existing service with a different structure? With the new version you can additionally set a value path using a dot notation to select a specific value in your JSON structure.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Team Dashboard cloc stats</title>
