@@ -4,13 +4,46 @@
  <title>Tom Preston-Werner</title>
  <link href="http://tom.preston-werner.com/atom.xml" rel="self"/>
  <link href="http://tom.preston-werner.com/"/>
- <updated>2012-08-05T12:36:51+02:00</updated>
+ <updated>2012-08-09T15:38:53+02:00</updated>
  <id>http://tom.preston-werner.com/</id>
  <author>
    <name>Tom Preston-Werner</name>
    <email>tom@mojombo.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Team Dashboard supports Ganglia</title>
+   <link href="http://tom.preston-werner.com/2012/08/09/team-dashboard-supports-ganglia.html"/>
+   <updated>2012-08-09T00:00:00+02:00</updated>
+   <id>http://tom.preston-werner.com/2012/08/09/team-dashboard-supports-ganglia</id>
+   <content type="html">&lt;p&gt;Team Dashboard adds a Ganglia data source to show your system metrics as graph or counter widgets.&lt;/p&gt;
+
+&lt;p&gt;In order to get started you have to configure the URL to your Ganglia installation. The easiest way is to use the environment variable GANGLIA_URL.&lt;/p&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;pre&gt;
+GANGLIA_URL=http://ganglia-host rails server
+&lt;/pre&gt;
+
+
+&lt;p&gt;More information on how to get started on &lt;a href=&quot;https://github.com/fdietz/team_dashboard&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Team Dashboard introduces Data Source Plugin Repository</title>
+   <link href="http://tom.preston-werner.com/2012/08/09/team-dashboard-introduces-plugin-repository.html"/>
+   <updated>2012-08-09T00:00:00+02:00</updated>
+   <id>http://tom.preston-werner.com/2012/08/09/team-dashboard-introduces-plugin-repository</id>
+   <content type="html">&lt;p&gt;Team Dashboard supports all kinds of data sources. But, there's always something missing.&lt;/p&gt;
+
+&lt;p&gt;I'd like to use the team_dashboard_plugins &lt;a href=&quot;https://github.com/fdietz/team_dashboard_plugins&quot;&gt;Github Repository&lt;/a&gt; to collect community plugins as the central place to browse, download and request plugins.&lt;/p&gt;
+
+&lt;p&gt;More information on how to get started on &lt;a href=&quot;https://github.com/fdietz/team_dashboard_plugins&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Team Dashboard supports Jenkins and Travis with a new widget</title>
