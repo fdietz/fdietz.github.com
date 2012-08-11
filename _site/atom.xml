@@ -4,7 +4,7 @@
  <title>Tom Preston-Werner</title>
  <link href="http://tom.preston-werner.com/atom.xml" rel="self"/>
  <link href="http://tom.preston-werner.com/"/>
- <updated>2012-08-11T18:31:02+02:00</updated>
+ <updated>2012-08-11T19:19:02+02:00</updated>
  <id>http://tom.preston-werner.com/</id>
  <author>
    <name>Tom Preston-Werner</name>
@@ -39,7 +39,7 @@ GANGLIA_URL=http://ganglia-host rails server
    <id>http://tom.preston-werner.com/2012/08/09/team-dashboard-introduces-plugin-repository</id>
    <content type="html">&lt;p&gt;Team Dashboard supports all kinds of data sources. But, there's always something missing.&lt;/p&gt;
 
-&lt;p&gt;I'd like to use the team_dashboard_plugins &lt;a href=&quot;https://github.com/fdietz/team_dashboard_plugins&quot;&gt;Github Repository&lt;/a&gt; as the central place to browse, download and request plugins.&lt;/p&gt;
+&lt;p&gt;I'd like to use the &lt;a href=&quot;https://github.com/fdietz/team_dashboard_plugins&quot;&gt;team_dashboard_plugins&lt;/a&gt; Github repository as the central place to browse, download and request plugins.&lt;/p&gt;
 
 &lt;p&gt;More information on how to get started on &lt;a href=&quot;https://github.com/fdietz/team_dashboard_plugins&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
 </content>
