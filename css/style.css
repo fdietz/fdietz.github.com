@@ -98,7 +98,7 @@ sub { bottom: -0.25em; }
    Lists
    ========================================================================== */
 
-ul, ol { margin: 1em 0; padding: 0 0 0 0px; }
+/*ul, ol { margin: 1em 0; padding: 0 0 0 0px; }*/
 dd { margin: 0 0 0 0px; }
 nav ul, nav ol { list-style: none; margin: 0; padding: 0; }
 
