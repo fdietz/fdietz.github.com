@@ -4,13 +4,45 @@
  <title>Tom Preston-Werner</title>
  <link href="http://tom.preston-werner.com/atom.xml" rel="self"/>
  <link href="http://tom.preston-werner.com/"/>
- <updated>2012-08-25T13:23:20+02:00</updated>
+ <updated>2012-09-06T11:02:50+02:00</updated>
  <id>http://tom.preston-werner.com/</id>
  <author>
    <name>Tom Preston-Werner</name>
    <email>tom@mojombo.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Team Dashboard v0.4 released</title>
+   <link href="http://tom.preston-werner.com/2012/09/06/team-dashboard-version-0-4-released.html"/>
+   <updated>2012-09-06T00:00:00+02:00</updated>
+   <id>http://tom.preston-werner.com/2012/09/06/team-dashboard-version-0-4-released</id>
+   <content type="html">&lt;h2&gt;Team Dashboard v0.4 released&lt;/h2&gt;
+
+&lt;p&gt;This was a busy week, lots of new stuff to check out!&lt;/p&gt;
+
+&lt;p&gt;Most notable changes are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Graphite Function Editing made easy with a built-in function browser (including reference documentation) and improved error reporting.&lt;/li&gt;
+&lt;li&gt;HTTP Proxy Sources also got a preview mode where you can see the JSON response and can easily select a specific attribute from it.&lt;/li&gt;
+&lt;li&gt;All source plugins can easily specify their own configuration params. These will automatically appear in the widget editor dialog and are persisted as part of the widget configuration. The existing internal sources are already using it. Documentation can be found in the &lt;a href=&quot;https://github.com/fdietz/team_dashboard&quot;&gt;README&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Apart from that we fixed a nasty bug in the Ganglia source (&lt;a href=&quot;https://github.com/fdietz/team_dashboard/issues/15&quot;&gt;Issue&lt;/a&gt;), another one in the Graphite source (you can now again fetch multiple targets &lt;a href=&quot;https://github.com/fdietz/team_dashboard/issues/4&quot;&gt;Issue&lt;/a&gt;), updated to the latest Twitter Bootstrap version and documented Team Dashboard's own &lt;a href=&quot;https://github.com/fdietz/team_dashboard&quot;&gt;REST API&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Warning:&lt;/em&gt; This release might break some widget configuration due to the changes in the source plugin configuration. Sorry for any inconveniences!&lt;/p&gt;
+
+&lt;p&gt;So, go ahead and git pull to the latest version!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/fdietz/team_dashboard/issues?milestone=2&amp;amp;state=closed&quot;&gt;Milestone v0.4 Issues&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;More information on how to get started on &lt;a href=&quot;https://github.com/fdietz/team_dashboard&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Thanks go to &lt;a href=&quot;http://www.xing.com&quot;&gt;XING&lt;/a&gt; for sponsoring this weeks development on Team Dashboard&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Team Dashboard v0.3 released</title>
