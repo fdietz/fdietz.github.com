@@ -4,7 +4,7 @@
  <title>Frederik Dietz</title>
  <link href="http://fdietz.github.com/atom.xml" rel="self"/>
  <link href="http://fdietz.github.com/"/>
- <updated>2012-10-07T13:04:09+02:00</updated>
+ <updated>2012-10-07T13:08:38+02:00</updated>
  <id>http://fdietz.github.com/</id>
  <author>
    <name>Frederik Dietz</name>
@@ -1103,24 +1103,6 @@ Nevertheless, there are still a couple of more critical bugs open. So, I guess t
    <updated>2004-02-25T00:00:00+01:00</updated>
    <id>http://fdietz.github.com/2004/02/25/linux-today-community-beyond-an-open-source-java</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;http://linuxtoday.com/developer/2004022402326OPCYDV&quot;&gt;Linux Today - Community: Beyond an Open Source Java&lt;/a&gt;This is another very interesting opinion about Java and Sun.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Introduction to Mute: Anonymous, Ant Behavior Based, File Sharing :: Open Source Directory :: OSDir.com :: Open Source Software, Reviews & News</title>
-   <link href="http://tom.preston-werner.com/2004/02/25/introduction-to-mute-anonymous-ant-behavior-based-file-sharing-open-source-directory-osdircom-open-source-software-reviews-news-2.html"/>
-   <updated>2004-02-25T00:00:00+01:00</updated>
-   <id>http://fdietz.github.com/2004/02/25/introduction-to-mute-anonymous-ant-behavior-based-file-sharing-open-source-directory-osdircom-open-source-software-reviews-news-2</id>
-   <content type="html">&lt;p&gt;&lt;a href=&quot;http://osdir.com/Article202.phtml&quot;&gt;Introduction to Mute: Anonymous, Ant Behavior Based, File Sharing :: Open Source Directory :: OSDir.com :: Open Source Software, Reviews &amp;amp; News&lt;/a&gt;Seems Mute is getting more attention finally.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Introduction to Mute: Anonymous, Ant Behavior Based, File Sharing :: Open Source Directory :: OSDir.com :: Open Source Software, Reviews & News</title>
-   <link href="http://tom.preston-werner.com/2004/02/25/introduction-to-mute-anonymous-ant-behavior-based-file-sharing-open-source-directory-osdircom-open-source-software-reviews-news.html"/>
-   <updated>2004-02-25T00:00:00+01:00</updated>
-   <id>http://fdietz.github.com/2004/02/25/introduction-to-mute-anonymous-ant-behavior-based-file-sharing-open-source-directory-osdircom-open-source-software-reviews-news</id>
-   <content type="html">&lt;p&gt;&lt;a href=&quot;http://osdir.com/Article202.phtml&quot;&gt;Introduction to Mute: Anonymous, Ant Behavior Based, File Sharing :: Open Source Directory :: OSDir.com :: Open Source Software, Reviews &amp;amp; News&lt;/a&gt;Seems Mute is getting more attention finally.&lt;/p&gt;
 </content>
  </entry>
  
