@@ -1,8 +1,13 @@
 ---
 layout: default
 ---
+{{ post.title }}
+
 <div id="post">
-{{ content }}
+  <h2><a class="post-title" href="{{ page.url }}">{{ page.title }}</a></h2>
+  <div class="date">published {{ page.date | date_to_string }}</div>
+
+  {{ content }}
 </div>
 
 <div id="related">

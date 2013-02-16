@@ -19,14 +19,8 @@
    <!-- syntax highlighting CSS -->
    <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
 
-   <!-- Homepage CSS -->
-   <!-- <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection" /> -->
-
    <script src="/js/libs/modernizr-2.0.6.min.js"></script>
 
-   <!-- Typekit -->
-<!--    <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script> -->
-<!--    <script type="text/javascript">try{Typekit.load();}catch(e){}</script> -->
 </head>
 
 <body>
@@ -38,12 +32,18 @@
       <a class="extra" href="/">home</a>
       <a class="extra" href="/archive.html">archive</a>
       <a class="extra" href="/projects.html">projects</a>
+      <a class="extra" href="/books.html">projects</a>
       <a class="extra" href="/about.html">about</a>
     </header>
 
     <div id="main" role="main">
-      <div id="post">
-<p>Just saw an <a href='http://www.infoq.com/articles/ruby-open-classes-monkeypatching'>article</a> related to my <a href='http://fdietz.wordpress.com/2008/08/12/symbolto_proc-what/'>last post</a> about Symbol#to_proc. Very interesting read! And even more fun is this article which explains the same mechanism and <a href='http://www.infoq.com/news/2008/02/to_proc-currying-ruby19'>currying</a> on top:<span>sourcecode language=&#8221;ruby&#8221;</span>proc {|x, y, z| x + y + z }.curry<span>/sourcecode</span>returns the equivalent of:<span>sourcecode language=&#8221;ruby&#8221;</span>proc {|x| proc {|y| proc {|z| x + y + z } } }<span>/sourcecode</span>Here&#8217;s the example:<span>sourcecode language=&#8221;ruby&#8221;</span>plus_five = proc { |x,y,z| x + y + z }.curry.call(2).call(3)plus_five<span>10</span> #=&gt; 15<span>/sourcecode</span>I&#8217;ve seen something similar in <a href='http://www.scala-lang.org/'>Scala</a>. A good explanation of Scala function currying can be found in <a href='http://www.codecommit.com/blog/scala/function-currying-in-scala'>Daniel Spiewak&#8217;s blog</a>. BTW, Scala finally got a new website! And even better: Just got an E-Mail from <a href='http://www.artima.com/'>Artima.com</a> that the 4th edition of &#8221;<a href='http://www.artima.com/shop/programming_in_scala'>Programming in Scala</a>&#8221; arrived. Something to read for the weekend!</p>
+      
+
+<div id="post">
+  <h2><a class="post-title" href="/2008/08/21/symbolto_proc-and-rubys-open-classes.html">Symbol#to_proc and Ruby's Open Classes</a></h2>
+  <div class="date">published 21 Aug 2008</div>
+
+  <p>Just saw an <a href='http://www.infoq.com/articles/ruby-open-classes-monkeypatching'>article</a> related to my <a href='http://fdietz.wordpress.com/2008/08/12/symbolto_proc-what/'>last post</a> about Symbol#to_proc. Very interesting read! And even more fun is this article which explains the same mechanism and <a href='http://www.infoq.com/news/2008/02/to_proc-currying-ruby19'>currying</a> on top:<span>sourcecode language=&#8221;ruby&#8221;</span>proc {|x, y, z| x + y + z }.curry<span>/sourcecode</span>returns the equivalent of:<span>sourcecode language=&#8221;ruby&#8221;</span>proc {|x| proc {|y| proc {|z| x + y + z } } }<span>/sourcecode</span>Here&#8217;s the example:<span>sourcecode language=&#8221;ruby&#8221;</span>plus_five = proc { |x,y,z| x + y + z }.curry.call(2).call(3)plus_five<span>10</span> #=&gt; 15<span>/sourcecode</span>I&#8217;ve seen something similar in <a href='http://www.scala-lang.org/'>Scala</a>. A good explanation of Scala function currying can be found in <a href='http://www.codecommit.com/blog/scala/function-currying-in-scala'>Daniel Spiewak&#8217;s blog</a>. BTW, Scala finally got a new website! And even better: Just got an E-Mail from <a href='http://www.artima.com/'>Artima.com</a> that the 4th edition of &#8221;<a href='http://www.artima.com/shop/programming_in_scala'>Programming in Scala</a>&#8221; arrived. Something to read for the weekend!</p>
 </div>
 
 <div id="related">

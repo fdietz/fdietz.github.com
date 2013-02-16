@@ -19,14 +19,8 @@
    <!-- syntax highlighting CSS -->
    <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
 
-   <!-- Homepage CSS -->
-   <!-- <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection" /> -->
-
    <script src="/js/libs/modernizr-2.0.6.min.js"></script>
 
-   <!-- Typekit -->
-<!--    <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script> -->
-<!--    <script type="text/javascript">try{Typekit.load();}catch(e){}</script> -->
 </head>
 
 <body>
@@ -38,12 +32,18 @@
       <a class="extra" href="/">home</a>
       <a class="extra" href="/archive.html">archive</a>
       <a class="extra" href="/projects.html">projects</a>
+      <a class="extra" href="/books.html">projects</a>
       <a class="extra" href="/about.html">about</a>
     </header>
 
     <div id="main" role="main">
-      <div id="post">
-<p>Waking up this morning I recognized that I&#8217;ve forgotten something really important for the token database.I&#8217;m using MD5 sums to detect already learned messages. These shouldn&#8217;t be added to the token database twice or more times - just once. When marking messages as spam, which are non spam, Columba should use this MD5 sum to correct the value, if the user marks the message as non spam.You can imagine that this MD5 message list is getting hugh over time. So, I&#8217;ve added a timestamp for every MD5 sum. This way, cleaning up the token database is very easy because I can just remove old messages.Sadly, this means that the spam.db file format has changed a bit.Another new thing are handcrafted rules. This is pretty new, I&#8217;ve got it from a paper &#8220;A bayesian approach to filtering junk email&#8221; from Sahami et. al.In Columba I&#8217;ve basically eliminated the need for something like a training mode with these rules. The idea is pretty easy. The bayesian classifier enables us to add handcrafted rules, which are handled equally to other tokens. So, a rule just adds another probability additionally to the word probabilities.When starting from scratch you don&#8217;t have any words in your token database. The spam engine can&#8217;t detect spam messages until you trained it for some time. But the handcrafted rules are in place, giving you a good start to determine spam messages, until you have collected enough tokens using the message contents.One such rule would be for example checking if the Subject is of capital letters only, or if the Subject contains many whitespaces. You can think if many more rules. Spamassassin has a very big list of rules which can be found <a href='http://www.spamassassin.org/tests.html'>here</a>. Adding new rules is very easy. Just subclass AbstractRule in org.columba.mail.spam.rules.</p>
+      
+
+<div id="post">
+  <h2><a class="post-title" href="/2004/03/19/spam-fine-tuning.html">Spam fine tuning</a></h2>
+  <div class="date">published 19 Mar 2004</div>
+
+  <p>Waking up this morning I recognized that I&#8217;ve forgotten something really important for the token database.I&#8217;m using MD5 sums to detect already learned messages. These shouldn&#8217;t be added to the token database twice or more times - just once. When marking messages as spam, which are non spam, Columba should use this MD5 sum to correct the value, if the user marks the message as non spam.You can imagine that this MD5 message list is getting hugh over time. So, I&#8217;ve added a timestamp for every MD5 sum. This way, cleaning up the token database is very easy because I can just remove old messages.Sadly, this means that the spam.db file format has changed a bit.Another new thing are handcrafted rules. This is pretty new, I&#8217;ve got it from a paper &#8220;A bayesian approach to filtering junk email&#8221; from Sahami et. al.In Columba I&#8217;ve basically eliminated the need for something like a training mode with these rules. The idea is pretty easy. The bayesian classifier enables us to add handcrafted rules, which are handled equally to other tokens. So, a rule just adds another probability additionally to the word probabilities.When starting from scratch you don&#8217;t have any words in your token database. The spam engine can&#8217;t detect spam messages until you trained it for some time. But the handcrafted rules are in place, giving you a good start to determine spam messages, until you have collected enough tokens using the message contents.One such rule would be for example checking if the Subject is of capital letters only, or if the Subject contains many whitespaces. You can think if many more rules. Spamassassin has a very big list of rules which can be found <a href='http://www.spamassassin.org/tests.html'>here</a>. Adding new rules is very easy. Just subclass AbstractRule in org.columba.mail.spam.rules.</p>
 </div>
 
 <div id="related">

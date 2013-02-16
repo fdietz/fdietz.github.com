@@ -31,9 +31,12 @@ audio[controls], canvas, video { display: inline-block; *display: inline; *zoom:
 
 html { font-size: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
-body { margin: 0; font-size: 14px; line-height: 1.231; }
+body { margin: 0; font-size: 16px; line-height: 1.4; }
 
-body, button, input, select, textarea { font-family: "MyriadPro-Regular", "Myriad Pro Regular", MyriadPro, "Myriad Pro", Helvetica, Arial, sans-serif; color: #373737; }
+body, button, input, select, textarea {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #555;
+}
 
 /*
  * These selection declarations have to be separate
@@ -51,7 +54,10 @@ body, button, input, select, textarea { font-family: "MyriadPro-Regular", "Myria
    Links
    ========================================================================== */
 
-a { color: #00e; }
+a {
+  /*color: #00e; */
+  color: #21759b;
+}
 /*a:visited { color: #551a8b; }*/
 a:focus { outline: thin dotted; }
 
@@ -78,7 +84,10 @@ ins { background: #ff9; color: #000; text-decoration: none; }
 mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
 
 /* Redeclare monospace font family: en.wikipedia.org/wiki/User:Davidgothberg/Test59 */
-pre, code, kbd, samp { font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 1em; }
+pre, code, kbd, samp {
+  font-family: "Monaco", monospace;
+  font-size: 0.9em;
+}
 
 /* Improve readability of pre-formatted text in all browsers */
 pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
@@ -215,7 +224,7 @@ h2 {
 }
 
 h3 {
-  font-size: 0.8em;
+  font-size: 90%;
 }
 /*
 a:hover {
@@ -244,6 +253,15 @@ ul.posts span {
   font-size: 90%;
 }
 
+.date {
+  margin-top: -1em;
+  color: #aaa;
+}
+
+.post-title {
+  text-decoration: none;
+}
+
 .site {
   font-size: 110%;
   text-align: justify;
@@ -265,6 +283,7 @@ ul.posts span {
   /*color: #a00;*/
   font-weight: bold;
   margin-bottom: 2em;
+  font-size: 120%;
 }
 
 .site .title a {
@@ -282,6 +301,7 @@ ul.posts span {
 .site .title a.extra {
   color: #aaa;
   text-decoration: none;
+  font-weight: normal;
   /* padding-right: 0.5em; */
   /*margin-left: 1em;*/
 }
@@ -331,6 +351,7 @@ ul.posts span {
 
 #post pre {
   border: 1px solid #ddd;
+  border-radius: 2px;
   background-color: #eef;
   padding: 0 .4em;
   overflow: hidden;
@@ -345,9 +366,10 @@ ul.posts span {
 
 #post code {
   border: 1px solid #ddd;
+  border-radius: 2px;
   background-color: #eef;
-  font-size: 85%;
-  padding: 0 .2em;
+  font-size: 80%;
+  padding: .2em .4em .2em .4em;
 }
 
 #post pre code {
@@ -412,7 +434,7 @@ ul.posts span {
 }
 
 @media only screen and (min-width: 768px) {
-  /* Style adjustments for viewports 768px and over go here */
+   Style adjustments for viewports 768px and over go here
 
 }
 
