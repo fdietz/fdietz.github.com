@@ -4,7 +4,7 @@ title: "Angular.js Controllers - Assigning a Default Value to a Model"
 published: true
 categories:
 ---
-This is the first of a series of posts about [Angular.js](http://angularjs.org/), the Superheroic Javascript MVW Framework. It is extracted from my ebook [Recipes with Angular.js](https://leanpub.com/recipes-with-angular-js). If you like this post please support me and buy my book!
+This is the first of a series of posts about [Angular.js](http://angularjs.org/), the Superheroic Javascript MVW Framework. It is extracted from my ebook [Recipes with Angular.js](https://leanpub.com/recipes-with-angular-js). If you like this post please support me and buy it!
 
 ### Problem
 You want to assign a default value to the scope in the controllers context.
