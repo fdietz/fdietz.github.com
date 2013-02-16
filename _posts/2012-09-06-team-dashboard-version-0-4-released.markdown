@@ -21,7 +21,7 @@ Most notable changes are:
 
 Apart from that we fixed a nasty bug in the Ganglia source ([Issue](https://github.com/fdietz/team_dashboard/issues/15)), another one in the Graphite source (you can now again fetch multiple targets [Issue](https://github.com/fdietz/team_dashboard/issues/4)), updated to the latest Twitter Bootstrap version and documented Team Dashboard's own [REST API](https://github.com/fdietz/team_dashboard).
 
-<em>Warning:</em> This release might break some widget configuration due to the changes in the source plugin configuration. Sorry for any inconveniences!
+_Warning:_ This release might break some widget configuration due to the changes in the source plugin configuration. Sorry for any inconveniences!
 
 So, go ahead and git pull to the latest version!
 

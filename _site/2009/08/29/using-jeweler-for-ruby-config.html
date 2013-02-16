@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/css/style.css">
 
    <!-- syntax highlighting CSS -->
-   <!-- <link rel="stylesheet" href="css/syntax.css" type="text/css" /> -->
+   <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
 
    <!-- Homepage CSS -->
    <!-- <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection" /> -->
@@ -43,19 +43,18 @@
 
     <div id="main" role="main">
       <div id="post">
-<p>I've been using <a href="http://github.com/technicalpickles/jeweler/tree/master">jeweler</a> for ruby-config and am very surprised how smooth everything went. What I especially like about jeweler is that its absolutely a no-brainer to create gems and post them via github. And with the versioning support its a joy to push out new releases! Am probably going to move over my hoe based projects to jeweler now.So, in order to get started with jeweler you have to install the jeweler gem first:<code>gem install technicalpickles-jeweler</code>Next to bootstrap a new project you do:<code>jeweler --create-repo --summary "Ruby-Config" ruby-config</code>This will create a project skeleton with all the usual candidates. What's left to do now is edit the Rakefile to setup the gem configuration and adding some sourcecode. Don't forget the tests!Now, you simply create an initial version with:<code>rake version:write MAJOR=0 MINOR=1 PATCH=0</code>which update the VERSION file in your project for you.When you do a "rake release", jeweler will create a new gemspec file for you, commit and push the update, create a version tag and push it, too.When simply updating a minor feature, I do a "rake version:bump:minor" and afterwards a "rake release" and I'm done. Great stuff!</p>
-
+<p>I&#8217;ve been using <a href='http://github.com/technicalpickles/jeweler/tree/master'>jeweler</a> for ruby-config and am very surprised how smooth everything went. What I especially like about jeweler is that its absolutely a no-brainer to create gems and post them via github. And with the versioning support its a joy to push out new releases! Am probably going to move over my hoe based projects to jeweler now.So, in order to get started with jeweler you have to install the jeweler gem first:<code>gem install technicalpickles-jeweler</code>Next to bootstrap a new project you do:<code>jeweler --create-repo --summary &quot;Ruby-Config&quot; ruby-config</code>This will create a project skeleton with all the usual candidates. What&#8217;s left to do now is edit the Rakefile to setup the gem configuration and adding some sourcecode. Don&#8217;t forget the tests!Now, you simply create an initial version with:<code>rake version:write MAJOR=0 MINOR=1 PATCH=0</code>which update the VERSION file in your project for you.When you do a &#8220;rake release&#8221;, jeweler will create a new gemspec file for you, commit and push the update, create a version tag and push it, too.When simply updating a minor feature, I do a &#8220;rake version:bump:minor&#8221; and afterwards a &#8220;rake release&#8221; and I&#8217;m done. Great stuff!</p>
 </div>
 
 <div id="related">
   <h2>Related Posts</h2>
   <ul class="posts">
     
+      <li><span>15 Feb 2013</span> &raquo; <a href="/2013/02/15/angular-js-controllers-assigning-a-default-value-to-a-model.html">Recipes with Angular.js - Controllers: Assigning a Default Value to a Model</a></li>
+    
       <li><span>06 Sep 2012</span> &raquo; <a href="/2012/09/06/team-dashboard-version-0-4-released.html">Team Dashboard v0.4 released</a></li>
     
       <li><span>25 Aug 2012</span> &raquo; <a href="/2012/08/25/team-dashboard-version-0-3-released.html">Team Dashboard v0.3 released</a></li>
-    
-      <li><span>09 Aug 2012</span> &raquo; <a href="/2012/08/09/team-dashboard-supports-ganglia.html">Team Dashboard supports Ganglia</a></li>
     
   </ul>
 </div>

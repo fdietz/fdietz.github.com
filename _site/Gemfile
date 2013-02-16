@@ -1,5 +1,6 @@
 source "http://rubygems.org"
 
+gem "rake"
 gem "jekyll"
-gem "RedCloth"
 gem "rdiscount"
+gem "RedCloth"
