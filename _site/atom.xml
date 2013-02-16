@@ -4,7 +4,7 @@
  <title>Frederik Dietz</title>
  <link href="http://fdietz.github.com/atom.xml" rel="self"/>
  <link href="http://fdietz.github.com/"/>
- <updated>2013-02-16T12:45:51+01:00</updated>
+ <updated>2013-02-16T12:59:28+01:00</updated>
  <id>http://fdietz.github.com/</id>
  <author>
    <name>Frederik Dietz</name>
@@ -13,7 +13,7 @@
 
  
  <entry>
-   <title>Recipes with Angular.js - Controllers: Assigning a Default Value to a Model</title>
+   <title>Angular.js Controllers - Assigning a Default Value to a Model</title>
    <link href="http://tom.preston-werner.com/2013/02/15/angular-js-controllers-assigning-a-default-value-to-a-model.html"/>
    <updated>2013-02-15T00:00:00+01:00</updated>
    <id>http://fdietz.github.com/2013/02/15/angular-js-controllers-assigning-a-default-value-to-a-model</id>

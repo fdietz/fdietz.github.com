@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Recipes with Angular.js - Controllers: Assigning a Default Value to a Model"
+title: "Angular.js Controllers - Assigning a Default Value to a Model"
 published: true
 categories:
 ---
