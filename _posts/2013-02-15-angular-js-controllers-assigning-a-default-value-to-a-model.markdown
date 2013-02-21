@@ -43,3 +43,5 @@ Note, that this would not work if the value expression is moved outside the cont
 {% endhighlight %}
 
 In this case {% raw %}`{{value}}`{% endraw %} will simply be not rendered at all.
+
+You can find the complete [example](https://github.com/fdietz/recipes-with-angular-js-examples/tree/master/chapter2/recipe1) on Github.

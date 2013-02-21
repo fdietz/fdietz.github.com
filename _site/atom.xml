@@ -4,13 +4,49 @@
  <title>Frederik Dietz</title>
  <link href="http://fdietz.github.com/atom.xml" rel="self"/>
  <link href="http://fdietz.github.com/"/>
- <updated>2013-02-16T15:57:28+01:00</updated>
+ <updated>2013-02-21T10:13:55+01:00</updated>
  <id>http://fdietz.github.com/</id>
  <author>
    <name>Frederik Dietz</name>
    <email>fdietz@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Angular.js Controllers: Changing a Model Value with a Controller Function</title>
+   <link href="http://tom.preston-werner.com/2013/02/19/angular-js-controllers-changing-a-model-value-with-a-controller-function.html"/>
+   <updated>2013-02-19T00:00:00+01:00</updated>
+   <id>http://fdietz.github.com/2013/02/19/angular-js-controllers-changing-a-model-value-with-a-controller-function</id>
+   <content type="html">&lt;p&gt;This is a post of a series about &lt;a href='http://angularjs.org/'&gt;Angular.js&lt;/a&gt;, the Superheroic Javascript MVW Framework. It is extracted from my ebook &lt;a href='https://leanpub.com/recipes-with-angular-js'&gt;Recipes with Angular.js&lt;/a&gt;. If you like this post please support me and buy it!&lt;/p&gt;
+
+&lt;h3 id='problem'&gt;Problem&lt;/h3&gt;
+
+&lt;p&gt;You want to increment a model value by 1.&lt;/p&gt;
+
+&lt;h3 id='solution'&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;Implement an increment function which changes the scope.&lt;/p&gt;
+
+&lt;p&gt;We use the &lt;code&gt;ng-init&lt;/code&gt; Directive to call the &lt;code&gt;incrementValue&lt;/code&gt; function in the template.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='html'&gt;&lt;span class='nt'&gt;&amp;lt;div&lt;/span&gt; &lt;span class='na'&gt;ng-controller=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;MyCtrl&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class='nt'&gt;&amp;lt;p&lt;/span&gt; &lt;span class='na'&gt;ng-init=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;incrementValue(5)&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;{{value}}&lt;span class='nt'&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;span class='nt'&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The controller defines the default value and the &lt;code&gt;incrementValue&lt;/code&gt; function.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='javascript'&gt;&lt;span class='kd'&gt;function&lt;/span&gt; &lt;span class='nx'&gt;MyCtrl&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;$scope&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+  &lt;span class='nx'&gt;$scope&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;value&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+
+  &lt;span class='nx'&gt;$scope&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;incrementValue&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='kd'&gt;function&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;value&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+    &lt;span class='nx'&gt;$scope&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;value&lt;/span&gt; &lt;span class='o'&gt;+=&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+  &lt;span class='p'&gt;};&lt;/span&gt;
+&lt;span class='p'&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id='discussion'&gt;Discussion&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code&gt;ng-init&lt;/code&gt; directive is executed on page load and calls the function defined in &lt;code&gt;MyCtrl&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can find the complete &lt;a href='https://github.com/fdietz/recipes-with-angular-js-examples/tree/master/chapter2/recipe2'&gt;example&lt;/a&gt; on Github.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Recipes with Angular.js: Updated With New Content</title>
@@ -95,7 +131,9 @@
 &lt;span class='nt'&gt;&amp;lt;div&lt;/span&gt; &lt;span class='na'&gt;ng-controller=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;MyCtrl&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
 &lt;span class='nt'&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;In this case &lt;code&gt;{{value}}&lt;/code&gt; will simply be not rendered at all.&lt;/p&gt;</content>
+&lt;p&gt;In this case &lt;code&gt;{{value}}&lt;/code&gt; will simply be not rendered at all.&lt;/p&gt;
+
+&lt;p&gt;You can find the complete &lt;a href='https://github.com/fdietz/recipes-with-angular-js-examples/tree/master/chapter2/recipe1'&gt;example&lt;/a&gt; on Github.&lt;/p&gt;</content>
  </entry>
  
  <entry>
