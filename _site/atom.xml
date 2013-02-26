@@ -4,13 +4,63 @@
  <title>Frederik Dietz</title>
  <link href="http://fdietz.github.com/atom.xml" rel="self"/>
  <link href="http://fdietz.github.com/"/>
- <updated>2013-02-21T10:13:55+01:00</updated>
+ <updated>2013-02-26T15:12:15+01:00</updated>
  <id>http://fdietz.github.com/</id>
  <author>
    <name>Frederik Dietz</name>
    <email>fdietz@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Recipes with Angular.js: New Chapters Added</title>
+   <link href="http://tom.preston-werner.com/2013/02/26/recipes-with-angular-js-new-chapters-added.html"/>
+   <updated>2013-02-26T00:00:00+01:00</updated>
+   <id>http://fdietz.github.com/2013/02/26/recipes-with-angular-js-new-chapters-added</id>
+   <content type="html">&lt;p&gt;I&amp;#8217;ve just published a new version of &lt;a href='https://leanpub.com/recipes-with-angular-js'&gt;Recipes with Angular.js&lt;/a&gt;! with the next chapters.&lt;/p&gt;
+
+&lt;p&gt;Chapter 8 &lt;em&gt;Common User Interface Patterns&lt;/em&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Filtering and Sorting a List&lt;/li&gt;
+
+&lt;li&gt;Paginating Through Client-Side Data&lt;/li&gt;
+
+&lt;li&gt;Paginating Through Server-Side Data&lt;/li&gt;
+
+&lt;li&gt;Paginating Using Infinite Results&lt;/li&gt;
+
+&lt;li&gt;Displaying a Flash Notice/Failure Message&lt;/li&gt;
+
+&lt;li&gt;Editing Text In-Place using HTML5 ContentEditable&lt;/li&gt;
+
+&lt;li&gt;Displaying a Modal Dialog&lt;/li&gt;
+
+&lt;li&gt;Displaying a Loading Spinner&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Chapter 9 &lt;em&gt;Backend Integration with Ruby on Rails&lt;/em&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Consuming REST APIs&lt;/li&gt;
+
+&lt;li&gt;Implementing Client-Side Routing&lt;/li&gt;
+
+&lt;li&gt;Validating Forms Server-Side&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Chapter 10 &lt;em&gt;Backend Integration with Node Express&lt;/em&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Consuming REST APIs&lt;/li&gt;
+
+&lt;li&gt;Implementing Client-Side Routing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Hope you like the new content! Please let me know if you have any suggestions or find mistakes!&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve got now all the planned content in the book and like to focus next on the quality before adding new recipes. Additionally, I found a professional copy writer who is correcting my English writing.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Angular.js Controllers: Changing a Model Value with a Controller Function</title>
