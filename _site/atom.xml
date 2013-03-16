@@ -4,13 +4,45 @@
  <title>Frederik Dietz</title>
  <link href="http://fdietz.github.com/atom.xml" rel="self"/>
  <link href="http://fdietz.github.com/"/>
- <updated>2013-02-26T15:12:15+01:00</updated>
+ <updated>2013-03-16T16:07:10+01:00</updated>
  <id>http://fdietz.github.com/</id>
  <author>
    <name>Frederik Dietz</name>
    <email>fdietz@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Team Dashboard 2 Release Candidate</title>
+   <link href="http://tom.preston-werner.com/2013/03/16/team-dashboard-2-release-candidate.html"/>
+   <updated>2013-03-16T00:00:00+01:00</updated>
+   <id>http://fdietz.github.com/2013/03/16/team-dashboard-2-release-candidate</id>
+   <content type="html">&lt;p&gt;May I present you the all new &lt;a href='https://github.com/fdietz/team_dashboard'&gt;Team Dashboard&lt;/a&gt; version 2.&lt;/p&gt;
+
+&lt;p&gt;It is a release candidate to get things stable again, so give it a try and report bugs!&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href='https://github.com/fdietz/team_dashboard/blob/master/VERSION2_MIGRATION.markdown'&gt;migration guide&lt;/a&gt; should help you getting started.&lt;/p&gt;
+
+&lt;p&gt;Changelog:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;I&amp;#8217;ve replaced Backbone.js and now use Angular.js. Some of you may already know that I&amp;#8217;m working on a leanpub book &lt;a href='https://leanpub.com/recipes-with-angular-js'&gt;Recipes with Angular.js&lt;/a&gt;. So, this shouldn&amp;#8217;t be really surprising. I don&amp;#8217;t want to start an emotional discussion about what&amp;#8217;s the better Javascript MVC Framework, but for me using Angular.js leads to less code which is much easier to maintain and understand.&lt;/li&gt;
+
+&lt;li&gt;Moving to Angular.js I was finally able to make it super straight forward to add new widgets. Read more in the &lt;a href='https://github.com/fdietz/team_dashboard/blob/master/WIDGETS.markdown'&gt;Widgets Developer Guide&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;Data source plugin implementations are now simplified too in order to make adding new sources even easier. All data source plugins use a single controller to expose the JSON API to the rails app. Additionally, I&amp;#8217;ve deprecated the plugin repository since there wasn&amp;#8217;t much going on anyways. Instead I will focus to have good quality plugins shipped with Team Dashboard out of the box. There&amp;#8217;s a &lt;a href='https://github.com/fdietz/team_dashboard/blob/master/SOURCE_PLUGINS.markdown'&gt;Data Source Plugin Developer Guide&lt;/a&gt; available as well.&lt;/li&gt;
+
+&lt;li&gt;The counter and number widgets were combined into the number widget. This was a source of confusion for beginners anyways.&lt;/li&gt;
+
+&lt;li&gt;The dashboard uses &lt;a href='http://gridster.net/'&gt;gridster.js&lt;/a&gt; instead of &lt;a href='http://jqueryui.com/sortable/'&gt;jQuery UI Sortable&lt;/a&gt; which finally makes it possible to have different widget sizes in both dimensions. This also means that all widgets support only a single data source - leading to much simpler configuration and API usage.&lt;/li&gt;
+
+&lt;li&gt;New data source plugins: &lt;a href='https://www.pingdom.com/'&gt;Pingdom&lt;/a&gt;, Shell script, &lt;a href='http://hockeyapp.net/'&gt;Hockey App&lt;/a&gt;, &lt;a href='https://github.com/errbit/errbit'&gt;Errbit&lt;/a&gt; and &lt;a href='http://newrelic.com/'&gt;New Relic&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;A more fine tuned look and feel for the widgets&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Last but not least. I&amp;#8217;d like to make it as easy as possible to contribute to Team Dashboard. Learning a new framework always takes time. That&amp;#8217;s why every contributor will receive a free copy of my &lt;a href='https://leanpub.com/recipes-with-angular-js'&gt;book&lt;/a&gt;!&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Recipes with Angular.js: New Chapters Added</title>
