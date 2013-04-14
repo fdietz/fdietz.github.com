@@ -1,3 +1,7 @@
+require 'rubygems'
+require 'rake'
+require 'date'
+
 desc 'create a new draft post'
 task :post do
   title = ENV['TITLE']
