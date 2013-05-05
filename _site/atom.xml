@@ -4,13 +4,29 @@
  <title>Frederik Dietz</title>
  <link href="http://fdietz.github.com/atom.xml" rel="self"/>
  <link href="http://fdietz.github.com/"/>
- <updated>2013-05-05T14:11:09+02:00</updated>
+ <updated>2013-05-05T14:33:59+02:00</updated>
  <id>http://fdietz.github.com/</id>
  <author>
    <name>Frederik Dietz</name>
    <email>fdietz@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Team Dashboard v2.0.0 released</title>
+   <link href="http://tom.preston-werner.com/2013/05/05/team-dashboard-v2-0-0-released.html"/>
+   <updated>2013-05-05T00:00:00+02:00</updated>
+   <id>http://fdietz.github.com/2013/05/05/team-dashboard-v2-0-0-released</id>
+   <content type="html">&lt;p&gt;I&amp;#8217;ve just tagged the &lt;code&gt;v2.0.0&lt;/code&gt; release of &lt;a href='http://fdietz.github.io/team_dashboard/'&gt;Team Dashboard&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href='https://github.com/fdietz/team_dashboard/blob/master/CHANGELOG.md'&gt;changelog&lt;/a&gt; has all the gory details. For a more user friendly read visit:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href='http://fdietz.github.io/2013/03/16/team-dashboard-2-release-candidate.html'&gt;2.0.0 Release Candidate 1&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href='http://fdietz.github.io/2013/04/14/team-dashboard-2-release-candidate-2.html'&gt;2.0.0 Release Candidate 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+ </entry>
  
  <entry>
    <title>Recipes with Angular.js: Update available</title>
