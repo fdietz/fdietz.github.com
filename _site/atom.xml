@@ -4,13 +4,29 @@
  <title>Frederik Dietz</title>
  <link href="http://fdietz.github.com/atom.xml" rel="self"/>
  <link href="http://fdietz.github.com/"/>
- <updated>2013-04-28T13:59:02+02:00</updated>
+ <updated>2013-05-05T14:11:09+02:00</updated>
  <id>http://fdietz.github.com/</id>
  <author>
    <name>Frederik Dietz</name>
    <email>fdietz@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Recipes with Angular.js: Update available</title>
+   <link href="http://tom.preston-werner.com/2013/05/05/recipes-with-angular-js-update-available.html"/>
+   <updated>2013-05-05T00:00:00+02:00</updated>
+   <id>http://fdietz.github.com/2013/05/05/recipes-with-angular-js-update-available</id>
+   <content type="html">&lt;p&gt;I&amp;#8217;ve just published a new version of &lt;a href='https://leanpub.com/recipes-with-angular-js'&gt;Recipes with Angular.js&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;Many changes were made to improve the overall quality, some chapters were completely rewritten. You will be delighted to find improved formatting of the sourcecode examples to fit nicely on the PDF version and each recipe has a direct link to the complete sourcecode on Github.&lt;/p&gt;
+
+&lt;p&gt;Additionally, it features a new chapter on deferred and promise usage in Angular.js, which was requested by some readers.&lt;/p&gt;
+
+&lt;p&gt;The is the second to the last and final update to the book. The last update will only include fixes by my english editor.&lt;/p&gt;
+
+&lt;p&gt;Hope you like it!&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Team Dashboard 2 Release Candidate 2</title>
