@@ -12,35 +12,35 @@ You want to assign a default value to the scope in the controllers context.
 ### Solution
 Use the `ng-controller` directive in your template:
 
-{% highlight html%}
+{% prism markup %}
 {% raw %}
 <div ng-controller="MyCtrl">
   <p>{{value}}</p>
 </div>
 {% endraw %}
-{% endhighlight %}
+{% endprism %}
 
 And define the scope variable in your controller function:
 
-{% highlight javascript %}
+{% prism javascript %}
 var MyCtrl = function($scope) {
   $scope.value = "some value";
 };
-{% endhighlight %}
+{% endprism %}
 
 ### Discussion
 Depending on where you use the ng-controller directive, you define its assigned scope. The scope is hierachical and follows the DOM nodes hierarchy. In our example the value expression is correctly evaluated to `some value`, since value is set in the `MyCtrl` controller.
 
 Note, that this would not work if the value expression is moved outside the controllers scope:
 
-{% highlight html%}
+{% prism markup%}
 {% raw %}
 <p>{{value}}</p>
 
 <div ng-controller="MyCtrl">
 </div>
 {% endraw %}
-{% endhighlight %}
+{% endprism %}
 
 In this case {% raw %}`{{value}}`{% endraw %} will simply be not rendered at all.
 

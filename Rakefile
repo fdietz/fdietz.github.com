@@ -1,17 +1,30 @@
-require 'rubygems'
-require 'rake'
-require 'date'
+require "rubygems"
+require "bundler/setup"
+require "shellwords"
+
+Bundler.require
+
+def prompt(message)
+  print message
+  STDIN.gets.chomp
+end
+
+def slug(str)
+  str.downcase.gsub(/[^a-z0-9]+/, '-').gsub(/^-|-$/, '');
+end
 
 desc 'create a new draft post'
 task :post do
-  title = ENV['TITLE']
-  slug = "#{Date.today}-#{title.downcase.gsub(/[^\w]+/, '-')}"
+  title     = prompt('Title: ')
+  slug      = "#{Time.now.strftime('%Y-%m-%d')}-#{slug(title)}"
 
-  file = File.join(
-    File.dirname(__FILE__),
-    '_posts',
-    slug + '.markdown'
-  )
+  file = File.join(File.dirname(__FILE__), '_posts', slug + '.markdown')
+
+  if File.exist?(file)
+    puts "Can't create new post: \e[33m#{file}\e[0m"
+    puts "  \e[31m- Path already exists.\e[0m"
+    exit 1
+  end
 
   File.open(file, "w") do |f|
     f << <<-EOS.gsub(/^    /, '')
@@ -19,13 +32,26 @@ task :post do
     layout: post
     title: #{title}
     published: false
-    categories:
     ---
 
     EOS
   end
 
   system ("#{ENV['EDITOR']} #{file}")
+end
+
+desc "Publish blog to gh-pages"
+task :publish do
+  Dir.mktmpdir do |tmp|
+    cp_r "_site/.", tmp
+    Dir.chdir tmp
+    system "git init"
+    system "git add ."
+    message = "Site updated at #{Time.now.utc}"
+    system "git commit -m #{message.shellescape}"
+    system "git remote add origin git@github.com:fdietz/fdietz.github.com.git"
+    system "git push origin master"
+  end
 end
 
 desc 'List all draft posts'

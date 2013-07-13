@@ -4,7 +4,7 @@
  <title>Frederik Dietz</title>
  <link href="http://fdietz.github.com/atom.xml" rel="self"/>
  <link href="http://fdietz.github.com/"/>
- <updated>2013-05-05T14:33:59+02:00</updated>
+ <updated>2013-07-13T16:58:11+02:00</updated>
  <id>http://fdietz.github.com/</id>
  <author>
    <name>Frederik Dietz</name>
@@ -180,19 +180,21 @@
 &lt;p&gt;Implement an increment function which changes the scope.&lt;/p&gt;
 
 &lt;p&gt;We use the &lt;code&gt;ng-init&lt;/code&gt; Directive to call the &lt;code&gt;incrementValue&lt;/code&gt; function in the template.&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='html'&gt;&lt;span class='nt'&gt;&amp;lt;div&lt;/span&gt; &lt;span class='na'&gt;ng-controller=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;MyCtrl&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class='nt'&gt;&amp;lt;p&lt;/span&gt; &lt;span class='na'&gt;ng-init=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;incrementValue(5)&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;{{value}}&lt;span class='nt'&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-&lt;span class='nt'&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-markup'&gt;&amp;lt;div ng-controller=&amp;quot;MyCtrl&amp;quot;&amp;gt;
+  &amp;lt;p ng-init=&amp;quot;incrementValue(5)&amp;quot;&amp;gt;{{value}}&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;p&gt;The controller defines the default value and the &lt;code&gt;incrementValue&lt;/code&gt; function.&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='javascript'&gt;&lt;span class='kd'&gt;function&lt;/span&gt; &lt;span class='nx'&gt;MyCtrl&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;$scope&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
-  &lt;span class='nx'&gt;$scope&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;value&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-javascript'&gt;function MyCtrl($scope) {
+  $scope.value = 1;
 
-  &lt;span class='nx'&gt;$scope&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;incrementValue&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='kd'&gt;function&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;value&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
-    &lt;span class='nx'&gt;$scope&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;value&lt;/span&gt; &lt;span class='o'&gt;+=&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
-  &lt;span class='p'&gt;};&lt;/span&gt;
-&lt;span class='p'&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  $scope.incrementValue = function(value) {
+    $scope.value += 1;
+  };
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;h3 id='discussion'&gt;Discussion&lt;/h3&gt;
 
 &lt;p&gt;The &lt;code&gt;ng-init&lt;/code&gt; directive is executed on page load and calls the function defined in &lt;code&gt;MyCtrl&lt;/code&gt;.&lt;/p&gt;
@@ -264,25 +266,28 @@
 &lt;h3 id='solution'&gt;Solution&lt;/h3&gt;
 
 &lt;p&gt;Use the &lt;code&gt;ng-controller&lt;/code&gt; directive in your template:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='html'&gt;&lt;span class='nt'&gt;&amp;lt;div&lt;/span&gt; &lt;span class='na'&gt;ng-controller=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;MyCtrl&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class='nt'&gt;&amp;lt;p&amp;gt;&lt;/span&gt;{{value}}&lt;span class='nt'&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-&lt;span class='nt'&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-markup'&gt;&amp;lt;div ng-controller=&amp;quot;MyCtrl&amp;quot;&amp;gt;
+  &amp;lt;p&amp;gt;{{value}}&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;p&gt;And define the scope variable in your controller function:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='javascript'&gt;&lt;span class='kd'&gt;var&lt;/span&gt; &lt;span class='nx'&gt;MyCtrl&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='kd'&gt;function&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;$scope&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
-  &lt;span class='nx'&gt;$scope&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;value&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;some value&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
-&lt;span class='p'&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-javascript'&gt;var MyCtrl = function($scope) {
+  $scope.value = &amp;quot;some value&amp;quot;;
+};&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;h3 id='discussion'&gt;Discussion&lt;/h3&gt;
 
 &lt;p&gt;Depending on where you use the ng-controller directive, you define its assigned scope. The scope is hierachical and follows the DOM nodes hierarchy. In our example the value expression is correctly evaluated to &lt;code&gt;some value&lt;/code&gt;, since value is set in the &lt;code&gt;MyCtrl&lt;/code&gt; controller.&lt;/p&gt;
 
 &lt;p&gt;Note, that this would not work if the value expression is moved outside the controllers scope:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='html'&gt;&lt;span class='nt'&gt;&amp;lt;p&amp;gt;&lt;/span&gt;{{value}}&lt;span class='nt'&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-markup'&gt;&amp;lt;p&amp;gt;{{value}}&amp;lt;/p&amp;gt;
 
-&lt;span class='nt'&gt;&amp;lt;div&lt;/span&gt; &lt;span class='na'&gt;ng-controller=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;MyCtrl&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
-&lt;span class='nt'&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&amp;lt;div ng-controller=&amp;quot;MyCtrl&amp;quot;&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;p&gt;In this case &lt;code&gt;{{value}}&lt;/code&gt; will simply be not rendered at all.&lt;/p&gt;
 
 &lt;p&gt;You can find the complete &lt;a href='https://github.com/fdietz/recipes-with-angular-js-examples/tree/master/chapter2/recipe1'&gt;example&lt;/a&gt; on Github.&lt;/p&gt;</content>
@@ -746,7 +751,7 @@ SUM:                            139            881            489           4069
    <link href="http://tom.preston-werner.com/2005/06/12/java-content-repository-api.html"/>
    <updated>2005-06-12T00:00:00+02:00</updated>
    <id>http://fdietz.github.com/2005/06/12/java-content-repository-api</id>
-   <content type="html">&lt;p&gt;There&amp;#8217;s an interesting &lt;a href='http://www.artima.com/lejava/articles/contentrepository.html'&gt;article&lt;/a&gt; from Frank Sommers on artima.com_Relational and object databases lack many data management features required by modern applications, such as versioning, rich data references, inheritence, or fine-grained security. Content repositories extend databases with such additional capabilities. The Java Content Repository API (JSR 170) defines a standard to access content repositories from Java code, and promises to greatly simplify Java database programming. This article reviews the Java Content Repository API and its open-source implementation, Apache Jackrabbit, from a developer&amp;#8217;s perspective._&lt;/p&gt;</content>
+   <content type="html">&lt;p&gt;There&amp;#8217;s an interesting &lt;a href='http://www.artima.com/lejava/articles/contentrepository.html'&gt;article&lt;/a&gt; from Frank Sommers on artima.com_Relational and object databases lack many data management features required by modern applications, such as versioning, rich data references, inheritence, or fine-grained security. Content repositories extend databases with such additional capabilities. The Java Content Repository API (JSR 170) defines a standard to access content repositories from Java code, and promises to greatly simplify Java database programming. This article reviews the Java Content Repository API and its open-source implementation, Apache Jackrabbit, from a developer&amp;#8217;s perspective.&lt;/p&gt;</content>
  </entry>
  
  <entry>
@@ -866,7 +871,7 @@ SUM:                            139            881            489           4069
    <link href="http://tom.preston-werner.com/2005/01/03/screenshots.html"/>
    <updated>2005-01-03T00:00:00+01:00</updated>
    <id>http://fdietz.github.com/2005/01/03/screenshots</id>
-   <content type="html">&lt;!--exhibit:preview_at_top=0--&gt;</content>
+   <content type="html">&lt;p&gt;First of all there&amp;#8217;s the new filter toolbar. Note, that we now offer complete search functionality inclusive full body search, etc. This is possible because we don&amp;#8217;t rely on the Table Model anymore. Instead we use the vFolder search functionality. This way your search is automatically saved as a child vFolder of the &amp;#8220;Search Results&amp;#8221; folder.And then the &amp;#8220;view attachment&amp;#8217;s contents inline&amp;#8221; message preview component. This is of course an optional feature. What you actually see here is a message which contains another message as attachment. This is a pretty common case, when forward a message as attachment, which is the default in most email clients today. This also works when using text or image attachments, which looks really sexy :-)&lt;/p&gt;</content>
  </entry>
  
  <entry>
@@ -898,7 +903,7 @@ SUM:                            139            881            489           4069
    <link href="http://tom.preston-werner.com/2004/12/31/groovy-language-plugin-support.html"/>
    <updated>2004-12-31T00:00:00+01:00</updated>
    <id>http://fdietz.github.com/2004/12/31/groovy-language-plugin-support</id>
-   <content type="html">&lt;!--exhibit:preview_at_top=0--&gt;</content>
+   <content type="html">&lt;p&gt;I&amp;#8217;m currently commiting the &lt;a href='http://groovy.codehaus.org'&gt;Groovy&lt;/a&gt; language support. A Groovy Interpreter plugin contains all the necessary libraries. It therefore has to be installed first, on order to start writing Groovy plugins. I&amp;#8217;ve also added a simply Hello World Groovy action plugin to demonstrate how to write plugins with Groovy.Note, that have to use the current CVS version, the plugins won&amp;#8217;t work with RC2.Following the Groovy code which opens a swing dialog:&lt;code&gt;public class HelloWorldAction extends AbstractColumbaAction {public HelloWorldAction(FrameMediator controller) {super(controller, &amp;quot;Hello, World!&amp;quot;)putValue(AbstractColumbaAction.SHORT_DESCRIPTION,                                 &amp;quot;Show me this tooltip, please&amp;quot;)}public void actionPerformed(ActionEvent evt) {JOptionPane.showMessageDialog(null, &amp;quot;Hello World!&amp;quot;)}}&lt;/code&gt;&lt;/p&gt;</content>
  </entry>
  
  <entry>
@@ -922,7 +927,7 @@ SUM:                            139            881            489           4069
    <link href="http://tom.preston-werner.com/2004/12/04/mozilla-compatible-commandline-options.html"/>
    <updated>2004-12-04T00:00:00+01:00</updated>
    <id>http://fdietz.github.com/2004/12/04/mozilla-compatible-commandline-options</id>
-   <content type="html">&lt;!--exhibit:config=ex_pictorialis.cfg--&gt;&lt;!--exhibit:config=ex_pictorialis.cfg--&gt;</content>
+   <content type="html">&lt;p&gt;The RC2 release contains the new Mozilla Mail compatible commandline options which makes integration with third-party software much easier. Most notably OpenOffice, which is the main reason why we changed this. See the screenshot on how to configure your OpenOffice to directly send messages with attached documents. Note, that you can either choose Option1 or Option2.&lt;/p&gt;</content>
  </entry>
  
  <entry>
@@ -930,7 +935,7 @@ SUM:                            139            881            489           4069
    <link href="http://tom.preston-werner.com/2004/12/03/message-list-discussion.html"/>
    <updated>2004-12-03T00:00:00+01:00</updated>
    <id>http://fdietz.github.com/2004/12/03/message-list-discussion</id>
-   <content type="html">&lt;!--exhibit:config=ex_pictorialis.cfg--&gt;</content>
+   <content type="html">&lt;p&gt;Timo and me currently investigate possibilities to improve the threaded-view usability. One idea by &lt;a href='http://www.research.ibm.com/remail/threads.html'&gt;ibm research&lt;/a&gt; came to our mind. Timo already implemented an arc-viewer control, so we would be able to play around with this thing after the RC2 release.Maybe, this way we could get rid of the current JTreeTable message-list and replace it with something more generic. The threaded-view capabilities make this old control a pain in the ass.&lt;/p&gt;</content>
  </entry>
  
  <entry>
@@ -938,7 +943,7 @@ SUM:                            139            881            489           4069
    <link href="http://tom.preston-werner.com/2004/12/02/what-happens-after-the-rc2-release.html"/>
    <updated>2004-12-02T00:00:00+01:00</updated>
    <id>http://fdietz.github.com/2004/12/02/what-happens-after-the-rc2-release</id>
-   <content type="html">&lt;p&gt;I&amp;#8217;m currently discussing things with Timo as we come closer to a final 1.0 release of Columba. First of all there will be another release candidate RC3. This is necessary in our opinion to fix a couple of micro design issues in Columba. Note, that we focus on stuff which could further lead to more work in the future. We fix stuff for the 1.0 release, so that we can add new features afterwards easily. We will get much more attention and users after the stable 1.0 release. So, we don&amp;#8217;t want to stop contributors adding new stuff, because of problems in our code.Our current planning includes a cleanup of the message viewer component and the message list. Both should be much more generic in our opinion. For example the message list knows about the fact that it displays email message headers, this way we can&amp;#8217;t reuse big parts of this swing component.&lt;!--exhibit:config=ex_pictorialis.cfg--&gt;Also on our list is a more generic approach of using the Filters and Filter Actions including the Filter Toolbar and Search Dialog. We would like to move some of the code in the core framework. It currently is a mail-component specific feature. But we want to reuse this code in the addressbook component, too.I&amp;#8217;m going to kickstart further discussions in the developer mailinglist. We should really try hard to stay focused on our goals of a quick final 1.0 release.&lt;/p&gt;</content>
+   <content type="html">&lt;p&gt;I&amp;#8217;m currently discussing things with Timo as we come closer to a final 1.0 release of Columba. First of all there will be another release candidate RC3. This is necessary in our opinion to fix a couple of micro design issues in Columba. Note, that we focus on stuff which could further lead to more work in the future. We fix stuff for the 1.0 release, so that we can add new features afterwards easily. We will get much more attention and users after the stable 1.0 release. So, we don&amp;#8217;t want to stop contributors adding new stuff, because of problems in our code.Our current planning includes a cleanup of the message viewer component and the message list. Both should be much more generic in our opinion. For example the message list knows about the fact that it displays email message headers, this way we can&amp;#8217;t reuse big parts of this swing component. Also on our list is a more generic approach of using the Filters and Filter Actions including the Filter Toolbar and Search Dialog. We would like to move some of the code in the core framework. It currently is a mail-component specific feature. But we want to reuse this code in the addressbook component, too.I&amp;#8217;m going to kickstart further discussions in the developer mailinglist. We should really try hard to stay focused on our goals of a quick final 1.0 release.&lt;/p&gt;</content>
  </entry>
  
  <entry>
@@ -1000,7 +1005,7 @@ SUM:                            139            881            489           4069
    <link href="http://tom.preston-werner.com/2004/06/14/taskmanager-dialog-added.html"/>
    <updated>2004-06-14T00:00:00+02:00</updated>
    <id>http://fdietz.github.com/2004/06/14/taskmanager-dialog-added</id>
-   <content type="html">&lt;!--exhibit:config=ex_pictorialis.cfg--&gt;</content>
+   <content type="html">&lt;p&gt;Ok, its finally there! Beautiful isn&amp;#8217;t it?I&amp;#8217;m also planning to add filters to view only certain types of tasks. This could be useful, if we would like to provide a pop3 download dialog, showing the progress of all pop3 at once. This is comparable to Outlooks dialog or Evolutions progress dialog.&lt;/p&gt;</content>
  </entry>
  
  <entry>
@@ -1032,7 +1037,7 @@ SUM:                            139            881            489           4069
    <link href="http://tom.preston-werner.com/2004/06/06/profile-management-in-cvs.html"/>
    <updated>2004-06-06T00:00:00+02:00</updated>
    <id>http://fdietz.github.com/2004/06/06/profile-management-in-cvs</id>
-   <content type="html">&lt;!--exhibit:config=ex_pictorialis.cfg--&gt;</content>
+   <content type="html">&lt;p&gt;The new profile management code is now in CVS. A sort overview can be found in our &lt;a href='http://columba.sourceforge.net/phpwiki/index.php/Profile%20Management'&gt;wiki&lt;/a&gt;.Hope you like it!&lt;/p&gt;</content>
  </entry>
  
  <entry>
@@ -1208,7 +1213,7 @@ SUM:                            139            881            489           4069
    <link href="http://tom.preston-werner.com/2004/05/06/starting-small.html"/>
    <updated>2004-05-06T00:00:00+02:00</updated>
    <id>http://fdietz.github.com/2004/05/06/starting-small</id>
-   <content type="html">&lt;!--exhibit:config=ex_pictorialis.cfg--&gt;</content>
+   <content type="html">&lt;p&gt;Its raining outside, a good day to fix some smaller issues in Columba.First of all I externalized all pending strings in the Account Dialog most notably the Spam Filter Options Panel, where I also fixed the layout.Afterwards I&amp;#8217;ve assigned every modal JDialog a correct parent JFrame, instead of just passing null. I hope this fixes the focus/window handling users noticed, as reported in the &lt;a href='http://sourceforge.net/tracker/index.php?func=detail&amp;amp;aid=866186&amp;amp;group_id=21217&amp;amp;atid=121217'&gt;bugtracker&lt;/a&gt;.Additionally, all plugins now compile cleanly. Use and the buid.xml script in the plugins directory to build all plugins. This script stops execution if a build fails. The buildall.sh shell script skips compile errors, so you can make sure that all working plugins compile.&lt;/p&gt;</content>
  </entry>
  
  <entry>

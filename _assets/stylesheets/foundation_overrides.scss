@@ -1,0 +1,41 @@
+$base-font-size: 100% !default;
+
+$em-base: 16px !default;
+
+$body-font-color: #444;
+$header-font-color: #444;
+
+$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+
+$font-smoothing: antialiased;
+
+$h1-font-size: emCalc(37px);
+$h2-font-size: emCalc(27px);
+$h3-font-size: emCalc(23px);
+$h4-font-size: emCalc(18px);
+$h5-font-size: emCalc(14px);
+$h6-font-size: 1em;
+
+$header-font-color: #57626b;
+
+$table-bg: #fff;
+$table-even-row-bg: #fff;
+$table-border-style: none;
+
+$topbar-bg: #f3f3f3;
+$topbar-height: 65px;
+
+$topbar-link-color: #999;
+$topbar-link-color-hover: #999;
+$topbar-link-color-active: #999;
+
+$topbar-title-font-size: emCalc(15px);
+$topbar-link-font-size: emCalc(15px);
+
+$topbar-menu-link-color: #999;
+$topbar-menu-icon-color: #999;
+$topbar-menu-link-color-toggled: #999;
+$topbar-menu-icon-color-toggled: #999;
+
+$topbar-dropdown-bg: #f3f3f3;
+$topbar-dropdown-link-color: #999;

@@ -3,19 +3,28 @@ layout: default
 title: Blog Archive
 ---
 
-<!-- <div id="blog-archives"> -->
-<ul class="posts">
+<h2>Archive</h2>
+<table class="posts">
 {% for post in site.posts reverse %}
   {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
 
-  {% unless year == this_year %}
-    {% assign year = this_year %}
-    <h2>{{ year }}</h2>
-  {% endunless %}
+    {% unless year == this_year %}
+      <tr>
+        <td colspan="2">
+          {% assign year = this_year %}
+          <h2>{{ year }}</h2>
+        </td>
+      </tr>
+    {% endunless %}
 
-
-    <li><span style="margin-right: 5px">{{ post.date | date_to_string }}</span> &raquo; <a style="margin-left: 5px" href="{{ post.url }}">{{ post.title }}</a></li>
-
+    <tr>
+      <td class="hide-for-small">
+        {{ post.date | date_to_string }}
+      </td>
+      <td>
+        <span class="posts-divider">&raquo;</span>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </td>
+    </tr>
 {% endfor %}
-</ul>
-<!-- </div> -->
+</table>

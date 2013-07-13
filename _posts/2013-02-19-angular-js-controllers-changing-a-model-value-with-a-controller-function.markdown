@@ -14,17 +14,17 @@ Implement an increment function which changes the scope.
 
 We use the `ng-init` Directive to call the `incrementValue` function in the template.
 
-{% highlight html%}
+{% prism markup %}
 {% raw %}
 <div ng-controller="MyCtrl">
   <p ng-init="incrementValue(5)">{{value}}</p>
 </div>
 {% endraw %}
-{% endhighlight %}
+{% endprism %}
 
 The controller defines the default value and the `incrementValue` function.
 
-{% highlight javascript %}
+{% prism javascript %}
 function MyCtrl($scope) {
   $scope.value = 1;
 
@@ -32,7 +32,7 @@ function MyCtrl($scope) {
     $scope.value += 1;
   };
 }
-{% endhighlight %}
+{% endprism %}
 
 ### Discussion
 The `ng-init` directive is executed on page load and calls the function defined in `MyCtrl`.

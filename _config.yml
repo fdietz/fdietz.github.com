@@ -1,2 +1,7 @@
 pygments: true
 # markdown: "rdiscount"
+assets:
+  compress:
+    js:   uglifier
+    css:  sass
+  cache: true
