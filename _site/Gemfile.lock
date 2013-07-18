@@ -28,6 +28,7 @@ GEM
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
     rack (1.5.2)
+    rake (10.0.4)
     sass (3.2.9)
     sprockets (2.10.0)
       hike (~> 1.2)
@@ -48,5 +49,6 @@ DEPENDENCIES
   directory_watcher (= 1.4.1)
   jekyll
   jekyll-assets
+  rake
   sass
   uglifier
