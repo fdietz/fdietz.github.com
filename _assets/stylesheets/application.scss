@@ -99,21 +99,22 @@ code {
 .outer {
     width: 128px;
     height: 128px;
-    -webkit-box-shadow: 0px 0px 3px #4d4d4d;
-    -moz-box-shadow: 0px 0px 3px #4d4d4d;
-    box-shadow: 0px 0px 3px #4d4d4d;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
+    -webkit-box-shadow: 0px 0px 1px #4d4d4d;
+    -moz-box-shadow: 0px 0px 1px #4d4d4d;
+    box-shadow: 0px 0px 1px #4d4d4d;
+
+    // -webkit-border-radius: 6px;
+    // -moz-border-radius: 6px;
+    // border-radius: 6px;
+
     overflow: hidden;
 }
 
 .image {
-    background: red;
     padding: 0;
-     -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
+    //  -webkit-border-radius: 6px;
+    // -moz-border-radius: 6px;
+    // border-radius: 6px;
     width: 128px;
     height: 128px;
     overflow: hidden;
@@ -136,7 +137,6 @@ code {
 .image-small {
   display: inline-block;
 
-    background: red;
     padding: 0;
      -webkit-border-radius: 6px;
     -moz-border-radius: 6px;

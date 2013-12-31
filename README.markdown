@@ -2,6 +2,10 @@
 
 # Example Usage
 
+Open site locally:
+
+    jekyll serve --watch
+
 Generate site:
 
     rake site:generate

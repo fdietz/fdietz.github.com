@@ -14,7 +14,7 @@ Team Dashboard Number and Boolean Widgets support a HTTP Proxy data source alrea
 But what if you have an existing service with a different structure? With the new version you can additionally set a value path using a dot notation to select a specific value in your JSON structure.
 
 Example JSON:
-<pre>
+{% raw %}
 {
   "parent" : {
     "child" : {
@@ -22,6 +22,6 @@ Example JSON:
     }
   }
 }
-</pre>
+{% endraw %}
 
 A value path of "parent.child.child2" would resolve "myValue".
