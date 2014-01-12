@@ -88,6 +88,11 @@ code {
 }
 
 .top-bar {
+  .title-area > li.name > h1 > a {
+    font-size: 1.5rem;
+  }
+
+  box-shadow: 0 1px darken($topbar-bg, 5%);
 }
 
 code {
