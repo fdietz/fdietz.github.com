@@ -1,11 +1,9 @@
 ---
 layout: default
 ---
-{{ post.title }}
-
 <div id="post">
-  <h2><a class="post-title" href="{{ page.url }}">{{ page.title }}</a></h2>
-  <h3 class="subheader published">published {{ page.date | date_to_string }}</h3>
+  <h2 class="post-title">{{ page.title }}</h2>
+  <h3 class="subheader published">Published {{ page.date | date_to_string }}</h3>
   {{ content }}
 </div>
 

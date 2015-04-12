@@ -4,6 +4,178 @@
 @import "foundation_overrides";
 @import "foundation";
 
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -1.19px;
+}
+
+.main-content {
+  margin-top: 50px;
+}
+
+.top-bar {
+  margin-bottom: 0;
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 1px darken($topbar-bg, 5%);
+
+  .centered-title {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 4px;
+    height: 45px;
+    width: 150px;
+
+    color: $body-font-color;
+    font-family: $header-font-family;
+    font-size: 0.9em;
+    line-height: 1.3em;
+    font-weight: 300;
+
+    img {
+      border-radius: 3px;
+      margin: 6px 5px 5px 5px;
+      float: left;
+    }
+
+    .secondary {
+      // text-transform: uppercase;
+      color: #CCC;
+      // font-size: 0.8em;
+      // line-height: 1.4em;
+      margin-top: 5px;
+    }
+
+    .primary {
+      margin-top: -1px;
+      // color: rgb(97, 97, 97);
+    }
+
+  }
+
+  .toggle-topbar.menu-icon a span::after {
+    box-shadow: 0 0px 0 1px $body-font-color, 0 7px 0 1px $body-font-color, 0 14px 0 1px $body-font-color;
+  }
+
+  // .name {
+  //   padding: 5px;
+
+  //   a {
+
+  //   }
+
+  // }
+}
+
+.row {
+  max-width: 48em;
+}
+
+#post {
+  h2 {
+    margin-bottom: 0;
+    color: $body-font-color;
+  }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 1em;
+    font-size: 1.7em;
+  }
+
+  p {
+    font-size: 1.1em;
+    line-height: 1.8em;
+    word-wrap: break-word;
+    letter-spacing: .01rem;
+
+    a {
+      color: $body-font-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+
+
+.hero {
+
+  h1 {
+    // margin-top: 16px;
+    margin-bottom: 0px;
+
+    margin-top: 0.2em;
+
+    font-size: 2em;
+
+    // font-size: 32px;
+    // line-height: 28px;
+
+    text-align: center;
+    color: $body-font-color !important;
+  }
+
+  .button-group li .button {
+    border: 0 !important;
+    color: $body-font-color;
+    font-family: $header-font-family;
+    font-size: emCalc(23px);
+  }
+
+  .button {
+    -webkit-appearance: none;
+    background-color: transparent;
+    border-width: 0;
+    text-align: center;
+    box-shadow: 0 0 0;
+  }
+
+  .button:hover {
+    color: rgba(255, 255, 255, 0.7);
+    background-color: transparent;
+  }
+}
+
+@media only screen and (max-width: 40em) {
+  .columns.large-centered {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (min-width: 40.063em) {
+  .columns.large-centered {
+    font-size: 14px;
+  }
+}
+
+.hero {
+  padding-bottom: 50px;
+  // background-image: url("/images/DSCF1988.JPG");
+  // background-size: cover;
+  // box-shadow: inset 0px 0px 0 2000px rgba(0,0,0,0.2);
+  // height: 500px;
+}
+
+// body {
+//   font-family: "Merriweather Sans", sans-serif
+// }
+
+// #post {
+//   font-family: "Merriweather", serif;
+// }
+
+// h1, h2, h3, h4, h5, h6, .top-bar-section {
+//   font-family: "Merriweather Sans", sans-serif
+// }
+
+// .post-title {
+//   font-family: "Merriweather Sans", sans-serif
+// }
+
+// .subheader {
+//   font-family: "Merriweather Sans", sans-serif
+// }
+
 ol, ul {
   padding-left: 40px;
 }
@@ -39,13 +211,13 @@ code {
   font-size: 0.7em;
 }
 
-.similar-pages {
-  font-size: 0.9em;
+// .similar-pages {
+//   font-size: 0.9em;
 
-  ul {
-    // padding-left: 20px;
-  }
-}
+//   ul {
+//     // padding-left: 20px;
+//   }
+// }
 
 .footer {
   border-top: 1px solid #ddd;
@@ -55,45 +227,45 @@ code {
   margin-top: 20px;
 }
 
-.top-bar-section {
-  ul {
-    padding-left: 0px;
-  }
-}
+// .top-bar-section {
+//   ul {
+//     padding-left: 0px;
+//   }
+// }
 
-.top-bar {
-  margin-bottom: 40px;
-}
+// .top-bar {
+//   margin-bottom: 40px;
+// }
 
-.posts {
-  /*border: none;*/
-}
+// .posts {
+//   /*border: none;*/
+// }
 
-.post-title {
-  margin-bottom: 0.2em;
-}
+// .post-title {
+//   margin-bottom: 0.2em;
+// }
 
-.published {
-  /* color: #8F8989;*/
-  margin-top: -0.2em;
-  margin-bottom: 0.5em;
-}
+// .published {
+//   /* color: #8F8989;*/
+//   margin-top: -0.2em;
+//   margin-bottom: 0.5em;
+// }
 
-.posts-divider {
-  margin-right: 5px;
-}
+// .posts-divider {
+//   margin-right: 5px;
+// }
 
 .no-bullets {
   list-style-type: none;
 }
 
-.top-bar {
-  .title-area > li.name > h1 > a {
-    font-size: 1.5rem;
-  }
+// .top-bar {
+//   .title-area > li.name > h1 > a {
+//     font-size: 1.5rem;
+//   }
 
-  box-shadow: 0 1px darken($topbar-bg, 5%);
-}
+//   box-shadow: 0 1px darken($topbar-bg, 5%);
+// }
 
 code {
   color: #444;

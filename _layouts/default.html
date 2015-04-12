@@ -12,6 +12,7 @@
 
     <link href="http://feeds.feedburner.com/fdietz" rel="alternate" title="Frederik Dietz" type="application/atom+xml" />
 
+
     <!-- <link rel="stylesheet" href="/css/style.css"> -->
 
      <!-- syntax highlighting CSS -->
@@ -19,29 +20,90 @@
 
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700,300italic,400italic' rel='stylesheet' type='text/css'>
+
+    <link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,700,400italic,300italic' rel='stylesheet' type='text/css'>
+
     {% stylesheet application %}
   </head>
   <body>
 
-    <nav class="top-bar">
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="/">fdietz.github.io</a></h1>
-        </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-      </ul>
+    <!-- <div class="row">
+      <div class="large-12 columns large-centered">
+        <a href="/"><h1>fdietz.github.io</h1></a>
+        <div class="row">
+          <div class="large-12 columns large-centered">
+            <ul class="button-group even-4">
+              <li><a class="button" href="/archive.html">archive</a></li>
+              <li><a class="button" href="/projects.html">projects</a></li>
+              <li><a class="button" href="/books.html">books</a></li>
+              <li><a class="button" href="/about.html">about</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+ -->
+    <!-- <section class="hero">
+      <div class="row">
+        <div class="large-12 columns large-centered">
+          <a href="/"><h1>fdietz.github.io</h1></a>
+          <hr>
+          <div class="row">
+            <div class="large-12 columns large-centered">
+              <ul class="button-group even-4">
+                <li><a class="button" href="/archive.html">archive</a></li>
+                <li><a class="button" href="/projects.html">projects</a></li>
+                <li><a class="button" href="/books.html">books</a></li>
+                <li><a class="button" href="/about.html">about</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
 
-      <section class="top-bar-section">
-        <ul class="left">
-          <li><a href="/archive.html">archive</a></li>
-          <li><a href="/projects.html">projects</a></li>
-          <li><a href="/books.html">books</a></li>
-          <li><a href="/about.html">about</a></li>
+    <div class="fixed">
+      <nav class="top-bar">
+
+        <a href="/" class="centered-title">
+          <img src="{% asset_path profile_small.jpg %}" width="30px" height="30px" alt="profile" class="avatar">
+          <div class="secondary">Frederik Dietz</div>
+          <div class="primary">fdietz.github.io</div>
+        </a>
+
+        <ul class="title-area">
+          <li class="name"></li>
+          <!-- <li class="name">
+            <a href="/">
+              <img src="{% asset_path profile_small.jpg %}" width="32px" height="32px" alt="profile" class="avatar">
+              <div class="secondary">Published by</div>
+              <div class="primary">fdietz.github.io</div>
+
+            </a>
+          </li> -->
+          <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
         </ul>
-      </section>
-    </nav>
 
-    <div class="row">
+        <section class="top-bar-section">
+          <ul class="left">
+            <li><a href="/archive.html">archive</a></li>
+            <li><a href="/projects.html">projects</a></li>
+            <li><a href="/books.html">books</a></li>
+            <li><a href="/about.html">about</a></li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+
+    <!-- <div class="row">
+      <div class="large-12 columns">
+        <h1><a href="/">fdietz.github.io</a></h1>
+      </div>
+    </div> -->
+
+    <div class="row main-content">
       <div class="large-12 columns">
         {{ content }}
       </div>

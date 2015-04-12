@@ -1,21 +1,24 @@
-$base-font-size: 100% !default;
+// $base-font-size: 100% !default;
 
-$em-base: 16px !default;
+$em-base: 14px !default;
 
 $body-font-color: #444;
 $header-font-color: #444;
 
-$body-font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-$header-font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+// $body-font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+// $header-font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+
+$body-font-family: "Merriweather", serif;
+$header-font-family: "Merriweather Sans", "Helvetica Neue", "Helvetica", sans-serif;
 
 $font-smoothing: antialiased;
 
-$h1-font-size: emCalc(37px);
-$h2-font-size: emCalc(27px);
-$h3-font-size: emCalc(23px);
-$h4-font-size: emCalc(18px);
-$h5-font-size: emCalc(14px);
-$h6-font-size: 1em;
+// $h1-font-size: emCalc(37px);
+// $h2-font-size: emCalc(27px);
+// $h3-font-size: emCalc(23px);
+// $h4-font-size: emCalc(18px);
+// $h5-font-size: emCalc(14px);
+// $h6-font-size: 1em;
 
 $header-font-color: #57626b;
 
@@ -24,15 +27,15 @@ $table-even-row-bg: #fff;
 $table-border-style: none;
 $table-row-font-color: #444;
 
-$topbar-bg: #f3f3f3;
-$topbar-height: 45px;
+$topbar-bg: #FFF;
+$topbar-height: 52px;
 
 $topbar-link-color: #57626b;
 $topbar-link-color-hover: #57626b;
 $topbar-link-color-active: #57626b;
 
-$topbar-title-font-size: emCalc(15px);
-$topbar-link-font-size: emCalc(15px);
+$topbar-title-font-size: emCalc(11px);
+$topbar-link-font-size: emCalc(11px);
 
 $topbar-menu-link-color: #57626b;
 $topbar-menu-icon-color: #57626b;
@@ -41,3 +44,5 @@ $topbar-menu-icon-color-toggled: #57626b;
 
 $topbar-dropdown-bg: #f3f3f3;
 $topbar-dropdown-link-color: #57626b;
+
+$topbar-breakpoint: emCalc(9999px);
