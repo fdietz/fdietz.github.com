@@ -1,4 +1,4 @@
-$selection-color: #555;
+$selection-color: #BCDAE4;
 
 .post {
   h2 {
@@ -24,12 +24,20 @@ $selection-color: #555;
     word-wrap: break-word;
     letter-spacing: .01rem;
 
+    &::selection {
+      background: $selection-color;
+    }
+
+    &::-moz-selection {
+      background: $selection-color;
+    }
+
     a {
       color: $body-font-color;
       text-decoration: none;
 
       // see https://eager.io/blog/smarter-link-underlines/
-      background: -webkit-linear-gradient(#fff, #fff), -webkit-linear-gradient(#fff, #fff), -webkit-linear-gradient(#333332, #333332);
+      background: -webkit-linear-gradient(#fff, #fff), -webkit-linear-gradient(#fff, #fff), -webkit-linear-gradient(#666, #666);
       background-size: .05em 1px, .05em 1px, 1px 1px;
       background-repeat: no-repeat, no-repeat, repeat-x;
       text-shadow: 0.03em 0 #fff, -0.03em 0 #fff, 0 0.03em #fff, 0 -0.03em #fff, 0.06em 0 #fff, -0.06em 0 #fff, 0.09em 0 #fff, -0.09em 0 #fff, 0.12em 0 #fff, -0.12em 0 #fff, 0.15em 0 #fff, -0.15em 0 #fff;
@@ -56,5 +64,14 @@ $selection-color: #555;
       }
 
     }
+  }
+
+  .centered-image {
+    p {
+      margin-top: 5px;
+      text-align: center;
+      font-style: italic;
+    }
+
   }
 }
