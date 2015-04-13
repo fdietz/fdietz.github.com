@@ -10,7 +10,7 @@ You probably know [Slack](https://slack.com/), [Hipchat](https://www.hipchat.com
 
 In the next 5 days I'd like to show you how to build your own chat service and will give you a basis you can work with to add your own unique ideas. So, the emphasize here will be learning how to build your own system in comparison to all these hipster startups out there who focus on saving the world ;-)
 
-<div class="centered-image">
+<div class="centered-image full-size">
   <img src="/images/DSCF2636.JPG">
   <p>Obligatory hipster workspace pic</p>
 </div>
