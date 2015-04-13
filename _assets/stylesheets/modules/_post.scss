@@ -1,0 +1,54 @@
+$selection-color: #555;
+
+.post {
+  h2 {
+    margin-bottom: 0;
+    color: $body-font-color;
+  }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 1em;
+    font-size: 1.7em;
+  }
+
+  p {
+    font-size: 1.1em;
+    line-height: 1.8em;
+    word-wrap: break-word;
+    letter-spacing: .01rem;
+
+    a {
+      color: $body-font-color;
+      text-decoration: none;
+
+      // see https://eager.io/blog/smarter-link-underlines/
+      background: -webkit-linear-gradient(#fff, #fff), -webkit-linear-gradient(#fff, #fff), -webkit-linear-gradient(#333332, #333332);
+      background-size: .05em 1px, .05em 1px, 1px 1px;
+      background-repeat: no-repeat, no-repeat, repeat-x;
+      text-shadow: 0.03em 0 #fff, -0.03em 0 #fff, 0 0.03em #fff, 0 -0.03em #fff, 0.06em 0 #fff, -0.06em 0 #fff, 0.09em 0 #fff, -0.09em 0 #fff, 0.12em 0 #fff, -0.12em 0 #fff, 0.15em 0 #fff, -0.15em 0 #fff;
+      background-position-y: 86%, 86%, 86%;
+      background-position-x: 0%, 100%, 0%;
+
+      &::selection {
+        text-shadow: 0.03em 0 $selection-color, -0.03em 0 $selection-color, 0 0.03em $selection-color, 0 -0.03em $selection-color, 0.06em 0 $selection-color, -0.06em 0 $selection-color, 0.09em 0 $selection-color, -0.09em 0 $selection-color, 0.12em 0 $selection-color, -0.12em 0 $selection-color, 0.15em 0 $selection-color, -0.15em 0 $selection-color;
+        background: $selection-color;
+      }
+
+      &::-moz-selection {
+        text-shadow: 0.03em 0 $selection-color, -0.03em 0 $selection-color, 0 0.03em $selection-color, 0 -0.03em $selection-color, 0.06em 0 $selection-color, -0.06em 0 $selection-color, 0.09em 0 $selection-color, -0.09em 0 $selection-color, 0.12em 0 $selection-color, -0.12em 0 $selection-color, 0.15em 0 $selection-color, -0.15em 0 $selection-color;
+        background: $selection-color;
+      }
+
+      &:before, &:after, *, *:before, *:after {
+        text-shadow: none;
+      }
+
+
+      &:visited {
+        color: inherit;
+      }
+
+    }
+  }
+}
