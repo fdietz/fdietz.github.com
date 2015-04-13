@@ -4,29 +4,23 @@ title: Frederik Dietz
 ---
 
 <h2>Blog Posts</h2>
-<table class="posts">
+<ul class="post-list no-bullets">
   {% for post in site.posts limit: 5 %}
-    <tr>
-      <td class="hide-for-small">
-        {{ post.date | date_to_string }}
-      </td>
-      <td>
-        <span class="posts-divider">&raquo;</span>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-      </td>
-    </tr>
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <div class="date">{{ post.date | date_to_string }}</div>
+    </li>
   {% endfor %}
-</table>
+</ul>
 
 <h2>Open Source Projects</h2>
 <ul class="no-bullets">
-  <li><a style="margin-right: 5px" href="http://fdietz.github.com/team_dashboard">Team Dashboard</a>Visualize your team's metrics all in one place.</li>
+  <li><a href="http://fdietz.github.com/team_dashboard">Team Dashboard</a> — Visualize your team's metrics all in one place.</li>
 </ul>
 
 <h2>Books</h2>
 <ul class="no-bullets">
   <li>
-    <a style="margin-right: 5px" href="https://leanpub.com/recipes-with-angular-js">Recipes with Angular.js</a>
-    Practical concepts and techniques for rapid web application development
+    <a href="https://leanpub.com/recipes-with-angular-js">Recipes with Angular.js</a> — Practical concepts and techniques for rapid web application development
   </li>
 </ul>
