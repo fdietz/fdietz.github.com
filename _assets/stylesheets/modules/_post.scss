@@ -64,6 +64,18 @@ $selection-color: #BCDAE4;
       }
 
     }
+
+    > code {
+      font-family: "Source Code Pro", Consolas, monospace;
+      font-weight: 300;
+      font-size: 0.9rem;
+
+      color: $primary-color;
+      background-color: lighten($primary-color, 40%);
+
+      padding: 3px 4px;
+      border-radius: 4px;
+    }
   }
 
   .centered-image {
@@ -73,5 +85,14 @@ $selection-color: #BCDAE4;
       font-style: italic;
     }
 
+    &.shadow {
+      img {
+        box-shadow: 2px 2px 9px 2px rgba(199,199,199,1);
+      }
+    }
+  }
+
+  pre {
+    margin-bottom: 3em;
   }
 }
