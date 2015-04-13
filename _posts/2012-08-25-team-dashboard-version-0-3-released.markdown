@@ -9,8 +9,6 @@ type: post
 status: published
 ---
 
-## Team Dashboard v0.3 released
-
 This release includes 69 commits of shiny new features, bug fixes and polishing.
 
 Most notable changes are:

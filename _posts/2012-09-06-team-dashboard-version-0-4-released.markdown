@@ -9,8 +9,6 @@ type: post
 status: published
 ---
 
-## Team Dashboard v0.4 released
-
 This was a busy week, lots of new stuff to check out!
 
 Most notable changes are:
