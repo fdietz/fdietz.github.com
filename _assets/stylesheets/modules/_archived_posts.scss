@@ -1,0 +1,19 @@
+.archived-posts {
+
+  list-style-type: none;
+  padding: 0;
+
+  > li {
+    margin-bottom: 15px;
+
+    a {
+      display: block;
+    }
+
+    .date {
+      color: #B5B5B5;
+      font-weight: 100;
+    }
+  }
+
+}

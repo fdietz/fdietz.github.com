@@ -1,5 +1,6 @@
-//= require normalize
 //= require prism
+
+@import "base/normalize";
 
 @import "foundation_overrides";
 @import "foundation";
@@ -8,6 +9,9 @@
 @import "modules/syntax";
 @import "modules/top_bar";
 @import "modules/post";
+@import "modules/footer";
+@import "modules/related_posts";
+@import "modules/archived_posts";
 
 @import "pages/about";
 
@@ -23,17 +27,8 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 48em;
 }
 
-ol, ul {
-  padding-left: 40px;
-}
-
-// .author {
-//   font-size: 0.7em;
-// }
-
 footer {
   color: $body-font-color;
-  font-family: $header-font-family;
 }
 
 .no-bullets {

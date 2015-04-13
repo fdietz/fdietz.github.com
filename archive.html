@@ -1,9 +1,27 @@
 ---
-layout: default
+layout: page
 title: Blog Archive
 ---
 
-<h2>Archive</h2>
+<h1>Archive</h1>
+<ul class="archived-posts no-bullets">
+  {% for post in site.posts reverse %}
+
+    {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+
+    {% unless year == this_year %}
+      {% assign year = this_year %}
+      <h2>{{ year }}</h2>
+    {% endunless %}
+
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <div class="date">{{ post.date | date_to_string }}</div>
+    </li>
+  {% endfor %}
+</ul>
+
+
 <table class="posts">
 {% for post in site.posts reverse %}
   {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
