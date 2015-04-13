@@ -19,7 +19,7 @@ Since I haven't really done any upfront planing or detailed product definition w
 
 I will focus much more on the design and implementation challenges on the frontend instead of the backend. So, this will be especially interesting for AngularJS developers who want to learn how to structure more complex projects. Since I'd like to challenge myself, I'm going to use ES6 which is currently not really well documented. But, it is certainly the future of Javascript development and I'm eager to get to know it better in these upcoming days.
 
-As a prerequisite I assume you have basic knowledge about HTML, CSS, Javascript and AngularJS - bonus points for NodeJS and things like [gulp](http://gulpjs.com/).
+As a prerequisite I assume you have basic knowledge of HTML, CSS, Javascript and AngularJS - bonus points for NodeJS and things like [gulp](http://gulpjs.com/).
 
 
 
