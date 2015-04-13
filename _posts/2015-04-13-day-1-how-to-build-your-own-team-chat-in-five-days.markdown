@@ -114,7 +114,7 @@ You can find the complete sourcecode on the accompanying [Github repo](https://g
 
 <hr>
 
-Okidoki. This is it for day 1. Hope you liked it and see you tomorrow!
+Okidoki. This is it for day 1 - hope you liked it! Tomorrow we will look into using AngularJS to structure our team chat and get some initial interaction going. See you tomorrow!
 
 
 
