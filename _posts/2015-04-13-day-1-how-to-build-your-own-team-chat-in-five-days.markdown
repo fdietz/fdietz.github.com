@@ -116,6 +116,8 @@ You can find the complete sourcecode on the accompanying [Github repo](https://g
 
 Okidoki. This is it for day 1 - hope you liked it! Tomorrow we will look into using AngularJS to structure our team chat and get some initial interaction going. See you tomorrow!
 
+<hr>
 
+This is part 1 of an ongoing series of blog posts. Continue reading [part 2](/2015/04/14/day-2-how-to-build-your-own-team-chat-in-five-days.html).
 
 
