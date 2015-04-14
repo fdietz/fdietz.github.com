@@ -1,0 +1,44 @@
+.project-list {
+  list-style-type: none;
+  padding: 0;
+
+  margin-left: -20px;
+  margin-right: -20px;
+
+  > li {
+    padding: 20px;
+
+    &:last-child {
+      border: none;
+    }
+
+    &:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+
+    a {
+      display: block;
+
+      img {
+        float: left;
+        width: 120px;
+        margin-right: 20px;
+      }
+
+      .meta {
+        h4, p {
+        }
+      }
+    }
+
+    &:hover {
+      background-color: #f6f6f6;
+    }
+
+  }
+
+}
