@@ -399,3 +399,8 @@ If you want to use the Angular seed project for your own projects you can direct
 <hr>
 
 That's it for today! Hope I haven't lost you in the confusing world of Javascript modules. See you tomorrow but this time I'm really starting with "chitchat" ;-)
+
+<hr>
+
+This is part 2 of an ongoing series of blog posts. Continue reading [part 3](/2015/04/15/day-3-how-to-build-your-own-team-chat-in-five-days.html).
+
