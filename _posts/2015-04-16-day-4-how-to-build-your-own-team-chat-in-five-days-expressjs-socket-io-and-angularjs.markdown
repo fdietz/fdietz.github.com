@@ -165,8 +165,10 @@ io.on("connection", function(socket) {
     participants.push({ id: data.id, name: newName });
 
     io.sockets.emit("new_connection", {
-      id: data.id,
-      name: newName,
+      user: {
+        id: data.id,
+        name: newName
+      },
       sender:"system",
       created_at: new Date().toISOString(),
       participants: participants
@@ -202,9 +204,9 @@ export default class WebSocket {
       // this is the new event handler
       this.socket.on('new_connection', (data) => {
 
-        if (data.id === sessionId) {
+        if (data.user.id === sessionId) {
           this.$rootScope.$apply(() => {
-            Auth.setCurrentUser(data);
+            Auth.setCurrentUser(data.user);
           });
         }
       });
@@ -514,11 +516,11 @@ class MessageListController {
   }
 
   handleUserDisconnected(data) {
-    this.messages.push({ message: `User ${data.name} disconnected`, name: "System", created_at: data.created_at, type: "notification" });
+    this.messages.push({ message: `User ${data.user.name} disconnected`, name: "System", created_at: data.created_at, type: "notification" });
   }
 
   handleNewConnection(data) {
-    this.messages.push({ message: `User ${data.name} joined`, name: "System", created_at: data.created_at, type: "notification" });
+    this.messages.push({ message: `User ${data.user.name} joined`, name: "System", created_at: data.created_at, type: "notification" });
   }
 
 }
