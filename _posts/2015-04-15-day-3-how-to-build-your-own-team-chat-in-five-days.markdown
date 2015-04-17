@@ -55,3 +55,7 @@ Let's have a look at the code more closely tomorrow - sadly I don't have the tim
 <hr>
 
 The complete sourcecode can be found in the [github repository](https://github.com/fdietz/how_to_build_your_own_team_chat_in_five_days/tree/master/day_3/nodejs_express_socketio_chat).
+
+<hr>
+
+This is part 3 of an ongoing series of blog posts. Continue reading [part 4](/2015/04/16/day-4-how-to-build-your-own-team-chat-in-five-days-expressjs-socket-io-and-angularjs.html).

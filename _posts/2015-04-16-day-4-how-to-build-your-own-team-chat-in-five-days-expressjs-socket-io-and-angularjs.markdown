@@ -538,8 +538,12 @@ Now one could argue why this complexity on the client side and in fact I might d
 
 There are two more components namely the `sidebar` and the `participants-list`, but they are in fact pretty similar to what you've seen here already so I'm not going to go into further explaining them here.
 
-That's it for today! I'm going to get back to coding. So, stay tuned for tomorrow where I hopefully introduce some user management and a persistence layer to chitchat.
+That's it for today! I'm going to get back to coding. So, stay tuned for tomorrow where I hopefully have the time to add some more polish to the frontend!
 
 <hr>
 
 The complete sourcecode can be found in the [github repository](https://github.com/fdietz/how_to_build_your_own_team_chat_in_five_days/tree/master/day_4/nodejs_express_socketio_chat).
+
+<hr>
+
+This is part 4 of an ongoing series of blog posts. Continue reading [part 5](/2015/04/17/day-5-how-to-build-your-own-team-chat-in-five-days-angular-filters-and-directives.html).
