@@ -1,7 +1,9 @@
 ---
 layout: post
-title: Day 3 - How to build your own team chat in five days
+title: Day 3 - How to build your own team chat in five days - ExpressJS, Socket.io and AngularJS
 published: true
+redirect_from:
+  - /2015/04/15/day-3-how-to-build-your-own-team-chat-in-five-days.html
 ---
 This is part 3 of an ongoing series of blog posts. Read [part 1](/2015/04/13/day-1-how-to-build-your-own-team-chat-in-five-days.html) first and then come back, please!
 
@@ -61,7 +63,7 @@ The complete sourcecode can be found in the [github repository](https://github.c
 This is part 3 of an ongoing series of blog posts. Continue reading [part 4](/2015/04/16/day-4-how-to-build-your-own-team-chat-in-five-days-expressjs-socket-io-and-angularjs.html).
 
 * [Day 1 - How to build your own team chat in five days](/2015/04/13/day-1-how-to-build-your-own-team-chat-in-five-days.html)
-* [Day 2 - ES6 Modules, AngularJS, SystemJS and JSPM](/2015/04/14/day-2-how-to-build-your-own-team-chat-in-five-days.html)
-* [Day 3 - ExpressJS, Socket.io and AngularJS](/2015/04/15/day-3-how-to-build-your-own-team-chat-in-five-days.html)
-* [Day 4 - ExpressJS, Socket.io and AngularJS component-based design patterns](/2015/04/16/day-4-how-to-build-your-own-team-chat-in-five-days-expressjs-socket-io-and-angularjs.html)
+* [Day 2 - ES6 Modules, AngularJS, SystemJS and JSPM](/2015/04/14/day-2-how-to-build-your-own-team-chat-in-five-days-es6-modules-angularjs-systemjs-and-jspm.html)
+* [Day 3 - ExpressJS, Socket.io and AngularJS](http://localhost:4000/2015/04/15/day-3-how-to-build-your-own-team-chat-in-five-days-expressjs-socket-io-and-angularjs.html)
+* [Day 4 - ExpressJS, Socket.io and AngularJS component-based design patterns](/2015/04/16/day-4-how-to-build-your-own-team-chat-in-five-days-expressjs-socket-io-and-angularjs-component-based-design-patterns.html)
 * [Day 5 - AngularJS Filters and Directives](/2015/04/17/day-5-how-to-build-your-own-team-chat-in-five-days-angular-filters-and-directives.html)

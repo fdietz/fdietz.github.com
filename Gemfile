@@ -6,3 +6,4 @@ gem "directory_watcher"
 gem 'jekyll-assets'
 gem 'sass'
 gem 'uglifier'
+gem 'jekyll-redirect-from'

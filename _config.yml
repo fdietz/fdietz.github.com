@@ -6,3 +6,6 @@ assets:
     js:   uglifier
     css:  sass
   cache: true
+
+gems:
+  - jekyll-redirect-from
