@@ -1,6 +1,5 @@
 highlighter: true
-# markdown: "rdiscount"
-host: fdietz.github.io
+host: localhost #fdietz.github.io
 assets:
   compress:
     js:   uglifier
