@@ -19,6 +19,12 @@
   --space-2: 2rem;
 }
 
+@media only screen and (max-width: 640px) {
+  html {
+    font-size: 1rem;
+  }
+}
+
 hr {
   border: 1px solid var(--color-gray-lighter);
   margin: 2.5em 0 2.4em;
@@ -53,20 +59,25 @@ nav {
     margin-left: var(--space-1);
     display: flex;
     align-items: center;
-    width: 100%;
 
     img {
       width: 40px;
       height: 40px;
       border-radius: 3px;
       margin-right: var(--space-0_5);
-    }
 
+    }
+    
     .meta {
       display: flex;
       flex-direction: column;
     }
 
+    @media only screen and (max-width: 640px) {
+      span {
+        display: none;
+      }
+    }
   }
 
   .menu {
