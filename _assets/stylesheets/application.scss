@@ -1,43 +1,105 @@
-//= require prism
-
-@import "base/normalize";
-
-@import "foundation_overrides";
-@import "foundation";
-
+@import "modules/blockquote";
+@import "modules/footer";
+@import "modules/post_list";
+@import "modules/post";
+@import "modules/prism";
+@import "modules/project_list";
 @import "modules/share_menu";
 @import "modules/syntax";
-@import "modules/top_bar";
-@import "modules/post";
-@import "modules/footer";
-@import "modules/related_posts";
-@import "modules/post_list";
-@import "modules/blockquote";
-@import "modules/project_list";
 
-@import "pages/about";
+:root{
+  --color-gray-lighter: #f2f2f2;
+  --border-color: var(--color-gray-lighter);
+  --font-family-base: "Open Sans", "Helvetica Neue", "Helvetica", sans-serif;
+  --font-weight-base: 400;
+  --line-height-base: 1.6;
 
-h1, h2, h3, h4, h5, h6 {
-  letter-spacing: -1.19px;
-}
-
-.main-content {
-  margin-top: 50px;
-}
-
-.row {
-  max-width: 48em;
+  --margin-bottom-sm: 0.8rem;
+  --margin-bottom: 1.6rem;
+  --space-2: 2rem;
 }
 
 hr {
-  border: 1px solid #f2f2f2;
+  border: 1px solid var(--color-gray-lighter);
   margin: 2.5em 0 2.4em;
-}
-
-footer {
-  color: $body-font-color;
 }
 
 .no-bullets {
   list-style-type: none;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+nav {
+  display: flex;  
+  align-items: center;
+  height: 52px;
+  position: relative;
+
+  max-width: 48em;
+  margin-left: auto;
+  margin-right: auto;
+
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px var(--border-color);
+
+  .title {
+    margin-left: var(--space-1);
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 3px;
+      margin-right: var(--space-0_5);
+    }
+
+    .meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+  }
+
+  .menu {
+    width: 100%;
+    text-align: right;
+
+    margin: 0;
+    padding: 0;
+    margin-right: 1rem;
+    margin-left: auto;
+
+    list-style: none;
+
+    > li {
+      display: inline-block;
+      margin-left: 1em;
+    }
+  }
+}
+
+.main-content {
+  width: 100%;
+  max-width: 48em;
+  margin-top: calc(50px + 1rem);
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 0 var(--space-1);
+}
+
+.profile-image {
+  float: right;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 4px;
 }

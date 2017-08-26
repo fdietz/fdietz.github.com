@@ -1,5 +1,5 @@
 highlighter: true
-host: fdietz.github.io
+# host: fdietz.github.io
 assets:
   compress:
     js:   uglifier

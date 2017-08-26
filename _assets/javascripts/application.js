@@ -1,3 +1,3 @@
-//= require jquery
-//= require foundation.min
+// require jquery
+// require foundation.min
 //= require prism

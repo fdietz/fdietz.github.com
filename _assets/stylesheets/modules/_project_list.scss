@@ -1,5 +1,4 @@
 .project-list {
-  list-style-type: none;
   padding: 0;
 
   margin-left: -20px;
@@ -28,17 +27,10 @@
         width: 120px;
         margin-right: 20px;
       }
-
-      .meta {
-        h4, p {
-        }
-      }
     }
 
     &:hover {
       background-color: #f6f6f6;
     }
-
   }
-
 }

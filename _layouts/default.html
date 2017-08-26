@@ -12,54 +12,38 @@
 
     <link href="http://feeds.feedburner.com/fdietz" rel="alternate" title="Frederik Dietz" type="application/atom+xml" />
 
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700,300italic' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 
-    <link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,700,300italic' rel='stylesheet' type='text/css'>
-
-    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-
+    {% stylesheet heki.min %}
     {% stylesheet application %}
   </head>
   <body>
-
     <div class="fixed">
       <nav class="top-bar">
-
-        <ul class="title-area">
-          <li class="name"></li>
-
-          <a href="/" class="centered-title">
-            <img src="{% asset_path profile_small.jpg %}" width="30px" height="30px" alt="profile" class="avatar">
-            <div class="secondary">Frederik Dietz</div>
-            <div class="primary">fdietz.github.io</div>
-          </a>
-
-          <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+        <a href="/" class="title">
+          <img src="{% asset_path profile_small.jpg %}" width="30px" height="30px" alt="profile" class="avatar">
+          Frederik Dietz
+        </a>
+        <a href="#" toggle-topbar menu-icon><span></span></a>
+  
+        <ul class="menu">
+          <li><a href="/archive.html">archive</a></li>
+          <li><a href="/projects.html">projects</a></li>
+          <li><a href="/books.html">books</a></li>
+          <li><a href="/about.html">about</a></li>
         </ul>
-
-        <section class="top-bar-section">
-          <ul class="left menu">
-            <li><a href="/archive.html">archive</a></li>
-            <li><a href="/projects.html">projects</a></li>
-            <li><a href="/books.html">books</a></li>
-            <li><a href="/about.html">about</a></li>
-          </ul>
-        </section>
       </nav>
     </div>
 
     {{ content }}
 
     <footer>
-      <div class="row">
-        <div class="large-12 columns">
-          Copyright 2015 Frederik Dietz
-          |
-          <a href="http://feeds.feedburner.com/fdietz"> RSS </a>
-          |
-          <a href="http://twitter.com/fdietz/">@fdietz</a><br />
-        </div>
-      </div>
+      Copyright 2015 Frederik Dietz
+      |
+      <a href="http://feeds.feedburner.com/fdietz"> RSS </a>
+      |
+      <a href="http://twitter.com/fdietz/">@fdietz</a>
     </footer>
 
     {% javascript application %}

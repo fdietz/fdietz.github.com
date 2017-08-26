@@ -1,29 +1,12 @@
 $selection-color: #BCDAE4;
 
 .post {
-
-  h1 {
-    margin-bottom: 0;
-  }
-
-  h3 {
-    margin-top: 0;
-    margin-bottom: 1em;
-    font-size: 1.7em;
-  }
-
-  ul, ol {
-    font-family: "Merriweather", serif;
-    margin-left: 30px;
+  .subheader {
+    color: var(--color-gray-light);
+    margin-bottom: var(--space-1_5);
   }
 
   p, ul, ol {
-    font-family: "Merriweather", serif;
-    font-size: 1.1em;
-    line-height: 1.8em;
-    word-wrap: break-word;
-    letter-spacing: .01rem;
-
     &::selection {
       background: $selection-color;
     }
@@ -32,46 +15,10 @@ $selection-color: #BCDAE4;
       background: $selection-color;
     }
 
-    a {
-      color: $body-font-color;
-      text-decoration: none;
-
-      // see https://eager.io/blog/smarter-link-underlines/
-      background: -webkit-linear-gradient(#fff, #fff), -webkit-linear-gradient(#fff, #fff), -webkit-linear-gradient(#666, #666);
-      background-size: .05em 1px, .05em 1px, 1px 1px;
-      background-repeat: no-repeat, no-repeat, repeat-x;
-      text-shadow: 0.03em 0 #fff, -0.03em 0 #fff, 0 0.03em #fff, 0 -0.03em #fff, 0.06em 0 #fff, -0.06em 0 #fff, 0.09em 0 #fff, -0.09em 0 #fff, 0.12em 0 #fff, -0.12em 0 #fff, 0.15em 0 #fff, -0.15em 0 #fff;
-      background-position-y: 86%, 86%, 86%;
-      background-position-x: 0%, 100%, 0%;
-
-      &::selection {
-        text-shadow: 0.03em 0 $selection-color, -0.03em 0 $selection-color, 0 0.03em $selection-color, 0 -0.03em $selection-color, 0.06em 0 $selection-color, -0.06em 0 $selection-color, 0.09em 0 $selection-color, -0.09em 0 $selection-color, 0.12em 0 $selection-color, -0.12em 0 $selection-color, 0.15em 0 $selection-color, -0.15em 0 $selection-color;
-        background: $selection-color;
-      }
-
-      &::-moz-selection {
-        text-shadow: 0.03em 0 $selection-color, -0.03em 0 $selection-color, 0 0.03em $selection-color, 0 -0.03em $selection-color, 0.06em 0 $selection-color, -0.06em 0 $selection-color, 0.09em 0 $selection-color, -0.09em 0 $selection-color, 0.12em 0 $selection-color, -0.12em 0 $selection-color, 0.15em 0 $selection-color, -0.15em 0 $selection-color;
-        background: $selection-color;
-      }
-
-      &:before, &:after, *, *:before, *:after {
-        text-shadow: none;
-      }
-
-
-      &:visited {
-        color: inherit;
-      }
-
-    }
-
     > code {
       font-family: "Source Code Pro", Consolas, monospace;
       font-weight: 300;
       font-size: 0.9rem;
-
-      color: $primary-color;
-      background-color: lighten($primary-color, 40%);
 
       padding: 3px 4px;
       border-radius: 4px;
@@ -83,6 +30,11 @@ $selection-color: #BCDAE4;
     margin-bottom: 3em;
     margin-left: 3em;
     margin-right: 3em;
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
 
     p {
       margin-top: 5px;
@@ -101,9 +53,5 @@ $selection-color: #BCDAE4;
       margin-right: 0;
     }
 
-  }
-
-  pre {
-    margin-bottom: 3em;
   }
 }

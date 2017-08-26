@@ -4,6 +4,9 @@ gem "rake"
 gem "jekyll"
 gem 'sass'
 gem 'uglifier'
-gem 'jekyll-redirect-from'
-gem 'jekyll-assets'
-gem 'jekyll-sitemap'
+
+group :plugins do
+  gem 'jekyll-redirect-from'
+  gem 'jekyll-assets'
+  gem 'jekyll-sitemap'
+end
