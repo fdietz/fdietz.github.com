@@ -40,12 +40,16 @@ hr {
   left: 0;
   width: 100%;
   z-index: 99;
+
+  @media only screen and (max-width: 1024px) {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 1px var(--border-color);
+  }
 }
 
 nav {
   display: flex;  
   align-items: center;
-  // height: 52px;
   position: relative;
 
   max-width: 48em;
@@ -54,32 +58,24 @@ nav {
 
   padding: var(--space-1);
 
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 1px var(--border-color);
+  @media only screen and (min-width: 1024px) {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 1px var(--border-color);
+  }
 
   .title {
-    // margin-left: var(--space-1);
     display: flex;
     align-items: center;
 
     img {
       width: auto;
       height: 40px;
-      // width: 40px;
-      // height: 40px;
       border-radius: 3px;
-      // margin-right: var(--space-0_5);
     }
     
     .meta {
       display: flex;
       flex-direction: column;
-    }
-
-    @media only screen and (max-width: 640px) {
-      span {
-        display: none;
-      }
     }
   }
 
