@@ -5,7 +5,7 @@ gem "jekyll"
 gem 'sass'
 gem 'uglifier'
 
-group :plugins do
+group :jekyll_plugins do
   gem 'jekyll-redirect-from'
   gem 'jekyll-assets'
   gem 'jekyll-sitemap'
