@@ -3,3 +3,4 @@ _site/
 .jekyll-assets-cache
 .asset-cache
 .DS_Store
+.jekyll-cache

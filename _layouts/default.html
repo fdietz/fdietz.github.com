@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="author" content="Frederik Dietz" />
-    <meta keywords="ruby, ruby on rails, javascript, angular.js, angularjs, recipes with angular.js">
+    <meta keywords="fdietz, ruby, ruby on rails, javascript, react, vue, vuejs, angular.js, angularjs">
     <meta name="description" content="fdietz.github.io">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,14 +15,14 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link href='//fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 
-    {% stylesheet heki.min %}
-    {% stylesheet application %}
+    {% asset heki.min.css %}
+    {% asset application.css %}
   </head>
   <body>
     <div class="fixed">
       <nav class="top-bar">
         <a href="/" class="title">
-          <img src="{% asset_path profile_mini.jpg %}" alt="profile" class="avatar">
+          {% asset profile_2018.jpg alt="profile" class="avatar" %}
         </a>
         <ul class="menu">
           <li><a href="/archive.html">archive</a></li>
@@ -36,17 +36,14 @@
     {{ content }}
 
     <footer>
-      Copyright 2015 Frederik Dietz
+      Copyright 2018 Frederik Dietz
       |
       <a href="http://feeds.feedburner.com/fdietz"> RSS </a>
       |
       <a href="http://twitter.com/fdietz/">@fdietz</a>
     </footer>
 
-    {% javascript application %}
-    <script>
-      $(document).foundation();
-    </script>
+    {% asset application.js %}
 
     <!-- Google Analytics -->
     <script>

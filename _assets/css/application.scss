@@ -6,14 +6,21 @@
 @import "modules/project_list";
 @import "modules/share_menu";
 @import "modules/syntax";
+@import "pages/book";
 
-:root{
+:root {
   --color-gray-lighter: #f2f2f2;
   --border-color: var(--color-gray-lighter);
   --font-family-base: "Open Sans", "Helvetica Neue", "Helvetica", sans-serif;
   --font-weight-base: 400;
   --line-height-base: 1.6;
 
+  --font-size-h1: 2.827rem;
+  --font-size-h2: 1.999rem;
+  --font-size-h3: 1.414rem;
+  --font-size-h4: 1rem;
+  --font-size-h5: 1rem;
+  
   --margin-bottom-sm: 0.8rem;
   --margin-bottom: 1.6rem;
   --space-2: 2rem;
@@ -120,4 +127,11 @@ nav {
   img {
     border-radius: 4px;
   }
+}
+
+.book-cover {
+  width: 200px;
+  border: 1px solid var(--color-black);
+
+  margin: var(--component-spacing);
 }
