@@ -10,6 +10,10 @@
 
 .section {
   padding: 4rem 0;
+
+  @media screen and (max-width: 48em) {
+    padding: 3rem 0;
+  }
 }
 
 .section:nth-of-type(even) {
@@ -60,10 +64,20 @@
   flex: 1 1;
 }
 
+@media screen and (max-width: 48em) {
+  .column + .column {
+    margin-top: 1rem;
+  }
+}
+
 
 .sales-two-columns {
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 48em) {
+    flex-direction: column;
+  }
 }
 
 .sales-column {
@@ -74,6 +88,19 @@
   font-size: 90%;
 
   border-radius: 4px;
+
+  @media screen and (max-width: 48em) {
+    width: 100%;
+  }
+}
+
+.sales-column + .sales-column {
+  margin-left: 1rem;
+
+  @media screen and (max-width: 48em) {
+    margin-left: 0;
+    margin-top: 2rem;
+  }
 }
 
 .hint {
