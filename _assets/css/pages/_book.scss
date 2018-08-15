@@ -1,10 +1,19 @@
 
+.logo {
+  width: 200px;
+}
+
+.header {
+  margin-top: 1rem;
+  text-align: center;
+}
+
 .section {
   padding: 4rem 0;
 }
 
 .section:nth-of-type(even) {
-  background-color: rgba(53, 73, 93, 0.03);
+  // background-color: rgba(53, 73, 93, 0.03);
 }
 
 .section-container {
@@ -15,6 +24,15 @@
   padding-right: 2rem;
 
   max-width: 800px;
+
+  h2 {
+    margin-bottom: 1em;
+    text-align: center;
+  }
+  
+  li {
+    margin-bottom: 0.5rem;
+  }
 }
 
 .two-columns {
@@ -84,4 +102,15 @@
 
 .br2 {
   border-radius: 2px;
+}
+
+.avatar {
+  text-align: center;
+}
+
+.avatar img {
+  width: 200px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+  margin-bottom: 2rem;
 }
