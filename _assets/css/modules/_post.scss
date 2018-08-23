@@ -25,17 +25,22 @@ $selection-color: #BCDAE4;
     }
   }
 
+  figure,
   .centered-image {
     margin-top: 3em;
     margin-bottom: 3em;
-    margin-left: 3em;
-    margin-right: 3em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     
     img {
       max-width: 100%;
       height: auto;
     }
 
+    figcaption,
     p {
       margin-top: 5px;
       text-align: center;
