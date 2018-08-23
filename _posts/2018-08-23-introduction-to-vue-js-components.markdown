@@ -7,7 +7,7 @@ published: true
 In this article I'd like to introduce you to the Vue.js component model and show the benefits of component reuse and
 encapsulation.
  
-If you dont' know your way around Vue.js yet, I can highly recommmend the official [Vue.js guide](https://vuejs.org/v2/guide/index.html).
+If you don't know your way around Vue.js yet, I can highly recommmend the official [Vue.js guide](https://vuejs.org/v2/guide/index.html).
 But, please don't be afraid of diving right into this article with me. I will point you to the relevant official documentation to give you some more background and a chance to read up on some more background material.
 
 We will start with a simple example component and gradually improve its functionality.
