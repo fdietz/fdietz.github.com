@@ -4,7 +4,7 @@ title: Vue.js Component Composition with Slots
 published: true
 ---
 
-In the [previous post](/2018-08-23-introduction-to-vue-js-components.html) we introduced the Vue.js component model and saw how to pass data to 
+In the [previous post](/2018/08/23/introduction-to-vue-js-components.html) we introduced the Vue.js component model and saw how to pass data to 
 child components via `props` and how components can emit events up their parents.
 
 In this chapter we focus on slots which give your components even more flexibility by injecting content into child components.
@@ -138,4 +138,4 @@ So, we still have our Close button as is.
 
 In this chapter we looked into slots and named slots to compose our components and content in a very flexible way. Stay tuned for my upcoming post on scoped slots!
 
-
+If you like this post also check out my new course [Vue.js Component Patterns Course](/vue-component-patterns-course.html).

@@ -330,3 +330,5 @@ The event emitted via `this.$emit("event")` is only send to the parent component
 
 In this article we explored the base concepts of a component model. We discussed component reuse and encapsulation,
 how to use props to pass data to children and how to emit events to pass messages to the parent.
+
+If you like this post also check out my new course [Vue.js Component Patterns Course](/vue-component-patterns-course.html).
