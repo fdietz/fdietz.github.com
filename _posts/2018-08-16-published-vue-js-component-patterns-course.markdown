@@ -4,7 +4,7 @@ title: Published Vue.js Component Patterns Course
 published: true
 ---
 
-I've just published my new course 🎉 [Vue.js Component Patterns](/vue-component-patterns-book.html) 🎉
+I've just published my new course 🎉 [Vue.js Component Patterns](/vue-component-patterns-course.html) 🎉
 
 The course consists of an ebook (PDF, mobi, epub) and an optional set of exercises with solutions to apply what you learn.
 
