@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Frederik Dietz" />
+    <meta keywords="fdietz, ruby, ruby on rails, javascript, react, vue, vuejs, angular.js, angularjs">
+    <meta name="description" content="fdietz.github.io">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recipes with Angular.js</title>
+
+    <link href="http://feeds.feedburner.com/fdietz" rel="alternate" title="Frederik Dietz" type="application/atom+xml" />
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/assets/heki.min-73e17f4d636ce3e5f25cd675dfd20299fef163427edf55d2a4b319062426cd5e.css">
+    <link rel="stylesheet" type="text/css" href="/assets/application-14455bbcd6e45416b8f8f887b2ace6000f8857969f5cee0171c326b8893a63f3.css">
+  </head>
+  <body>
+    <div class="fixed">
+      <nav class="top-bar">
+        <a href="/" class="title">
+          <img alt="profile" class="avatar" src="/assets/profile_2018_small-872b831a6df4d9dbedeb190136fbdd9da691aff3ae70a6a7c9575b404d82d6de.jpg">
+        </a>
+        <ul class="menu">
+          <li><a href="/archive.html">archive</a></li>
+          <li><a href="/projects.html">projects</a></li>
+          <li><a href="/books.html">books</a></li>
+          <li><a href="/about.html">about</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="main-content">
+  <h1>Recipes with Angular.js</h1>
+<h2 class="subheader">Practical concepts and techniques for rapid web application development</h2>
+
+<p>
+  <img width="200" alt="recipes with angular.js book" src="/assets/book-medium-ed2560e5ec8f28c5eac53aa838f4d3cae70b8ad550a70637df3a8b5089d7acca.png">
+</p>
+
+<p>
+  <a class="button small" href="https://leanpub.com/recipes-with-angular-js">Learn More</a>
+  <a class="button small success" href="https://leanpub.com/recipes-with-angular-js/purchases/new">Buy on Leanpub</a>
+  <a class="button small success" href="http://www.amazon.com/dp/B00DK95V48">Buy on Amazon</a>
+</p>
+
+<p>
+  <a href="http://angularjs.org/">Angular.js</a> is an open-source Javascript MVC (Model-View-Controller) framework developed by Google. It gives Javascript developers a highly structured approach to developing rich browser-based applications which leads to very high productivity.
+</p>
+
+<p>
+  If you are using <a href="http://angularjs.org/">Angular.js</a>, or considering it, this cookbook provides easy to follow recipes for issues you are likely to face. Each recipe solves a specific problem and provides a solution and in-depth discussion of it.
+</p>
+
+<br>
+<br>
+
+<h3>Table of Contents</h3>
+<ul class="no-bullets">
+  <li>
+    Preface
+    <ul>
+      <li>
+        Introduction
+      </li>
+      <li>
+        Code Examples
+      </li>
+      <li>
+        How to contact me
+      </li>
+      <li>
+        Acknowledgements
+      </li>
+    </ul>
+  </li>
+  <li>
+    An Introduction to Angular.js
+    <ul>
+      <li>
+        Including the Angular.js Library Code in an HTML Page
+      </li>
+      <li>
+        Binding a Text Input to an Expression
+      </li>
+      <li>
+        Responding to Click Events using Controllers
+      </li>
+      <li>
+        Converting Expression Output with Filters
+      </li>
+      <li>
+        Creating Custom HTML Elements with Directives
+      </li>
+    </ul>
+  </li>
+  <li>
+    Controllers
+    <ul>
+      <li>
+        Assigning a Default Value to a Model
+      </li>
+      <li>
+        Changing a Model Value with a Controller Function
+      </li>
+      <li>
+        Encapsulating a Model Value with a Controller Function
+      </li>
+      <li>
+        Responding to Scope Changes
+      </li>
+      <li>
+        Sharing Models Between Nested Controllers
+      </li>
+      <li>
+        Sharing Code Between Controllers using Services
+      </li>
+      <li>
+        Testing Controllers
+      </li>
+    </ul>
+  </li>
+  <li>
+    Directives
+    <ul>
+      <li>
+        Enabling/Disabling DOM Elements Conditionally
+      </li>
+      <li>
+        Changing the DOM in Response to User Actions
+      </li>
+      <li>
+        Rendering an HTML Snippet in a Directive
+      </li>
+      <li>
+        Rendering a Directive&#x2019;s DOM Node Children
+      </li>
+      <li>
+        Passing Configuration Params Using HTML Attributes
+      </li>
+      <li>
+        Repeatedly Rendering Directive&#x2019;s DOM Node Children
+      </li>
+      <li>
+        Directive-to-Directive Communication
+      </li>
+      <li>
+        Testing Directives
+      </li>
+    </ul>
+  </li>
+  <li>
+    Filters
+    <ul>
+      <li>
+        Formatting a String With a Currency Filter
+      </li>
+      <li>
+        Implementing a Custom Filter to Reverse an Input String
+      </li>
+      <li>
+        Passing Configuration Params to Filters
+      </li>
+      <li>
+        Filtering a List of DOM Nodes
+      </li>
+      <li>
+        Chaining Filters together
+      </li>
+      <li>
+        Testing Filters
+      </li>
+    </ul>
+  </li>
+  <li>
+    Consuming Externals Services
+    <ul>
+      <li>
+        Requesting JSON Data with AJAX
+      </li>
+      <li>
+        Consuming RESTful APIs
+      </li>
+      <li>
+        Consuming JSONP APIs
+      </li>
+      <li>
+        Deferred and Promise
+      </li>
+      <li>
+        Testing Services
+      </li>
+    </ul>
+  </li>
+  <li>
+    URLs, Routing and Partials
+    <ul>
+      <li>
+        Client-Side Routing with Hashbang URLs
+      </li>
+      <li>
+        Using Regular URLs with the HTML5 History API
+      </li>
+      <li>
+        Using Route Location to Implement a Navigation Menu
+      </li>
+      <li>
+        Listening on Route Changes to Implement a Login Mechanism
+      </li>
+    </ul>
+  </li>
+  <li>
+    Using Forms
+    <ul>
+      <li>
+        Implementing a Basic Form
+      </li>
+      <li>
+        Validating a Form Model Client-Side
+      </li>
+      <li>
+        Displaying Form Validation Errors
+      </li>
+      <li>
+        Displaying Form Validation Errors with the Twitter Bootstrap framework
+      </li>
+      <li>
+        Only Enabling the Submit Button if the Form is Valid
+      </li>
+      <li>
+        Implementing Custom Validations
+      </li>
+    </ul>
+  </li>
+  <li>
+    Common User Interface Patterns
+    <ul>
+      <li>
+        Filtering and Sorting a List
+      </li>
+      <li>
+        Paginating Through Client-Side Data
+      </li>
+      <li>
+        Paginating Through Server-Side Data
+      </li>
+      <li>
+        Paginating Using Infinite Results
+      </li>
+      <li>
+        Displaying a Flash Notice/Failure Message
+      </li>
+      <li>
+        Editing Text In-Place using HTML5 ContentEditable
+      </li>
+      <li>
+        Displaying a Modal Dialog
+      </li>
+      <li>
+        Displaying a Loading Spinner
+      </li>
+    </ul>
+  </li>
+  <li>
+    Backend Integration with Ruby on Rails
+    <ul>
+      <li>
+        Consuming REST APIs
+      </li>
+      <li>
+        Implementing Client-Side Routing
+      </li>
+      <li>
+        Validating Forms Server-Side
+      </li>
+    </ul>
+  </li>
+  <li>
+    Backend Integration with Node Express
+    <ul>
+      <li>
+        Consuming REST APIs
+      </li>
+      <li>
+        Implementing Client-Side Routing
+      </li>
+    </ul>
+  </li>
+</ul>
+</div>
+
+
+    <footer>
+      Copyright 2018 Frederik Dietz
+      |
+      <a href="http://feeds.feedburner.com/fdietz"> RSS </a>
+      |
+      <a href="http://twitter.com/fdietz/">@fdietz</a>
+    </footer>
+
+    <script src="/assets/application-d4378cd6e29b71700aea7f8091bc6235159c3b312fcb6b20a9e872e40b6c7521.js" type="text/javascript"></script>
+
+    <!-- Google Analytics -->
+    <script>
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script>
+    var pageTracker = _gat._getTracker("UA-24857075-1");
+    pageTracker._trackPageview();
+    </script>
+    <!-- Google Analytics end -->
+
+    <!--[if lt IE 7 ]>
+    	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+    	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+    <![endif]-->
+
+  </body>
+</html>

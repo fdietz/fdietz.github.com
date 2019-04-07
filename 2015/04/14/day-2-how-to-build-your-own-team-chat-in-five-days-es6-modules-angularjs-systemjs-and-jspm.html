@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Frederik Dietz" />
+    <meta keywords="fdietz, ruby, ruby on rails, javascript, react, vue, vuejs, angular.js, angularjs">
+    <meta name="description" content="fdietz.github.io">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Day 2 - How to build your own team chat in five days - ES6 Modules, AngularJS, SystemJS and JSPM</title>
+
+    <link href="http://feeds.feedburner.com/fdietz" rel="alternate" title="Frederik Dietz" type="application/atom+xml" />
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/assets/heki.min-73e17f4d636ce3e5f25cd675dfd20299fef163427edf55d2a4b319062426cd5e.css">
+    <link rel="stylesheet" type="text/css" href="/assets/application-14455bbcd6e45416b8f8f887b2ace6000f8857969f5cee0171c326b8893a63f3.css">
+  </head>
+  <body>
+    <div class="fixed">
+      <nav class="top-bar">
+        <a href="/" class="title">
+          <img alt="profile" class="avatar" src="/assets/profile_2018_small-872b831a6df4d9dbedeb190136fbdd9da691aff3ae70a6a7c9575b404d82d6de.jpg">
+        </a>
+        <ul class="menu">
+          <li><a href="/archive.html">archive</a></li>
+          <li><a href="/projects.html">projects</a></li>
+          <li><a href="/books.html">books</a></li>
+          <li><a href="/about.html">about</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="main-content">
+  <div class="post">
+    <h2 class="post-title">Day 2 - How to build your own team chat in five days - ES6 Modules, AngularJS, SystemJS and JSPM</h2>
+    <h3 class="subheader published">Published 14 Apr 2015</h3>
+    <p>This is part 2 of an ongoing series of blog posts. Read <a href="/2015/04/13/day-1-how-to-build-your-own-team-chat-in-five-days.html">part 1</a> first and then come back, please!</p>
+
+<hr />
+
+<p>Welcome again to Day 2! We have quite a lot to cover today. Since I’m very much into using ES6 syntax, I’ve spend lots of time looking into module loading and workflows today.</p>
+
+<p>First we’ll have a look at module loading, then we develop an AngularJS seed project which can be used as a basis for new projects and finally we discuss how to use ES6 classes and module loading with AngularJS.</p>
+
+<h2 id="commonjs-vs-amd-vs-angularjs-modules-vs-es6-modules">CommonJS vs AMD vs AngularJS Modules vs ES6 modules</h2>
+
+<p>Before we can get our hands dirty we have to look into how modules are loaded using Javascript. A module can mean various things to different people. For this article, let’s use this definition:</p>
+
+<blockquote>
+  <p>Modules allow code to be logically separated for developers. It additionally prevents namespace conflicts in Javascript.</p>
+</blockquote>
+
+<p>Probably the most famous module in the Javascript community is <a href="https://jquery.com/">jQuery</a> but it also could be some shared code in your team or even a component or feature in your codebase.</p>
+
+<p>Let’s look into a namespace conflict using jQuery as an example of the current state of module loading. If you use jQuery, it will set the global variable <code>$</code>. But, if you have an existing variable <code>$</code> in your codebase those variables will conflict. jQuery’s solution was to introduce a <code>noConflict</code> mode which basically let’s you define the variable name of the library.</p>
+
+<p>A rather clumsy solution which is why the community created lots of workarounds. The most interesting standards in my opinion are <a href="http://wiki.commonjs.org/wiki/CommonJS">CommonJS</a> due to its popularity in the <a href="https://nodejs.org/">NodeJS</a> community and AMD (Asynchronous Module Definition) with the most popular implementation being <a href="http://requirejs.org/">Require.JS</a>.</p>
+
+<p>CommonJS is commonly used with NodeJS where Javascript is executed on the server. In this case all modules are loaded synchronously. This is in contrast to AMD which was designed to be used in browsers on the client side where modules are loaded asynchronously. Somewhere in between lies <a href="http://browserify.org/">browserify</a> which uses the CommonJS standard to bundle all Javascript code on the server before running it on the client. If you are interested in all the glory details I can recommend <a href="http://addyosmani.com/writing-modular-js/">Addy Osmani - Writing modular Javascript with AMD, CommonJS &amp; ES Harmony</a>.</p>
+
+<p>Now when AngularJS appeared it introduced dependency injection. AngularJS modules, controllers, directives etc. can define their dependencies and everything is taken care of for the developer. One can even use dependency injection to mock things like HTTP requests in unit tests. Great! But, it relies on all the Javascript to be available in the browser and is not able to request modules asynchronously.</p>
+
+<p>There are are projects which combined <a href="https://github.com/angular-ui/ui-router">ui-router</a> with <a href="https://github.com/ocombe/ocLazyLoad">ocLazyLoad</a> to lazy load angular modules as defined by the routing configuration. But, this feels more like another workaround and even more specific due to its coupling with Angular’s routing configuration.</p>
+
+<p>Now here come EcmaScript 6 modules to the rescue. The standard tries to make both users of CommonJS and AMD happy and (hopefully) solves all our problems.</p>
+
+<p>Let’s have a look at an example with <code>named</code> exports:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">// lib.js
+export function sum(x, y) {
+  return x + y;
+}
+
+export function multiply(x, y) {
+  return x * y;
+}
+
+// main.js
+import {sum, multiply} from &quot;./lib&quot;;
+
+console.log(sum(1, 2));
+console.log(multiply(1, 2));</code></pre>
+</div>
+
+<p>Here’s another example with a <code>default</code> export:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">// lib.js
+export default function sum(x, y) {
+  return x + y;
+}
+
+// main.js
+import sum from &quot;./lib&quot;;
+
+console.log(sum(1, 2));</code></pre>
+</div>
+
+<p>The design goals of the spec are the following:</p>
+<ul>
+  <li>Default exports are favoured</li>
+  <li>Static module structure</li>
+  <li>Support for both synchronous and asynchronous module loading</li>
+  <li>Support for cyclic dependencies between modules</li>
+</ul>
+
+<p>For even more details read <a href="http://www.2ality.com/2014/09/es6-modules-final.html">Axel Rauschmayer - ECMAScript 6 modules: the final syntax</a>.</p>
+
+<p>Now, the only problem is that browsers don’t all support the new standard yet, so we have to transpile our code to ES5 in order to work with the new module syntax today.</p>
+
+<h2 id="gulp-workflow-using-gulp-with-systemjs-and-jspm">Gulp Workflow using gulp with SystemJS and JSPM</h2>
+<p>Let’s have a look into a gulp workflow which uses <a href="https://github.com/systemjs/systemjs">SystemJS</a> and <a href="http://jspm.io/">JSPM</a>.</p>
+
+<p>SystemJS builds on top of the <a href="https://github.com/ModuleLoader/es6-module-loader">es6-module-loader</a> polyfill and adds the capability to load modules that are defined in a variety of syntaxes:</p>
+<ul>
+  <li>CommonJS</li>
+  <li>AMD</li>
+  <li>ES6 Modules (using either <a href="https://babeljs.io/">Babel</a> or <a href="https://github.com/google/traceur-compiler">traceur-compiler</a>)</li>
+  <li>modules that export a global variable (as for example jQuery) via a shim config</li>
+</ul>
+
+<p>JSPM is a Javascript package manager that sits on top of SystemJS and is able to load modules directory from any registry such as npm, github or bower. In development mode it loads modules as separate files with ES6 and in production it optimizes the modules into a self-executing bundle (without runtime dependency).</p>
+
+<p>This is how our index.html file looks using SystemJS:</p>
+
+<div>
+  <pre data-line=""><code class="language-markup">&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;jspm_packages/system.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;config.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      System.import(&#39;app/bootstrap&#39;);
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    // fancy stuff here
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+
+<p>First it loads the SystemJS library and then the <code>config.js</code> file which contains the configuration for your modules. Then we can use <code>System.import</code>, the proposed browser loader API for dynamically loading ES6 modules, to import the file <code>app/bootstrap</code>.</p>
+
+<p>Now JSPM is used to install all our dependencies using the <code>jspm install</code> command, for example:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">jspm install jquery</code></pre>
+</div>
+
+<p>JSPM looks up jquery in its registry and installs jQuery in the current file system. Additionally, it adds jQuery to the <code>package.json</code>, so that your jQuery is only a <code>jspm install</code> away in the future.</p>
+
+<p>If we look at <code>config.js</code>, we can see that JSPM has modified it:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">System.config({
+  &quot;paths&quot;: {
+    &quot;*&quot;: &quot;*.js&quot;,
+    &quot;github:*&quot;: &quot;jspm_packages/github/*.js&quot;
+  }
+});
+
+System.config({
+  &quot;map&quot;: {
+    &quot;jquery&quot;: &quot;github:components/jquery@^2.1.3&quot;
+  }
+});
+
+System.config({
+  &quot;versions&quot;: {
+    &quot;github:components/jquery&quot;: &quot;2.1.3&quot;
+  }
+});</code></pre>
+</div>
+
+<p>These paths and mappings tell JSPM how to install and resolve your module. Most of the time you wont’ need to change anything but sometimes it can be useful to map a longer package name to a smaller one.</p>
+
+<p>Now, you can load jQuery using ES6 syntax:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">import $ from &#39;jquery&#39;;
+
+console.log($.fn.jquery);</code></pre>
+</div>
+
+<p>JSPM has several advantages over tools like RequireJS or browserify. With RequireJS you have to install via tools like <a href="http://bower.io/">bower</a>, but then manage the mappings and naming of modules manually. Additionally, with SystemJS you don’t need any type of build tool since it’s all run and compiled in the browser.</p>
+
+<h2 id="angular-seed-project">Angular Seed Project</h2>
+
+<p>Let’s now check out the <a href="https://github.com/fdietz/how_to_build_your_own_team_chat_in_five_days/tree/master/day_2/angular_es6_seed">Angular seed project</a>. It contains some Angular example code to request and render a list of Github users and to showcase Angular working together with ES6 features.</p>
+
+<div class="centered-image">
+  <img src="/images/github_user_list.png" />
+  <p>Using Angular to render a list of Github users</p>
+</div>
+
+<p>Let’s have a look into the structure:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">├── app
+│   ├── bootstrap.js
+│   ├── main.js
+│   ├── user.controller.js
+│   ├── user.service.js
+│   ├── user_list
+│   │   ├── reverse_name.service.js
+│   │   ├── user_list.controller.js
+│   │   ├── user_list.directive.js
+│   │   ├── user_list.module.js
+│   │   └── user_list_directive.html
+│   └── vendor.js
+├── styles
+├── node_modules
+├── jspm_packages
+├── index.html
+├── config.js
+├── gulpfile.js
+├── package.json
+└── README.md</code></pre>
+</div>
+
+<p>The <code>index.html</code> file contains the SystemJS based bootstrap as describe above and some initial Angular example code:</p>
+
+<div>
+  <pre data-line=""><code class="language-markup">&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;styles/application.css&quot;&gt;
+
+    &lt;script src=&quot;jspm_packages/system.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;config.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      System.import(&#39;app/bootstrap&#39;);
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+
+    &lt;div ng-controller=&quot;UserController as ctrl&quot;&gt;
+
+      &lt;h1 ng-hide=&quot;!ctrl.loading&quot;&gt;Loading list of Github users&lt;/h1&gt;
+
+      &lt;div class=&quot;medium progress&quot; ng-show=&quot;ctrl.loading&quot;&gt;
+        &lt;div&gt;Loading…&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;user-list users=&quot;ctrl.users&quot;&gt;&lt;user-list&gt;
+    &lt;/div&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+
+<p>Since we use SystemJS we cannot use the <code>ng-app</code> directive in our <code>index.html</code>. We need to load the main Angular module using SystemJS explicitly. Let’s have a look into <code>app/bootstrap.js</code> which starts our Angular app:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">import mainModule from &#39;./main&#39;;
+
+angular.element(document).ready(function() {
+  angular.bootstrap(document, [mainModule.name], { strictDi: true });
+});</code></pre>
+</div>
+
+<p>And here’s our first <code>import</code> statement which contains our actual main module of our shiny new Angular app:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">import &#39;./vendor&#39;;
+
+import UserController from &#39;./user.controller&#39;;
+import UserService from &#39;./user.service&#39;;
+
+import userListModule from &#39;./user_list/user_list.module&#39;;
+
+let mainModule = angular.module(&#39;mainApp&#39;, [userListModule.name])
+  .controller(UserController.name, UserController)
+  .service(UserService.name, UserService);
+
+export default mainModule;</code></pre>
+</div>
+
+<p>Note, the last line where the <code>mainModule</code> is exported using the default export mechanism which let’s us import it using: <code>import mainModule from './main';</code>.</p>
+
+<p>Next we are going to look into how to use ES6 classes to define Angular controllers and services.</p>
+
+<h2 id="angularjs-using-es6-classes-and-modules">AngularJS using ES6 classes and modules</h2>
+
+<p>Let’s start with the <code>UserController</code> class imported in <code>main.js</code> above since it is the first mentioned in <code>index.html</code>:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">class UserController {
+
+  constructor(UserService) {
+    this.UserService = UserService;
+    this.loading = true;
+    this.init();
+  }
+
+  init() {
+    this.UserService.getUsers().then(users =&gt; {
+      this.users = users;
+      this.loading = false;
+    });
+  }
+}
+
+UserController.$inject = [&#39;UserService&#39;];
+
+export default UserController;</code></pre>
+</div>
+
+<p>The <code>UserController</code> uses the new ES6 constructor to define it’s dependency to the <code>UserService</code> - it is a best practice to handle all model-specific business logic (as for example loading users from the backend) in services. In the <code>init()</code> function it actually requests the users and assigns them to the <code>users</code> attribute. Note the use of the <code>=&gt;</code> (hash rocket) syntax which is a shortcut for a function and additionally binds the <code>this</code> context to the <code>UserController</code> class.</p>
+
+<p>The <code>loading</code> attribute is used in <code>index.html</code> to show a loading indicator while the user list is fetched.</p>
+
+<p>Angular is now able to dependency inject the <code>UserService</code> into the <code>UserController</code> since we imported it and registered it in the main module definition. Here’s the code again from our <code>main.js</code> file:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">import UserService from &#39;./user.service&#39;;
+
+let mainModule = angular.module(&#39;mainApp&#39;, [userListModule.name])
+  .controller(UserController.name, UserController)
+  .service(UserService.name, UserService);</code></pre>
+</div>
+
+<p>Note that our service was registered using the <code>service</code> function instead of the <code>factory</code> function. The service function expects a constructor function (an ES6 class) - similar to the controller function - whereas the factory function is syntactic sugar in case you are not using classes.</p>
+
+<p>Now since we use <code>strictDi</code> (strict dependency injection) we must declare our injected class explicitly for <code>UserController</code>. This is also required for production builds which minify the Javascript code.</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">UserController.$inject = [&#39;UserService&#39;];</code></pre>
+</div>
+
+<p>Okay, so we have an initial Angular Controller and Service running. Let’s have a look into the user list directive:</p>
+
+<div>
+  <pre data-line=""><code class="language-markup">&lt;div ng-controller=&quot;UserController as ctrl&quot;&gt;
+  &lt;user-list users=&quot;ctrl.users&quot;&gt;&lt;user-list&gt;
+&lt;/user-list&gt;</code></pre>
+</div>
+
+<p>The user list directive is defined very traditionally and not as an ES6 class:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">import template from &quot;./user_list_directive.html!text&quot;;
+import UserListController from &quot;./user_list.controller&quot;;
+
+function userListDirective(ReverseNameService) {
+  return {
+    restrict: &quot;E&quot;,
+    scope: {
+      users: &quot;=&quot;
+    },
+    template: template,
+    bindToController: true,
+    controllerAs: &quot;ctrl&quot;,
+    controller: UserListController,
+    link: function($scope, element) {
+      element.on(&quot;mouseover&quot;, &quot;li&quot;, function(event) {
+        let name = $(event.currentTarget).find(&quot;.primary&quot;).text();
+        let reverseName = ReverseNameService.reverse(name);
+
+        console.log(&quot;hover... &quot;, name, &quot;reverse&quot;, reverseName);
+      });
+    }
+  };
+}
+
+userListDirective.$inject = [&quot;ReverseNameService&quot;];
+
+export default userListDirective;</code></pre>
+</div>
+
+<p>Here I export the function as is, since this is the only straight-forward way to support dependency injection.</p>
+
+<p>The user list is a “component” in the sense that it contains a controller and a template with the responsibility to render the user list and handle various events. I’m therefore using the <code>bindToController</code> syntax and an externally defined <code>UserListController</code> for the business logic and use the isolated scope to define the <code>users</code> attribute as the external interface for passing data from <code>index.html</code> to the directive. I’m already looking forward to use Angular 1.4 since it supports a much cleaner syntax for <code>bindToController</code>. There’s currently a lot of code required to setup such a component.</p>
+
+<p>Have you spotted the strange import statement for the template?</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">import template from &quot;./user_list_directive.html!text&quot;;</code></pre>
+</div>
+
+<p>I’m using here the SystemJS <a href="https://github.com/systemjs/plugin-text">text plugin</a> to load the HTML template and then assign this template as a string to the directive. Note, the <code>!text</code> expression at the end of the import statement.</p>
+
+<blockquote>
+  <p>This must be the most horrible example of a service usage inside a directive ever! Don't try this at home.</p>
+</blockquote>
+
+<p>Never mind my weird <code>link</code> function where I tried hard to come up with an example to use the injected <code>ReverseNameService</code>, just to prove my point that you can use dependency injection in this context.</p>
+
+<p>Now if you followed me closely you found that I’m using the Angular module syntax and the ES6 module syntax side by side. Why is that?</p>
+
+<p>All controllers, directives or services which are dependency injected are required to be registered via Angular’s <code>controller</code>, <code>service</code> and <code>directive</code> functions. So, I’ve used ES6 modules wherever possible and only used Angular modules where required by Angular. As we are heading towards Angular 2.0 all these Angular modules will be replaced with ES6 modules anyways and I tried to structure the code in a way which makes a migration as simple as possible.</p>
+
+<p>Now, in my case I created a user list Angular module which contains everything required for the user list directive. It is therefore completely self contained and could be easily copy and pasted into another project. It does not have any dependencies to it’s parent module.</p>
+
+<p>To finish off for today I will show you the <code>UserListController</code> quickly:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">class UserListController {
+
+  constructor() {
+  }
+
+  onClick(user) {
+    console.log(&quot;on user clicked&quot;, user)
+  }
+}
+
+UserListController.$inject = [];
+
+export default UserListController;</code></pre>
+</div>
+
+<p>Nothing new here really. The <code>onClick</code> function is referenced in the template of the directive here:</p>
+
+<div>
+  <pre data-line=""><code class="language-markup">&lt;ul class=&quot;user-list&quot;&gt;
+  &lt;li ng-repeat=&quot;user in ctrl.users&quot; ng-click=&quot;ctrl.onClick(user)&quot;&gt;
+    &lt;img ng-src=&quot;&quot; width=&quot;36px&quot; height=&quot;36px&quot; alt=&quot;&quot;&gt;
+    &lt;div class=&quot;meta&quot;&gt;
+      &lt;span class=&quot;primary&quot;&gt;&lt;/span&gt;
+      &lt;span class=&quot;secondary&quot;&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+</div>
+
+<hr />
+
+<p>If you want to use the Angular seed project for your own projects you can directly access and git clone it from <a href="https://github.com/fdietz/angular_es6_seed">github.com/fdietz/angular_es6_seed</a>.</p>
+
+<hr />
+
+<p>That’s it for today! Hope I haven’t lost you in the confusing world of Javascript modules. See you tomorrow but this time I’m really starting with “chitchat” ;-)</p>
+
+<hr />
+
+<p>This is part 2 of an ongoing series of blog posts. Continue reading <a href="/2015/04/15/day-3-how-to-build-your-own-team-chat-in-five-days.html">part 3</a>.</p>
+
+<ul>
+  <li><a href="/2015/04/13/day-1-how-to-build-your-own-team-chat-in-five-days.html">Day 1 - How to build your own team chat in five days</a></li>
+  <li><a href="/2015/04/14/day-2-how-to-build-your-own-team-chat-in-five-days-es6-modules-angularjs-systemjs-and-jspm.html">Day 2 - ES6 Modules, AngularJS, SystemJS and JSPM</a></li>
+  <li><a href="/2015/04/15/day-3-how-to-build-your-own-team-chat-in-five-days-expressjs-socket-io-and-angularjs.html">Day 3 - ExpressJS, Socket.io and AngularJS</a></li>
+  <li><a href="/2015/04/16/day-4-how-to-build-your-own-team-chat-in-five-days-expressjs-socket-io-and-angularjs-component-based-design-patterns.html">Day 4 - ExpressJS, Socket.io and AngularJS component-based design patterns</a></li>
+  <li><a href="/2015/04/17/day-5-how-to-build-your-own-team-chat-in-five-days-angular-filters-and-directives.html">Day 5 - AngularJS Filters and Directives</a></li>
+</ul>
+
+  </div>
+
+  <ul class="share-menu">
+    <li>
+      <a href="https://twitter.com/intent/tweet/?text=Checkout+this+article%3A+&url=http://127.0.0.1%2F2015%2F04%2F14%2Fday-2-how-to-build-your-own-team-chat-in-five-days-es6-modules-angularjs-systemjs-and-jspm.html&via=fdietz" target="_blank">
+        <svg viewBox="0 0 12 12" preserveAspectRatio="xMidYMid meet" class="svg-icon svg-icon-twitter">
+          <path class="svg-icon-path" d="M10.8,3.5c0,0.1,0,0.2,0,0.3c0,3.3-2.5,7-7,7c-1.4,0-2.7-0.3-3.8-1c0.2,0,0.4,0,0.6,0c1.1,0,2.2-0.5,3.1-1.2 c-1.1,0-2-0.7-2.3-1.7c0.2,0,0.3,0,0.5,0s0.4,0,0.7-0.1c-1.1-0.2-2-1.2-2-2.4l0,0c0.3,0.2,0.7,0.3,1.1,0.3C1,4.3,0.6,3.5,0.6,2.7 c0-0.5,0.1-0.8,0.3-1.2c1.2,1.6,3,2.5,5,2.6c0-0.2-0.1-0.4-0.1-0.6c0-1.3,1.1-2.4,2.5-2.4c0.7,0,1.4,0.3,1.8,0.8 c0.6-0.1,1.1-0.3,1.6-0.6c-0.2,0.6-0.6,1.1-1.1,1.4c0.5-0.1,1-0.2,1.4-0.4C11.7,2.8,11.2,3.2,10.8,3.5z"></path>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1%2F2015%2F04%2F14%2Fday-2-how-to-build-your-own-team-chat-in-five-days-es6-modules-angularjs-systemjs-and-jspm.html" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+        <svg viewBox="0 0 12 12" preserveAspectRatio="xMidYMid meet" class="svg-icon svg-icon-facebook">
+          <path class="svg-icon-path" d="M9.1,0.1V2H8C7.6,2,7.3,2.1,7.1,2.3C7,2.4,6.9,2.7,6.9,3v1.4H9L8.8,6.5H6.9V12H4.7V6.5H2.9V4.4h1.8V2.8 c0-0.9,0.3-1.6,0.7-2.1C6,0.2,6.6,0,7.5,0C8.2,0,8.7,0,9.1,0.1z"></path>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=http://127.0.0.1%2F2015%2F04%2F14%2Fday-2-how-to-build-your-own-team-chat-in-five-days-es6-modules-angularjs-systemjs-and-jspm.html" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+        <svg viewBox="0 0 12 12" preserveAspectRatio="xMidYMid meet" class="svg-icon svg-icon-google">
+          <path class="svg-icon-path" d="M5.4,5.7c0,0.2,0.1,0.3,0.2,0.5c0.2,0.2,0.3,0.3,0.6,0.5s0.4,0.3,0.7,0.5C7,7.5,7.2,7.7,7.4,8 c0.2,0.3,0.2,0.6,0.2,1c0,0.4-0.1,0.8-0.3,1.2c-0.3,0.6-0.9,1-1.5,1.3S4.3,12,3.6,12c-0.6,0-1.2-0.1-1.8-0.3s-1-0.5-1.2-1 c-0.2-0.3-0.3-0.6-0.3-0.9c0-0.4,0.1-0.7,0.3-1.1c0.2-0.3,0.5-0.6,0.9-0.8c0.6-0.4,1.6-0.6,2.9-0.7C4.2,6.9,4.1,6.8,4,6.6 C4,6.4,3.9,6.3,3.9,6.1c0-0.2,0.1-0.4,0.2-0.6c-0.2,0-0.4,0-0.5,0c-0.7,0-1.3-0.2-1.8-0.7C1.3,4.3,1.1,3.7,1.1,3 c0-0.4,0.1-0.8,0.3-1.1S1.7,1.2,2,0.9c0.4-0.3,0.8-0.6,1.3-0.7C3.9,0.1,4.4,0,4.9,0h3l-1,0.6H6c0.4,0.3,0.6,0.6,0.8,1 s0.3,0.7,0.3,1.2c0,0.3-0.1,0.7-0.2,0.9C6.8,4,6.6,4.2,6.5,4.4C6.3,4.5,6.1,4.7,6,4.8C5.8,5,5.7,5.1,5.5,5.3 C5.4,5.4,5.4,5.6,5.4,5.7z M4.3,11.3c0.3,0,0.5,0,0.8-0.1c0.3-0.1,0.5-0.2,0.7-0.3c0.2-0.1,0.4-0.3,0.5-0.5c0.1-0.2,0.2-0.5,0.2-0.8 c0-0.1,0-0.2-0.1-0.4S6.5,9.1,6.4,9c0-0.1-0.1-0.2-0.2-0.3C6.1,8.6,6.1,8.5,6,8.4c0-0.1-0.1-0.1-0.3-0.2C5.6,8.1,5.5,8,5.5,8 c0,0-0.1-0.1-0.3-0.2C5,7.7,4.9,7.6,4.9,7.6c-0.1,0-0.2,0-0.3,0c-0.3,0-0.5,0-0.8,0.1S3.3,7.7,3,7.8C2.8,7.9,2.5,8,2.3,8.1 C2.1,8.3,2,8.4,1.8,8.7C1.7,8.9,1.6,9.1,1.6,9.4c0,0.3,0.1,0.6,0.3,0.9c0.2,0.3,0.4,0.5,0.7,0.6c0.3,0.1,0.6,0.2,0.9,0.3 S4,11.3,4.3,11.3z M4.3,5c0.2,0,0.4,0,0.6-0.1c0.2-0.1,0.3-0.2,0.5-0.3C5.6,4.3,5.7,4,5.7,3.5c0-0.3,0-0.6-0.1-0.9 C5.5,2.2,5.4,1.9,5.3,1.6C5.1,1.3,4.9,1.1,4.7,0.9S4.1,0.6,3.8,0.6c-0.2,0-0.4,0-0.6,0.1C3,0.8,2.9,1,2.7,1.1 C2.5,1.4,2.4,1.8,2.4,2.3c0,0.2,0,0.5,0.1,0.7c0,0.2,0.1,0.5,0.2,0.7C2.8,4,2.9,4.2,3.1,4.4c0.1,0.2,0.3,0.4,0.5,0.5 C3.8,5,4.1,5,4.3,5z M10.2,5h1.5v0.8h-1.5v1.6H9.4V5.8H7.9V5h1.5V3.5h0.8V5z"></path>
+        </svg>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!--
+<div class="related-posts">
+  <h3>Related Posts</h3>
+  <ul class="posts">
+    
+      <li>
+        <a href="/2018/09/13/vue-js-component-composition-with-scoped-slots.html">Vue.js Component Composition with Scoped Slots</a>
+        <span class="date">13 Sep 2018</span>
+      </li>
+    
+      <li>
+        <a href="/2018/09/05/vue-js-component-composition-with-slots.html">Vue.js Component Composition with Slots</a>
+        <span class="date">05 Sep 2018</span>
+      </li>
+    
+      <li>
+        <a href="/2018/08/23/introduction-to-vue-js-components.html">Introduction to Components with Vue.js</a>
+        <span class="date">23 Aug 2018</span>
+      </li>
+    
+  </ul>
+</div>
+-->
+
+
+    <footer>
+      Copyright 2018 Frederik Dietz
+      |
+      <a href="http://feeds.feedburner.com/fdietz"> RSS </a>
+      |
+      <a href="http://twitter.com/fdietz/">@fdietz</a>
+    </footer>
+
+    <script src="/assets/application-d4378cd6e29b71700aea7f8091bc6235159c3b312fcb6b20a9e872e40b6c7521.js" type="text/javascript"></script>
+
+    <!-- Google Analytics -->
+    <script>
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script>
+    var pageTracker = _gat._getTracker("UA-24857075-1");
+    pageTracker._trackPageview();
+    </script>
+    <!-- Google Analytics end -->
+
+    <!--[if lt IE 7 ]>
+    	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+    	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+    <![endif]-->
+
+  </body>
+</html>

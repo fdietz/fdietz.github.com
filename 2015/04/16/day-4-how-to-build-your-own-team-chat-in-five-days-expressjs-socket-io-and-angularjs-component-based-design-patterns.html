@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Frederik Dietz" />
+    <meta keywords="fdietz, ruby, ruby on rails, javascript, react, vue, vuejs, angular.js, angularjs">
+    <meta name="description" content="fdietz.github.io">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Day 4 - How to build your own team chat in five days - ExpressJS, Socket.io and AngularJS component-based design patterns</title>
+
+    <link href="http://feeds.feedburner.com/fdietz" rel="alternate" title="Frederik Dietz" type="application/atom+xml" />
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/assets/heki.min-73e17f4d636ce3e5f25cd675dfd20299fef163427edf55d2a4b319062426cd5e.css">
+    <link rel="stylesheet" type="text/css" href="/assets/application-14455bbcd6e45416b8f8f887b2ace6000f8857969f5cee0171c326b8893a63f3.css">
+  </head>
+  <body>
+    <div class="fixed">
+      <nav class="top-bar">
+        <a href="/" class="title">
+          <img alt="profile" class="avatar" src="/assets/profile_2018_small-872b831a6df4d9dbedeb190136fbdd9da691aff3ae70a6a7c9575b404d82d6de.jpg">
+        </a>
+        <ul class="menu">
+          <li><a href="/archive.html">archive</a></li>
+          <li><a href="/projects.html">projects</a></li>
+          <li><a href="/books.html">books</a></li>
+          <li><a href="/about.html">about</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="main-content">
+  <div class="post">
+    <h2 class="post-title">Day 4 - How to build your own team chat in five days - ExpressJS, Socket.io and AngularJS component-based design patterns</h2>
+    <h3 class="subheader published">Published 16 Apr 2015</h3>
+    <p>This is part 4 of an ongoing series of blog posts. Read <a href="/2015/04/13/day-1-how-to-build-your-own-team-chat-in-five-days.html">part 1</a> first and then come back, please!</p>
+
+<hr />
+
+<p>Welcome back to day 4 of “How to build your own team chat in five days”! I haven’t had the time to introduce you properly to the first “real” iteration of “chitchat”, yesterday.</p>
+
+<p>First of all, the complete sourcecode can be found in the <a href="https://github.com/fdietz/how_to_build_your_own_team_chat_in_five_days/tree/master/day_4/nodejs_express_socketio_chat">github repository</a>.</p>
+
+<p>And here’s again the directory structure:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">├── public
+│   ├── app
+│   ├── images
+│   ├── jspm_packages
+│   ├── config.js
+│   ├── styles
+│   └── index.html
+└── styles
+    ├── base
+    ├── layout
+    ├── modules
+    └── application.scss
+├── node_modules
+├── package.json
+├── gulpfile.js
+├── app.js
+└── README.md</code></pre>
+</div>
+
+<p>Let’s dive into the sourcecode starting with the ExpressJS part.</p>
+
+<h2 id="expressjs-server-side">ExpressJS server side</h2>
+
+<p>If you already have experience in ExpressJS the following configuration and setup code in <code>app.js</code> should not surprise you:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">var express        = require(&#39;express&#39;);
+var bodyParser     = require(&#39;body-parser&#39;);
+var logger         = require(&#39;morgan&#39;);
+var methodOverride = require(&#39;method-override&#39;);
+var multer         = require(&#39;multer&#39;);
+var path           = require(&#39;path&#39;);
+
+var app            = express();
+var http           = require(&#39;http&#39;).createServer(app);
+
+app.set(&#39;port&#39;, process.env.PORT || 3000);
+
+app.use(logger(&#39;dev&#39;));
+app.use(methodOverride());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(multer());
+app.use(express.static(path.join(__dirname, &#39;public&#39;)));
+
+// development only
+if (&#39;development&#39; == app.get(&#39;env&#39;)) {
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+}
+
+// some code omitted here
+
+http.listen(app.get(&#39;port&#39;), function() {
+  console.log(&#39;Express server listening on port &#39; + app.get(&#39;port&#39;));
+});</code></pre>
+</div>
+
+<p>This is a default setup for an ExpressJS server which serves static files from <code>public/</code>. Additionally, I’ve required the modules <code>body-parser</code> and <code>method-override</code> in order to handle JSON requests. So, this is a good basis to implement some routes for a JSON REST API or similar.</p>
+
+<p>But, since we are going to look into the real-time part of messaging today, let’s see how to integrate Socket.io here first.</p>
+
+<h2 id="a-simple-chat-using-socketio">A simple chat using Socket.io</h2>
+
+<p>In order to make Socket.io work with ExpressJS we first have to initialize it:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">// first the setup of ExpressJS itself
+var app            = express();
+var http           = require(&#39;http&#39;).createServer(app);
+
+// now socket.io
+var io = require(&#39;socket.io&#39;).listen(http);
+
+// and then we can start the server
+http.listen(app.get(&#39;port&#39;), function() {
+  console.log(&#39;Express server listening on port &#39; + app.get(&#39;port&#39;));
+});</code></pre>
+</div>
+
+<p>If you now start your server with <code>node app.js</code>, or <code>npm start</code> since that’s configured in <code>package.json</code>, you are now ready to initiate a websocket connection.</p>
+
+<p>The Socket.io server goes one step further and also delivers the client library to integrate with. You can actually request it via the following URL <code>localhost:3000/socket.io/socket.io.js</code> and you can find me do the same in the <code>public/index.html</code> head via:</p>
+
+<div>
+  <pre data-line=""><code class="language-markup">&lt;script src=&quot;/socket.io/socket.io.js&quot;&gt;&lt;/script&gt;</code></pre>
+</div>
+
+<p>After all the setup work is done we can finally initiate a Websocket connection with our client. I’ve put all the Socket.io code into <code>public/app/web_socket.js</code>, let’s have a look together:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">export default class WebSocket {
+
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    let host = window.location.origin;
+    console.log(&quot;WEBSOCKET connecting to&quot;, host);
+
+    this.socket = io.connect(host);
+
+    this.socket.on(&#39;connect&#39;, () =&gt; {
+      let sessionId = this.socket.io.engine.id;
+
+      console.log(&quot;WEBSOCKET connected with session id&quot;, sessionId);
+
+      this.socket.emit(&#39;new_user&#39;, { id: sessionId });
+    })
+  }
+}
+
+WebSocket.$inject = [];</code></pre>
+</div>
+
+<p>First we need the url to connect to via Websocket and <code>window.location.origin</code> returns <code>http://localhost:3000</code> for us. Perfect!</p>
+
+<p>Next is the actual connect via <code>io.connect(host)</code> and then we implement our first callback. Socket.io emits a <code>connect</code> event when the connection handshake was successful. And we use it and retrieve our <code>sessionID</code> from it. That is basically as good as it gets for our user in the current prototype.</p>
+
+<p>The <code>WebSocket</code> class calls <code>init()</code> in the constructor in order to connect when initializing the class and I’m making sure there’s only a since instance by using it as an Angular service.</p>
+
+<p>That’s why in <code>main.js</code> it is integrated in the following way:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">import WebSocket from &#39;./web_socket&#39;;
+
+angular.module(&#39;mainApp&#39;, [
+    // dependencies omitted
+  ]).service(WebSocket.name, WebSocket);</code></pre>
+</div>
+
+<p>One last thing here to mention is that I emit a <code>new_user</code> event with the <code>sessionID</code> since I want to notify all interested parties that a new participant joined the chat.</p>
+
+<p>Let’s go back to <code>app.js</code> on the server side to see how the connection handshake and <code>new_user</code> event is handled:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">// [
+//  { session_id: &quot;5W5f-HSzolBOjMj7AAAC&quot;, name: &quot;Peter&quot; },
+//  { session_id: &quot;YXlbm_LmHD7oUGwkAAAD&quot;, name: &quot;Martin&quot;}
+// ]
+var participants = [];
+var nameCounter  = 1;
+
+io.on(&quot;connection&quot;, function(socket) {
+
+  socket.on(&quot;new_user&quot;, function(data) {
+
+    var newName = &quot;Guest &quot; + nameCounter++;
+    participants.push({ id: data.id, name: newName });
+
+    io.sockets.emit(&quot;new_connection&quot;, {
+      user: {
+        id: data.id,
+        name: newName
+      },
+      sender:&quot;system&quot;,
+      created_at: new Date().toISOString(),
+      participants: participants
+    });
+  });
+});</code></pre>
+</div>
+
+<p>First of all we have the <code>connection</code> event I’m listening here, which gets triggered whenever a new client is connected to the server. Then the server registered for the <code>new_user</code> event which we saw on the client-side above. And I basically create a dumb <code>Guest &lt;number&gt;</code> user name, add it to the array of participants alongside the user id and then emit another event <code>new_connection</code> which is send to inform all parties that the participants changed.</p>
+
+<p>Wouldn’t it be cool if we would have some kind of <code>currentUser</code> on the client? Note that the <code>new_connection</code> payload also contains the user id and name alongside the participants array. We can use this event on the client side to set our current user including all the information (in our case name only) we gathered on the server.</p>
+
+<p>So, let’s go back to <code>web_socket.js</code> on the client:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">import Auth from &quot;./auth&quot;;
+
+export default class WebSocket {
+
+  constructor($rootScope) {
+    this.$rootScope = $rootScope;
+    this.init();
+  }
+
+  init() {
+    // code omitted
+
+    this.socket.on(&#39;connect&#39;, () =&gt; {
+      let sessionId = this.socket.io.engine.id;
+
+      // code ommited
+
+      // this is the new event handler
+      this.socket.on(&#39;new_connection&#39;, (data) =&gt; {
+
+        if (data.user.id === sessionId) {
+          this.$rootScope.$apply(() =&gt; {
+            Auth.setCurrentUser(data.user);
+          });
+        }
+      });
+    });
+  }
+}
+
+WebSocket.$inject = [&#39;$rootScope&#39;];</code></pre>
+</div>
+
+<p>I’ve changed a few things but let’s first focus on the <code>new_connection</code> event handler. It compares the user id which was send from the server with the <code>sessionId</code> and if they match we set the current user using the <code>Auth</code> class.</p>
+
+<p>The <code>Auth</code> class is pretty simple:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">export default class Auth {
+
+  static setCurrentUser(user) {
+    this.currentUser = user;
+  }
+
+  static getCurrentUser() {
+    return this.currentUser;
+  }
+}</code></pre>
+</div>
+
+<p>It contains a function for setting and getting the current user, but note that the methods are both <code>static</code> so we can access them using <code>Auth.getCurrentUser()</code> instead of creating an instance of Auth. I’ve could have used another Angular service in this case but I’d like to look into native ES6 ways of structuring my code first.</p>
+
+<p>The attentive reader has already spotted one Angular-specific part in our <code>WebSocket</code> class. I’m wrapping the <code>Auth.setCurrentUser</code> call in a <code>$rootScope.$apply</code> to let Angular know that I’ve changed something which it might have access to on the scope. For example when rendering the current user name in our HTML document the change would not get reflected without this <code>$apply</code> call. BTW, this is a problem which will be gone in AngularJS 2.0 and I’m very much looking forward to it!</p>
+
+<p>There’s one more function in our <code>WebSocket</code> class I’d like you to check out:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">export default class WebSocket {
+
+  // details omitted here
+
+  on(key, callback) {
+    this.socket.on(key, (data) =&gt; {
+      this.$rootScope.$apply(() =&gt; {
+        callback(data)
+      });
+    });
+  }
+}</code></pre>
+</div>
+
+<p>This <code>on</code> function let’s other components in my code base register for events emitted by the server. It will come in handy when rendering the list of participants for example. Which brings me to the AngularJS side of the prototype.</p>
+
+<h2 id="angularjs-using-a-component-oriented-approach">AngularJS using a component-oriented approach</h2>
+
+<p>Let’s starts with the directory structure of the AngularJS app inside the <code>public/</code> directory:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">├── app
+│   ├── message_form
+│   ├── message_list
+│   ├── participants_list
+│   ├── sidebar
+│   ├── auth.js
+│   ├── bootstrap.js
+│   ├── main.js
+│   ├── vendor.js
+│   └── web_socket.js
+├── jspm_packages
+├── styles
+├── images
+├── config.js
+├── index.html</code></pre>
+</div>
+
+<p>You already know <code>main.js</code>, <code>bootstrap.js</code> and most other files from the previous days. And we’ve already talked about <code>auth.js</code> and <code>web_socket.js</code>. So, let’s focus now on the way I’ve structured the AngularJS components in <code>index.html</code>:</p>
+
+<div>
+  <pre data-line=""><code class="language-markup">&lt;body&gt;
+  &lt;sidebar&gt;&lt;/sidebar&gt;
+
+  &lt;div class=&quot;main-content&quot;&gt;
+
+    &lt;div class=&quot;main-header&quot;&gt;
+      &lt;div class=&quot;left&quot;&gt;
+        &lt;h2&gt;# general&lt;/h2&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;right&quot;&gt;
+        &lt;input class=&quot;search&quot; type=&quot;search&quot; placeholder=&quot;Search...&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;message-list&gt;&lt;/message-list&gt;
+    &lt;message-form&gt;&lt;/message-form&gt;
+  &lt;/div&gt;
+&lt;/body&gt;</code></pre>
+</div>
+
+<p>You can see that I’ve introduced new HTML elements for the <code>sidebar</code>, <code>message-list</code> and <code>message-form</code> using Angular directives. And some of these components contain again child components. This can be easily visualized too:</p>
+
+<div class="centered-image">
+  <img src="/images/chitchat_components_2.png" />
+  <p>Components and nested components</p>
+</div>
+
+<p>That way the structure of my code follows very closely the actual visual structure of the dom elements. Here’s the directory structure of these components:</p>
+
+<div>
+  <pre data-line=""><code class="language-markup">├── message_form
+│   ├── message_form.controller.js
+│   ├── message_form.directive.js
+│   ├── message_form.html
+│   ├── message_form.module.js
+│   └── submit_form_on_return.directive.js
+├── message_list
+│   ├── message_list.controller.js
+│   ├── message_list.directive.js
+│   ├── message_list.html
+│   └── message_list.module.js
+├── participants_list
+│   ├── participants_list.controller.js
+│   ├── participants_list.directive.js
+│   ├── participants_list.html
+│   └── participants_list.module.js
+├── sidebar
+│   ├── sidebar.controller.js
+│   ├── sidebar.directive.js
+│   ├── sidebar.html
+│   └── sidebar.module.js
+├── auth.js
+├── bootstrap.js
+├── main.js
+├── vendor.js
+└── web_socket.js</code></pre>
+</div>
+
+<p>The all look pretty much the same. I use a directory for each component and each component contains an Angular module and a directive which itself encapsulates the controller and the template.</p>
+
+<p>Let’s have a look at some of these components next, starting with the <code>message-form</code> component.</p>
+
+<h3 id="message-form-component">Message Form Component</h3>
+
+<p>The message form component is responsible for rendering a textarea where the user can post new messages. Additionally, it also handles the server communication to create the message on the server.</p>
+
+<div class="centered-image">
+  <img src="/images/message_form_component.png" />
+  <p>Message form component</p>
+</div>
+
+<p>We start again with the visual aspects of the <code>message_form.html</code>:</p>
+
+<div>
+  <pre data-line=""><code class="language-markup">&lt;div class=&quot;message-form&quot;&gt;
+  &lt;form ng-submit=&quot;ctrl.sendMessage(ctrl.message)&quot; submit-form-on-return&gt;
+    &lt;textarea ng-model=&quot;ctrl.message&quot; placeholder=&quot;Press enter to send message&quot; autofocus/&gt;
+  &lt;/form&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+<p>It contains a form with an <code>ng-submit</code> directive and a textarea with an <code>ng-model</code>. Nothing fancy here, except that I used a what I call a <code>behaviour directive</code> in comparison to the <code>component directives</code> which you have seen visualized above already. The directive submits the form when pressing the <code>enter</code> or <code>return</code> button on your keyboard.</p>
+
+<p>Now you might have noticed that I use <code>ctrl</code> in the <code>ng-submit</code> and <code>ng-model</code> directives, as for example <code>ctrl.message</code>. So, let’s have a look at the directive implementation and more specifically how the scope is set up:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">import template from &quot;./message_form.html!text&quot;;
+import MessageFormController from &quot;./message_form.controller&quot;;
+
+function messageFormDirective() {
+  return {
+    restrict: &quot;E&quot;,
+    replace: true,
+    scope: {},
+    template: template,
+    bindToController: true,
+    controllerAs: &quot;ctrl&quot;,
+    controller: MessageFormController
+  };
+}
+
+messageFormDirective.$inject = [];
+
+export default messageFormDirective;</code></pre>
+</div>
+
+<p>Focusing on the scope specific parts here, I’ve started with creating an isolated scope with <code>scope</code> and the scope is bound to the controller using <code>bindToController</code> as <code>ctrl</code> using the <code>controllerAs</code> property.</p>
+
+<p>Now all these properties are way to complicated and there’s a lot of duplication in my code, but with Angular 1.4 (<a href="https://github.com/angular/angular.js/commit/35498d7045ba9138016464a344e2c145ce5264c1">Angular bindToController git commit</a>) there’s most probably going to be a new syntax <code>bindToController</code> which combines all these properties into a single property - perfect for my component directives! And another nice step towards an easy migration path to Angular 2.0!</p>
+
+<p>Using the <code>ctrl</code> inside the template makes sense but of course in the controller itself we just use the controller’s this syntax:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">import Auth from &quot;../auth&quot;;
+
+class MessageFormController {
+
+  constructor($http) {
+    this.$http = $http;
+  }
+
+  sendMessage(message) {
+    let params = {
+      message:    message,
+      created_at: new Date().toISOString(),
+      user_id:    Auth.getCurrentUser().id
+    };
+
+    this.$http.post(&quot;/messages&quot;, params).then(
+      () =&gt; {
+        this.message = &quot;&quot;;
+      },
+      (reason) =&gt; {
+        console.log(&quot;error&quot;, reason);
+      }
+    );
+  }
+
+}
+
+MessageFormController.$inject = [&quot;$http&quot;];
+
+export default MessageFormController;</code></pre>
+</div>
+
+<p>The <code>sendMessage</code> function is what’s called in the template and is responsible for doing an AJAX <code>POST</code> request to the <code>/messages</code> route. The JSON payload (default format in Angular’s $http service) contains the actual message, the current user id and the current date.</p>
+
+<p>On the server side in <code>app.js</code> I’ve defined a route for this <code>messages/</code> endpoint:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">app.post(&quot;/messages&quot;, function(request, response) {
+  var message = request.body.message;
+
+  if(message &amp;&amp; message.trim().length &gt; 0) {
+    var user_id    = request.body.user_id;
+    var created_at = request.body.created_at;
+    var user       = _.findWhere(participants, { id: user_id });
+
+    // let our chatroom know there was a new message
+    io.sockets.emit(&quot;incoming_message&quot;, { message: message, user: user, created_at: created_at });
+
+    response.json(200, { message: &quot;Message received&quot; });
+  } else {
+    return response.json(400, { error: &quot;Invalid message&quot; });
+  }
+})</code></pre>
+</div>
+
+<p>After checking if the request payload contains a <code>message</code> we extract the <code>user</code> and the <code>created_at</code> and emit an event <code>incoming_message</code> to let all other participants receive this message via Socket.io. Now, the logical next step here would be to add a persistence layer and actually store the message, but not for this current state of the prototype.</p>
+
+<p>We want to focus next on the message list component which listens for this <code>incoming_message</code> event.</p>
+
+<h3 id="message-list-component">Message list component</h3>
+<p>The message list component renders a list of messages and handles the <code>incoming_message</code> event.</p>
+
+<div class="centered-image">
+  <img src="/images/message_list_component.png" />
+  <p>Message list component</p>
+</div>
+
+<p>Let’s start again with the template:</p>
+
+<div>
+  <pre data-line=""><code class="language-markup">&lt;div class=&quot;message-list&quot;&gt;
+  &lt;div ng-repeat=&quot;messageContent in ctrl.messages&quot; class=&quot;message-item {{messageContent.type}}&quot;&gt;
+    &lt;img src=&quot;images/profile.jpg&quot; class=&quot;avatar&quot; ng-if=&quot;messageContent.type == &#39;message&#39;&quot;&gt;
+    &lt;div class=&quot;message-container&quot;&gt;
+      &lt;div class=&quot;meta&quot;&gt;
+        &lt;span class=&quot;author&quot;&gt;{{messageContent.user.name}}&lt;/span&gt; &lt;span class=&quot;date&quot;&gt;{{messageContent.created_at}}&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;message&quot;&gt;
+        {{messageContent.message}}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+<p>The message list uses the <code>ng-repeat</code> directive to render a list of messaging. Note, that I’ve introduced two types of messages. The type <code>message</code> is used for a user generated message, the type <code>notification</code> for a system generated message, for example: “User Guest 1 joined”, etc. Nothing fancy here, let’s skip the setup of the directive too, because it’s so similar to the other directives and focus instead on the controller:</p>
+
+<div>
+  <pre data-line=""><code class="language-javascript">class MessageListController {
+
+  constructor(WebSocket) {
+    this.messages = [];
+
+    this.WebSocket = WebSocket;
+
+    this.register();
+  }
+
+  register() {
+    this.WebSocket.on(&#39;incoming_message&#39;, (data) =&gt; {
+      this.handleIncomingMessage(data);
+    });
+
+    this.WebSocket.on(&#39;new_connection&#39;, (data) =&gt; {
+      this.handleNewConnection(data);
+    });
+
+    this.WebSocket.on(&#39;user_disconnected&#39;, (data) =&gt; {
+      this.handleUserDisconnected(data);
+    });
+  }
+
+  handleIncomingMessage(data) {
+    this.messages.push({ message: data.message, user: data.user, created_at: data.created_at, type: &quot;message&quot; });
+  }
+
+  handleUserDisconnected(data) {
+    this.messages.push({ message: `User ${data.user.name} disconnected`, name: &quot;System&quot;, created_at: data.created_at, type: &quot;notification&quot; });
+  }
+
+  handleNewConnection(data) {
+    this.messages.push({ message: `User ${data.user.name} joined`, name: &quot;System&quot;, created_at: data.created_at, type: &quot;notification&quot; });
+  }
+
+}
+
+MessageListController.$inject = [&quot;WebSocket&quot;];
+
+export default MessageListController;</code></pre>
+</div>
+
+<p>The controller is starting with an empty array of messages and registers a whole lot of listeners for various events. The <code>incoming_message</code> event we discussed above already will simply add the user generated message to <code>messages</code> array. The other events <code>new_connection</code> and <code>user_disconned</code> will add system notification to the message list.</p>
+
+<p>Now one could argue why this complexity on the client side and in fact I might decide for a future iteration to move all this to the server which then handles the various events and emits a single <code>new_message</code>. We’ll see how this works out for this week!</p>
+
+<hr />
+
+<p>There are two more components namely the <code>sidebar</code> and the <code>participants-list</code>, but they are in fact pretty similar to what you’ve seen here already so I’m not going to go into further explaining them here.</p>
+
+<p>That’s it for today! I’m going to get back to coding. So, stay tuned for tomorrow where I hopefully have the time to add some more polish to the frontend!</p>
+
+<hr />
+
+<p>The complete sourcecode can be found in the <a href="https://github.com/fdietz/how_to_build_your_own_team_chat_in_five_days/tree/master/day_4/nodejs_express_socketio_chat">github repository</a>.</p>
+
+<hr />
+
+<p>This is part 4 of an ongoing series of blog posts. Continue reading <a href="/2015/04/17/day-5-how-to-build-your-own-team-chat-in-five-days-angular-filters-and-directives.html">part 5</a>.</p>
+
+<ul>
+  <li><a href="/2015/04/13/day-1-how-to-build-your-own-team-chat-in-five-days.html">Day 1 - How to build your own team chat in five days</a></li>
+  <li><a href="/2015/04/14/day-2-how-to-build-your-own-team-chat-in-five-days-es6-modules-angularjs-systemjs-and-jspm.html">Day 2 - ES6 Modules, AngularJS, SystemJS and JSPM</a></li>
+  <li><a href="/2015/04/15/day-3-how-to-build-your-own-team-chat-in-five-days-expressjs-socket-io-and-angularjs.html">Day 3 - ExpressJS, Socket.io and AngularJS</a></li>
+  <li><a href="/2015/04/16/day-4-how-to-build-your-own-team-chat-in-five-days-expressjs-socket-io-and-angularjs-component-based-design-patterns.html">Day 4 - ExpressJS, Socket.io and AngularJS component-based design patterns</a></li>
+  <li><a href="/2015/04/17/day-5-how-to-build-your-own-team-chat-in-five-days-angular-filters-and-directives.html">Day 5 - AngularJS Filters and Directives</a></li>
+</ul>
+
+  </div>
+
+  <ul class="share-menu">
+    <li>
+      <a href="https://twitter.com/intent/tweet/?text=Checkout+this+article%3A+&url=http://127.0.0.1%2F2015%2F04%2F16%2Fday-4-how-to-build-your-own-team-chat-in-five-days-expressjs-socket-io-and-angularjs-component-based-design-patterns.html&via=fdietz" target="_blank">
+        <svg viewBox="0 0 12 12" preserveAspectRatio="xMidYMid meet" class="svg-icon svg-icon-twitter">
+          <path class="svg-icon-path" d="M10.8,3.5c0,0.1,0,0.2,0,0.3c0,3.3-2.5,7-7,7c-1.4,0-2.7-0.3-3.8-1c0.2,0,0.4,0,0.6,0c1.1,0,2.2-0.5,3.1-1.2 c-1.1,0-2-0.7-2.3-1.7c0.2,0,0.3,0,0.5,0s0.4,0,0.7-0.1c-1.1-0.2-2-1.2-2-2.4l0,0c0.3,0.2,0.7,0.3,1.1,0.3C1,4.3,0.6,3.5,0.6,2.7 c0-0.5,0.1-0.8,0.3-1.2c1.2,1.6,3,2.5,5,2.6c0-0.2-0.1-0.4-0.1-0.6c0-1.3,1.1-2.4,2.5-2.4c0.7,0,1.4,0.3,1.8,0.8 c0.6-0.1,1.1-0.3,1.6-0.6c-0.2,0.6-0.6,1.1-1.1,1.4c0.5-0.1,1-0.2,1.4-0.4C11.7,2.8,11.2,3.2,10.8,3.5z"></path>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1%2F2015%2F04%2F16%2Fday-4-how-to-build-your-own-team-chat-in-five-days-expressjs-socket-io-and-angularjs-component-based-design-patterns.html" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+        <svg viewBox="0 0 12 12" preserveAspectRatio="xMidYMid meet" class="svg-icon svg-icon-facebook">
+          <path class="svg-icon-path" d="M9.1,0.1V2H8C7.6,2,7.3,2.1,7.1,2.3C7,2.4,6.9,2.7,6.9,3v1.4H9L8.8,6.5H6.9V12H4.7V6.5H2.9V4.4h1.8V2.8 c0-0.9,0.3-1.6,0.7-2.1C6,0.2,6.6,0,7.5,0C8.2,0,8.7,0,9.1,0.1z"></path>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=http://127.0.0.1%2F2015%2F04%2F16%2Fday-4-how-to-build-your-own-team-chat-in-five-days-expressjs-socket-io-and-angularjs-component-based-design-patterns.html" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+        <svg viewBox="0 0 12 12" preserveAspectRatio="xMidYMid meet" class="svg-icon svg-icon-google">
+          <path class="svg-icon-path" d="M5.4,5.7c0,0.2,0.1,0.3,0.2,0.5c0.2,0.2,0.3,0.3,0.6,0.5s0.4,0.3,0.7,0.5C7,7.5,7.2,7.7,7.4,8 c0.2,0.3,0.2,0.6,0.2,1c0,0.4-0.1,0.8-0.3,1.2c-0.3,0.6-0.9,1-1.5,1.3S4.3,12,3.6,12c-0.6,0-1.2-0.1-1.8-0.3s-1-0.5-1.2-1 c-0.2-0.3-0.3-0.6-0.3-0.9c0-0.4,0.1-0.7,0.3-1.1c0.2-0.3,0.5-0.6,0.9-0.8c0.6-0.4,1.6-0.6,2.9-0.7C4.2,6.9,4.1,6.8,4,6.6 C4,6.4,3.9,6.3,3.9,6.1c0-0.2,0.1-0.4,0.2-0.6c-0.2,0-0.4,0-0.5,0c-0.7,0-1.3-0.2-1.8-0.7C1.3,4.3,1.1,3.7,1.1,3 c0-0.4,0.1-0.8,0.3-1.1S1.7,1.2,2,0.9c0.4-0.3,0.8-0.6,1.3-0.7C3.9,0.1,4.4,0,4.9,0h3l-1,0.6H6c0.4,0.3,0.6,0.6,0.8,1 s0.3,0.7,0.3,1.2c0,0.3-0.1,0.7-0.2,0.9C6.8,4,6.6,4.2,6.5,4.4C6.3,4.5,6.1,4.7,6,4.8C5.8,5,5.7,5.1,5.5,5.3 C5.4,5.4,5.4,5.6,5.4,5.7z M4.3,11.3c0.3,0,0.5,0,0.8-0.1c0.3-0.1,0.5-0.2,0.7-0.3c0.2-0.1,0.4-0.3,0.5-0.5c0.1-0.2,0.2-0.5,0.2-0.8 c0-0.1,0-0.2-0.1-0.4S6.5,9.1,6.4,9c0-0.1-0.1-0.2-0.2-0.3C6.1,8.6,6.1,8.5,6,8.4c0-0.1-0.1-0.1-0.3-0.2C5.6,8.1,5.5,8,5.5,8 c0,0-0.1-0.1-0.3-0.2C5,7.7,4.9,7.6,4.9,7.6c-0.1,0-0.2,0-0.3,0c-0.3,0-0.5,0-0.8,0.1S3.3,7.7,3,7.8C2.8,7.9,2.5,8,2.3,8.1 C2.1,8.3,2,8.4,1.8,8.7C1.7,8.9,1.6,9.1,1.6,9.4c0,0.3,0.1,0.6,0.3,0.9c0.2,0.3,0.4,0.5,0.7,0.6c0.3,0.1,0.6,0.2,0.9,0.3 S4,11.3,4.3,11.3z M4.3,5c0.2,0,0.4,0,0.6-0.1c0.2-0.1,0.3-0.2,0.5-0.3C5.6,4.3,5.7,4,5.7,3.5c0-0.3,0-0.6-0.1-0.9 C5.5,2.2,5.4,1.9,5.3,1.6C5.1,1.3,4.9,1.1,4.7,0.9S4.1,0.6,3.8,0.6c-0.2,0-0.4,0-0.6,0.1C3,0.8,2.9,1,2.7,1.1 C2.5,1.4,2.4,1.8,2.4,2.3c0,0.2,0,0.5,0.1,0.7c0,0.2,0.1,0.5,0.2,0.7C2.8,4,2.9,4.2,3.1,4.4c0.1,0.2,0.3,0.4,0.5,0.5 C3.8,5,4.1,5,4.3,5z M10.2,5h1.5v0.8h-1.5v1.6H9.4V5.8H7.9V5h1.5V3.5h0.8V5z"></path>
+        </svg>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!--
+<div class="related-posts">
+  <h3>Related Posts</h3>
+  <ul class="posts">
+    
+      <li>
+        <a href="/2018/09/13/vue-js-component-composition-with-scoped-slots.html">Vue.js Component Composition with Scoped Slots</a>
+        <span class="date">13 Sep 2018</span>
+      </li>
+    
+      <li>
+        <a href="/2018/09/05/vue-js-component-composition-with-slots.html">Vue.js Component Composition with Slots</a>
+        <span class="date">05 Sep 2018</span>
+      </li>
+    
+      <li>
+        <a href="/2018/08/23/introduction-to-vue-js-components.html">Introduction to Components with Vue.js</a>
+        <span class="date">23 Aug 2018</span>
+      </li>
+    
+  </ul>
+</div>
+-->
+
+
+    <footer>
+      Copyright 2018 Frederik Dietz
+      |
+      <a href="http://feeds.feedburner.com/fdietz"> RSS </a>
+      |
+      <a href="http://twitter.com/fdietz/">@fdietz</a>
+    </footer>
+
+    <script src="/assets/application-d4378cd6e29b71700aea7f8091bc6235159c3b312fcb6b20a9e872e40b6c7521.js" type="text/javascript"></script>
+
+    <!-- Google Analytics -->
+    <script>
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script>
+    var pageTracker = _gat._getTracker("UA-24857075-1");
+    pageTracker._trackPageview();
+    </script>
+    <!-- Google Analytics end -->
+
+    <!--[if lt IE 7 ]>
+    	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+    	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+    <![endif]-->
+
+  </body>
+</html>
